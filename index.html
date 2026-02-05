@@ -1,146 +1,113 @@
 <!doctype html>
 <html lang="en">
-<head>
+ <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Smart Choice SOP Flowchart</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: 14px;
-      color: #1f1f1f;
-    }
-    .sp-container {
-      padding: 20px;
-      background: #f8f9fa;
-    }
-    .sp-header {
-      padding: 16px 20px;
-      border-bottom: 1px solid #e0e0e0;
-      background: #fff;
-      margin-bottom: 20px;
-    }
-    .sp-title {
-      font-size: 20px;
-      font-weight: 600;
-    }
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-    .sop-card {
-      perspective: 1000px;
-    }
-    .sop-card-inner {
-      position: relative;
-      width: 100%;
-      height: 180px;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-    }
-    .sop-card:hover .sop-card-inner {
-      transform: rotateY(180deg);
-    }
-    .sop-card-front,
-    .sop-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border: 1px solid #d0d0d0;
-      border-radius: 4px;
-      background: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 16px;
-      backface-visibility: hidden;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-      cursor: pointer;
-      text-align: center;
-    }
-    .sop-card-back {
-      transform: rotateY(180deg);
-    }
-    .sop-card-number {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      width: 24px;
-      height: 24px;
-      background: #0078d4;
-      color: #fff;
-      font-size: 12px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-    }
-    .sop-card-icon {
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
-    .sop-card-title {
-      font-size: 13px;
-      font-weight: 600;
-    }
-    .sop-card-hint {
-      font-size: 11px;
-      color: #737373;
+    * { box-sizing: border-box; }
+    body, html { margin: 0; padding: 0; height: 100%; font-family: 'Segoe UI', sans-serif; }
+    .container { padding: 20px; background: #f8f9fa; min-height: 100vh; }
+    .title { font-size: 24px; font-weight: bold; margin-bottom: 20px; }
+    .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .card { background: #fff; border: 1px solid #ccc; border-radius: 8px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.3s ease; }
+    .card:hover { border-color: #0078d4; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; z-index: 1000; }
+    .modal-overlay.active { display: flex; }
+    .modal-content { background: white; padding: 24px; max-width: 500px; width: 90%; border-radius: 6px; position: relative; box-shadow: 0 8px 16px rgba(0,0,0,0.3); animation: slideUp 0.3s ease-out; }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .modal-title { font-size: 18px; font-weight: bold; }
+    .modal-body p { margin: 8px 0; font-size: 14px; }
+    .close-btn { background: none; border: none; font-size: 20px; cursor: pointer; }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
-</head>
-<body>
-  <div class="sp-container">
-    <div class="sp-header">
-      <h2 class="sp-title">Smart Choice New Business Flow</h2>
+ </head>
+ <body>
+  <div class="container">
+    <div class="title">Smart Choice SOP Flowchart</div>
+    <div class="card-grid">
+      <div class="card" onclick="openModal(1)">📧<br>Obtain New Lead</div>
+      <div class="card" onclick="openModal(2)">✓<br>Review Eligibility</div>
+      <div class="card" onclick="openModal(3)">📞<br>Gather Information</div>
+      <div class="card" onclick="openModal(4)">💰<br>Quote the Risk</div>
+      <div class="card" onclick="openModal(5)">📬<br>Present Quote</div>
+      <div class="card" onclick="openModal(6)">🔗<br>Bind Request</div>
+      <div class="card" onclick="openModal(7)">✅<br>Bind Coverage</div>
+      <div class="card" onclick="openModal(8)">🎯<br>Pre-Renewal Direction</div>
     </div>
-    <div class="card-grid" id="card-grid"></div>
+  </div>
+  <div class="modal-overlay" id="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-title"></div>
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
   </div>
   <script>
     const stepData = {
-      1: { title: 'Obtain New Lead', icon: '📧' },
-      2: { title: 'Review Eligibility', icon: '✓' },
-      3: { title: 'Gather Information', icon: '📞' },
-      4: { title: 'Quote the Risk', icon: '💰' },
-      5: { title: 'Present Quote', icon: '📬' },
-      6: { title: 'Bind Request', icon: '🔗' },
-      7: { title: 'Bind Coverage', icon: '✅' },
-      8: { title: 'Pre-Renewal Direction', icon: '🎯' }
+      1: { title: 'Obtain New Lead', content: [
+        'Obtain new lead via email - Identify if agent requests direct contact',
+        'If agent requests customer contact, proceed to Smart Choice Customer Contact section',
+        'Email for Smart Choice should come into the CLSmart@nationwide.com address only'
+      ] },
+      2: { title: 'Review Eligibility', content: [
+        'Review submission to determine eligibility',
+        'Give benefit of doubt if unsure if eligible, always lean to gather information or call agent unless certain the risk is ineligible.'
+      ] },
+      3: { title: 'Gather Information', content: [
+        'Gather information and prepare quote',
+        'Make outbound calls to agents as primary mode of contact to obtain basic information needed to quote the risk.',
+        'Questions emails may be sent if we receive no answer to these calls.',
+        'Full underwriting questions can be sent via email along with an Indication...'
+      ] },
+      4: { title: 'Quote the Risk', content: [
+        'Use the correct agency codes & producer for the partnership. Smart Choice New Business: Code 61650 & Producer: Ashley Wingate',
+        'Owner Inclusion/Exclusion rules must be reviewed and documented...'
+      ] },
+      5: { title: 'Present Quote', content: [
+        'Quotes should be presented to the customer by the agent...',
+        'Send the Approved Quote email template with proposal attached',
+        'Read required statements before presenting a rate by phone',
+        '"All quotes are calculated based upon..."'
+      ] },
+      6: { title: 'Bind Request', content: [
+        'Agents should reply to our Approved Quote email answering all of our bind questions.',
+        'Agents may also call in and provide the answers...',
+        'Proceed to bind coverage once all bind questions have been answered.'
+      ] },
+      7: { title: 'Bind Coverage', content: [
+        'Make final updates or corrections to the policy',
+        'Proceed to Issue the policy based on the payment options selected by the agent',
+        'If REFT is established, send form to customer via Docusign',
+        'Send reply email to agent with Bind template completed'
+      ] },
+      8: { title: 'Pre-Renewal Direction', content: [
+        'Set a PRD for each new account bound',
+        'Direction: "Refer to Customer Service Representative"',
+        'Text: At renewal update agency code to 57850...'
+      ] }
     };
 
-    function renderCards() {
-      const grid = document.getElementById('card-grid');
-      for (let i = 1; i <= 8; i++) {
-        const data = stepData[i];
-        const card = document.createElement('div');
-        card.className = 'sop-card';
-        card.innerHTML = `
-          <div class="sop-card-inner">
-            <div class="sop-card-front">
-              <div class="sop-card-number">${i}</div>
-              <div class="sop-card-icon">${data.icon}</div>
-              <h3 class="sop-card-title">${data.title}</h3>
-              <div class="sop-card-hint">Hover to flip</div>
-            </div>
-            <div class="sop-card-back">
-              <div class="sop-card-hint">Click for details</div>
-            </div>
-          </div>
-        `;
-        grid.appendChild(card);
-      }
+    function openModal(step) {
+      const modal = document.getElementById('modal');
+      const title = document.getElementById('modal-title');
+      const body = document.getElementById('modal-body');
+
+      const stepInfo = stepData[step];
+      title.textContent = stepInfo.title;
+      body.innerHTML = stepInfo.content.map(c => `<p>${c}</p>`).join('');
+
+      modal.classList.add('active');
     }
-    renderCards();
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('active');
+    }
   </script>
-</body>
+ </body>
 </html>
