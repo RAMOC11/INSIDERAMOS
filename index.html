@@ -1,113 +1,153 @@
 <!doctype html>
-<html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Choice SOP Flowchart</title>
-  <style>
-    * { box-sizing: border-box; }
-    body, html { margin: 0; padding: 0; height: 100%; font-family: 'Segoe UI', sans-serif; }
-    .container { padding: 20px; background: #f8f9fa; min-height: 100vh; }
-    .title { font-size: 24px; font-weight: bold; margin-bottom: 20px; }
-    .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    .card { background: #fff; border: 1px solid #ccc; border-radius: 8px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.3s ease; }
-    .card:hover { border-color: #0078d4; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; z-index: 1000; }
-    .modal-overlay.active { display: flex; }
-    .modal-content { background: white; padding: 24px; max-width: 500px; width: 90%; border-radius: 6px; position: relative; box-shadow: 0 8px 16px rgba(0,0,0,0.3); animation: slideUp 0.3s ease-out; }
-    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-    .modal-title { font-size: 18px; font-weight: bold; }
-    .modal-body p { margin: 8px 0; font-size: 14px; }
-    .close-btn { background: none; border: none; font-size: 20px; cursor: pointer; }
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
- </head>
- <body>
-  <div class="container">
-    <div class="title">Smart Choice SOP Flowchart</div>
-    <div class="card-grid">
-      <div class="card" onclick="openModal(1)">📧<br>Obtain New Lead</div>
-      <div class="card" onclick="openModal(2)">✓<br>Review Eligibility</div>
-      <div class="card" onclick="openModal(3)">📞<br>Gather Information</div>
-      <div class="card" onclick="openModal(4)">💰<br>Quote the Risk</div>
-      <div class="card" onclick="openModal(5)">📬<br>Present Quote</div>
-      <div class="card" onclick="openModal(6)">🔗<br>Bind Request</div>
-      <div class="card" onclick="openModal(7)">✅<br>Bind Coverage</div>
-      <div class="card" onclick="openModal(8)">🎯<br>Pre-Renewal Direction</div>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Choice SOP Flowchart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/_sdk/element_sdk.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+      .flip-card {
+        perspective: 1000px;
+        cursor: pointer;
+        height: 280px;
+      }
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+      }
+      .flip-card.flipped .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+      .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 24px;
+        border-radius: 12px;
+        border: 1px solid #e5e7eb;
+      }
+      .flip-card-back {
+        transform: rotateY(180deg);
+        background: white;
+        overflow-y: auto;
+      }
+      .flip-card-front {
+        background: white;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+      }
+      .flip-card:hover .flip-card-front {
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      }
+      .step-icon {
+        font-size: 3rem;
+        margin-bottom: 12px;
+      }
+      .step-number-badge {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.875rem;
+        color: white;
+        position: absolute;
+        top: 12px;
+        right: 12px;
+      }
+      .scroll-container {
+        scrollbar-width: thin;
+        scrollbar-color: #d1d5db #f3f4f6;
+      }
+      .scroll-container::-webkit-scrollbar {
+        width: 8px;
+      }
+      .scroll-container::-webkit-scrollbar-track {
+        background: #f3f4f6;
+        border-radius: 4px;
+      }
+      .scroll-container::-webkit-scrollbar-thumb {
+        background: #d1d5db;
+        border-radius: 4px;
+      }
+      .badge {
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .back-content {
+        text-align: left;
+        width: 100%;
+        max-height: 280px;
+        overflow-y: auto;
+      }
+      .back-content-item {
+        margin-bottom: 12px;
+        font-size: 0.875rem;
+      }
+      .back-content-item strong {
+        color: #1f2937;
+      }
+      .back-content-item p {
+        margin: 4px 0;
+        color: #4b5563;
+        font-size: 0.8125rem;
+        line-height: 1.4;
+      }
+    </style>
+  </head>
+  <body class="h-full bg-gradient-to-br from-slate-50 to-slate-100">
+    <div class="text-center mb-12">
+      <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-3">Smart Choice New Business Flow</h1>
+      <p class="text-slate-600 text-base font-medium">Complete step-by-step guidance for new business processing</p>
     </div>
-  </div>
-  <div class="modal-overlay" id="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="modal-title" id="modal-title"></div>
-        <button class="close-btn" onclick="closeModal()">&times;</button>
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="step-number-badge bg-blue-600">1</div>
+              <div class="step-icon">📧</div>
+              <h3 class="font-bold text-lg text-slate-900">Obtain New Lead</h3>
+              <p class="text-slate-600 text-sm mt-2">Click to view details</p>
+            </div>
+            <div class="flip-card-back">
+              <div class="back-content">
+                <span class="badge bg-blue-100 text-blue-700 border border-blue-200 mb-3 inline-block">START</span>
+                <div class="back-content-item"><strong>Overview:</strong>
+                  <p>Obtain new lead via email - Identify if agent requests direct contact</p>
+                </div>
+                <div class="back-content-item"><strong>If agent requests customer contact:</strong>
+                  <p>Proceed to Smart Choice Customer Contact section</p>
+                </div>
+                <div class="back-content-item"><strong>Email Address:</strong>
+                  <p>CLSmart@nationwide.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Additional cards can be added here following the same format -->
       </div>
-      <div class="modal-body" id="modal-body"></div>
     </div>
-  </div>
-  <script>
-    const stepData = {
-      1: { title: 'Obtain New Lead', content: [
-        'Obtain new lead via email - Identify if agent requests direct contact',
-        'If agent requests customer contact, proceed to Smart Choice Customer Contact section',
-        'Email for Smart Choice should come into the CLSmart@nationwide.com address only'
-      ] },
-      2: { title: 'Review Eligibility', content: [
-        'Review submission to determine eligibility',
-        'Give benefit of doubt if unsure if eligible, always lean to gather information or call agent unless certain the risk is ineligible.'
-      ] },
-      3: { title: 'Gather Information', content: [
-        'Gather information and prepare quote',
-        'Make outbound calls to agents as primary mode of contact to obtain basic information needed to quote the risk.',
-        'Questions emails may be sent if we receive no answer to these calls.',
-        'Full underwriting questions can be sent via email along with an Indication...'
-      ] },
-      4: { title: 'Quote the Risk', content: [
-        'Use the correct agency codes & producer for the partnership. Smart Choice New Business: Code 61650 & Producer: Ashley Wingate',
-        'Owner Inclusion/Exclusion rules must be reviewed and documented...'
-      ] },
-      5: { title: 'Present Quote', content: [
-        'Quotes should be presented to the customer by the agent...',
-        'Send the Approved Quote email template with proposal attached',
-        'Read required statements before presenting a rate by phone',
-        '"All quotes are calculated based upon..."'
-      ] },
-      6: { title: 'Bind Request', content: [
-        'Agents should reply to our Approved Quote email answering all of our bind questions.',
-        'Agents may also call in and provide the answers...',
-        'Proceed to bind coverage once all bind questions have been answered.'
-      ] },
-      7: { title: 'Bind Coverage', content: [
-        'Make final updates or corrections to the policy',
-        'Proceed to Issue the policy based on the payment options selected by the agent',
-        'If REFT is established, send form to customer via Docusign',
-        'Send reply email to agent with Bind template completed'
-      ] },
-      8: { title: 'Pre-Renewal Direction', content: [
-        'Set a PRD for each new account bound',
-        'Direction: "Refer to Customer Service Representative"',
-        'Text: At renewal update agency code to 57850...'
-      ] }
-    };
-
-    function openModal(step) {
-      const modal = document.getElementById('modal');
-      const title = document.getElementById('modal-title');
-      const body = document.getElementById('modal-body');
-
-      const stepInfo = stepData[step];
-      title.textContent = stepInfo.title;
-      body.innerHTML = stepInfo.content.map(c => `<p>${c}</p>`).join('');
-
-      modal.classList.add('active');
-    }
-
-    function closeModal() {
-      document.getElementById('modal').classList.remove('active');
-    }
-  </script>
- </body>
+  </body>
 </html>
