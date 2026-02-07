@@ -3,203 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NSS CL Inside Sales Hub - Home</title>
-  <style>
-    /* Basic reset and body styling */
-    * { box-sizing: border-box; }
-    body, html { margin: 0; padding: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; min-height: 100%; }
-    /* Top bar navigation */
-    .top-bar {
-      width: 100%;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(6px);
-      padding: 8px 12px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 16px;
-      font-size: 13px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .top-bar a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 4px 8px;
-      border-radius: 8px;
-      transition: background 0.3s ease;
-    }
-    .top-bar a:hover {
-      background: rgba(255,255,255,0.3);
-    }
-    .top-bar span {
-      font-weight: 600;
-    }
-    /* Hero section */
-    .hero {
-      text-align: center;
-      padding: 40px 20px 10px;
-    }
-    .hero-title {
-      font-size: 48px;
-      font-weight: 800;
-      margin-bottom: 12px;
-      letter-spacing: -1px;
-      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    .hero-subtitle {
-      font-size: 18px;
-      opacity: 0.95;
-      font-weight: 400;
-      margin-bottom: 30px;
-    }
-    /* Grid of cards */
-    .card-grid {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      justify-items: center;
-      max-width: 1000px;
-      margin: 0 auto 60px;
-      padding: 0 20px;
-    }
-    .card {
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      color: #ffffff;
-      border-radius: 16px;
-      padding: 24px 16px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: 2px solid rgba(255,255,255,0.25);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    }
-    .card:hover {
-      transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 18px 35px rgba(0,0,0,0.3);
-      background: rgba(255,255,255,0.3);
-    }
-    .card-icon {
-      font-size: 40px;
-      margin-bottom: 12px;
-      display: block;
-    }
-    .card-title {
-      font-size: 16px;
-      font-weight: 700;
-      margin: 0;
-    }
-    .card-subtitle {
-      font-size: 12px;
-      opacity: 0.85;
-      margin-top: 6px;
-    }
-    /* Large card styling spans full row on larger screens */
-    .card.big-card {
-      grid-column: span 3;
-    }
-    @media (max-width: 768px) {
-      .card.big-card {
-        grid-column: span 2;
-      }
-    }
-    @media (max-width: 480px) {
-      .card.big-card {
-        grid-column: span 1;
-      }
-    }
-  </style>
-  <script>
-    function searchAlert() {
-      alert('To search this site, use your browser\'s search (Ctrl+F or Cmd+F) to find content quickly.');
-    }
-  </script>
-</head>
-<body>
-  <!-- Top bar with quick links and environment label -->
-  <div class="top-bar">
-    <a href="https://www.nationwide.com" target="_blank">🏢 Nationwide</a>
-    <a href="https://onyourside.sharepoint.com" target="_blank">📁 SharePoint</a>
-    <a href="#" onclick="searchAlert()">🔍 Search this site</a>
-    <span>CRCR</span>
-  </div>
-  <div class="hero">
-    <h1 class="hero-title">NSS CL Inside Sales Hub</h1>
-    <p class="hero-subtitle">Your one-stop resource for systems, tools and training</p>
-  </div>
-  <!-- Grid of navigation cards -->
-  <div class="card-grid">
-    <!-- Row 1: core systems -->
-    <div class="card" onclick="window.open('https://clnss.my.salesforce.com', '_blank')">
-      <span class="card-icon">☁️</span>
-      <span class="card-title">Salesforce</span>
-      <span class="card-subtitle">CRM & Veruna</span>
-    </div>
-    <div class="card" onclick="window.open('https://clpolicycenter.apps.nwie.net/pc/service/launch/PolicyCenter.do?_gl=1*tu5xk5*_ga*OTUyNzQxMTA1LjE3NzAxMzQ5MjY.*_ga_GLJSQEPWL4*czE3NzAxMzQ5MjYkbzEkZzEkdDE3NzAxMzk0NDAkajUwJGwwJGgw', '_blank')">
-      <span class="card-icon">📄</span>
-      <span class="card-title">PolicyCenter</span>
-      <span class="card-subtitle">Guidewire platform</span>
-    </div>
-    <div class="card" onclick="window.open('https://agentcenter.nwie.net/home', '_blank')">
-      <span class="card-icon">🏢</span>
-      <span class="card-title">Agent Center</span>
-      <span class="card-subtitle">Policy access</span>
-    </div>
-    <!-- Row 2: featured action -->
-    <div class="card big-card" onclick="window.location.href='inside_sales_complete_all_content.html'">
-      <span class="card-icon">📞</span>
-      <span class="card-title">Sales Handling</span>
-      <span class="card-subtitle">Workflows & partner details</span>
-    </div>
-    <!-- Row 3: resources -->
-    <div class="card" onclick="window.open('https://nwpcknowledge.nationwide.com/groups/59210/posts/5798822-premium-audit-minimum-payroll-state-specific-information?words=Premium&words=Audit&words=-&words=Minimum&words=Payroll/State&words=Specific&words=Information#State_Information', '_blank')">
-      <span class="card-icon">💰</span>
-      <span class="card-title">Minimum Payroll</span>
-      <span class="card-subtitle">Premium Audit info</span>
-    </div>
-    <div class="card" onclick="window.open('https://gateway-login.verisk.com/app/prometrix/auth/login', '_blank')">
-      <span class="card-icon">🏠</span>
-      <span class="card-title">Property Report</span>
-      <span class="card-subtitle">Verisk Prometrix</span>
-    </div>
-    <div class="card" onclick="window.open('https://app.askkodiak.com/#/carriers', '_blank')">
-      <span class="card-icon">📋</span>
-      <span class="card-title">Appetite Guide</span>
-      <span class="card-subtitle">Ask Kodiak</span>
-    </div>
-    <!-- Row 4: single resource -->
-    <div class="card big-card" onclick="window.open('https://www.secstates.com/', '_blank')">
-      <span class="card-icon">🏛️</span>
-      <span class="card-title">Secretary of State</span>
-      <span class="card-subtitle">Entity search</span>
-    </div>
-    <!-- Row 5: employee resources -->
-    <div class="card" onclick="window.open('https://hrconnect.nationwide.com/', '_blank')">
-      <span class="card-icon">👥</span>
-      <span class="card-title">Employee Info</span>
-      <span class="card-subtitle">HR Connect</span>
-    </div>
-    <div class="card" onclick="window.open('https://www.myworkday.com/nationwide/d/inst/13102!CK5mGhIKBggDEMenAhIICgYI1A0QmQE~*mMeOGB47owk~/cacheable-task/12709$14.htmld', '_blank')">
-      <span class="card-icon">🕒</span>
-      <span class="card-title">Time Entry</span>
-      <span class="card-subtitle">Workday task</span>
-    </div>
-    <div class="card" onclick="window.open('https://www.myworkday.com/nationwide/learning', '_blank')">
-      <span class="card-icon">🎓</span>
-      <span class="card-title">Training</span>
-      <span class="card-subtitle">Workday Learning</span>
-    </div>
-  </div>
-</body>
-</html>
-
-
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NSS CL Inside Sales Hub - Complete Edition</title>
   <style>
     * { box-sizing: border-box; }
@@ -409,6 +212,44 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
+
+    /*
+      Tab styles for the Smart Choice unified section. These buttons sit below
+      the section header and allow users to toggle between the agent and
+      customer workflows. The colours use semi‑transparent white to stand out
+      against the purple background and mirror the navigation card styling.
+    */
+    .sc-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .sc-tab {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      padding: 10px 20px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .sc-tab:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .sc-tab.active {
+      background: rgba(255, 255, 255, 0.35);
+      transform: translateY(-2px);
+    }
+    .sc-tab-content {
+      display: none;
+    }
+    .sc-tab-content.active {
+      display: block;
+      animation: fadeIn 0.4s ease-out forwards;
+    }
     
     .card::before {
       content: '';
@@ -567,6 +408,53 @@
       display: flex;
       align-items: center;
       gap: 12px;
+    }
+    /* Info card styles for Smart Choice steps (Agent and Customer) */
+    .sc-info-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-top: 20px;
+    }
+    .sc-info-card {
+      position: relative;
+      background: white;
+      border-radius: 16px;
+      padding: 28px 20px 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .sc-info-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    }
+    .sc-info-number {
+      position: absolute;
+      top: -16px;
+      left: 20px;
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+    .sc-info-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #4f46e5;
+      margin-top: 10px;
+      margin-bottom: 6px;
+    }
+    .sc-info-description {
+      font-size: 14px;
+      color: #374151;
+      line-height: 1.5;
+      margin: 0;
     }
     
     .quick-ref-grid {
@@ -886,13 +774,10 @@
           <span class="nav-card-icon">📊</span>
           <span class="nav-card-title">Partnerships</span>
         </div>
-        <div class="nav-card" onclick="scrollToSection('smart-choice-agent')">
+        <!-- Combined Smart Choice nav card points to unified tabbed section -->
+        <div class="nav-card" onclick="scrollToSection('smart-choice')">
           <span class="nav-card-icon">🤝</span>
-          <span class="nav-card-title">SC – Agent</span>
-        </div>
-        <div class="nav-card" onclick="scrollToSection('smart-choice-customer')">
-          <span class="nav-card-icon">👤</span>
-          <span class="nav-card-title">SC – Customer</span>
+          <span class="nav-card-title">Smart&nbsp;Choice</span>
         </div>
         <div class="nav-card" onclick="scrollToSection('insureon')">
           <span class="nav-card-icon">📱</span>
@@ -1129,185 +1014,209 @@
       </div>
     </div>
 
-    <!-- Smart Choice - Agent Contact Flow -->
-    <div class="section-container" id="smart-choice-agent">
+    <!-- Smart Choice unified tabbed section -->
+    <div class="section-container" id="smart-choice">
       <div class="section-header">
-        <h2 class="section-title">Smart Choice - Agent Contact</h2>
-        <p class="section-subtitle">Complete new business workflow for agent partnerships</p>
+        <h2 class="section-title">Smart Choice</h2>
+        <p class="section-subtitle">Agent &amp; Customer Workflows</p>
       </div>
-      <div class="card-grid">
-        <div class="card" onclick="openModal('sc-agent-1')">
-          <div class="card-number">1</div>
-          <div class="card-icon">📧</div>
-          <h3 class="card-title">Obtain New Lead</h3>
-        </div>
-        <div class="card" onclick="openModal('sc-agent-2')">
-          <div class="card-number">2</div>
-          <div class="card-icon">✓</div>
-          <h3 class="card-title">Review Eligibility</h3>
-        </div>
-        <div class="card" onclick="openModal('sc-agent-3')">
-          <div class="card-number">3</div>
-          <div class="card-icon">📞</div>
-          <h3 class="card-title">Gather Information</h3>
-        </div>
-        <div class="card" onclick="openModal('sc-agent-4')">
-          <div class="card-number">4</div>
-          <div class="card-icon">💰</div>
-          <h3 class="card-title">Quote the Risk</h3>
-        </div>
-        <div class="card" onclick="openModal('sc-agent-5')">
-          <div class="card-number">5</div>
-          <div class="card-icon">📬</div>
-          <h3 class="card-title">Present Quote</h3>
-        </div>
-        <div class="card" onclick="openModal('sc-agent-6')">
-          <div class="card-number">6</div>
-          <div class="card-icon">🔗</div>
-          <h3 class="card-title">Bind Request</h3>
-        </div>
-        <div class="card" onclick="openModal('sc-agent-7')">
-          <div class="card-number">7</div>
-          <div class="card-icon">✅</div>
-          <h3 class="card-title">Bind Coverage</h3>
-        </div>
-        <div class="card" onclick="openModal('sc-agent-8')">
-          <div class="card-number">8</div>
-          <div class="card-icon">🎯</div>
-          <h3 class="card-title">Pre-Renewal Direction</h3>
-        </div>
+      <!-- Tab buttons for Smart Choice -->
+      <div class="sc-tabs">
+        <button class="sc-tab active" onclick="showSmartChoiceTab('agent', this)">Agent Contact</button>
+        <button class="sc-tab" onclick="showSmartChoiceTab('customer', this)">Customer Contact</button>
       </div>
-      
-      <div style="margin-top: 30px;">
-        <div class="card-grid">
-          <div class="card" onclick="openModal('sc-agent-aor')">
-            <div class="card-icon">📄</div>
-            <h3 class="card-title">AOR/BOR Requests</h3>
+      <!-- Agent tab content -->
+      <div id="sc-agent" class="sc-tab-content active">
+        <div class="sc-info-grid">
+          <div class="sc-info-card">
+            <div class="sc-info-number">1</div>
+            <h3 class="sc-info-title">Obtain New Lead</h3>
+            <p class="sc-info-description">Receive lead via email and check if the agent requests that you contact the customer directly. All Smart&nbsp;Choice leads should be sent to <a href="mailto:CLSmart@nationwide.com">CLSmart@nationwide.com</a>.</p>
           </div>
-          <div class="card" onclick="openModal('sc-agent-middle')">
-            <div class="card-icon">🏢</div>
-            <h3 class="card-title">Middle Market</h3>
+          <div class="sc-info-card">
+            <div class="sc-info-number">2</div>
+            <h3 class="sc-info-title">Review Eligibility</h3>
+            <p class="sc-info-description">Examine the submission to determine if the risk is eligible. When in doubt, lean towards gathering more information or contacting the agent rather than declining outright.</p>
           </div>
-          <div class="card" onclick="openModal('sc-agent-reply')">
-            <div class="card-icon">💬</div>
-            <h3 class="card-title">Reply Emails</h3>
+          <div class="sc-info-card">
+            <div class="sc-info-number">3</div>
+            <h3 class="sc-info-title">Gather Information</h3>
+            <p class="sc-info-description">Make outbound calls to agents to get basic information needed for quoting. If calls go unanswered, follow up with emails. Full underwriting questions can be sent via email along with an indication.</p>
           </div>
-          <div class="card" onclick="openModal('sc-agent-followup')">
-            <div class="card-icon">🔄</div>
-            <h3 class="card-title">Follow Ups</h3>
+          <div class="sc-info-card">
+            <div class="sc-info-number">4</div>
+            <h3 class="sc-info-title">Quote the Risk</h3>
+            <p class="sc-info-description">Prepare a quote using the correct codes (NB&nbsp;61650, Producer&nbsp;Ashley&nbsp;Wingate) and verify owner inclusion/exclusion rules for Workers’&nbsp;Compensation. Gather any required forms.</p>
           </div>
-          <div class="card" onclick="openModal('sc-agent-templates')">
-            <div class="card-icon">📋</div>
-            <h3 class="card-title">Email Templates</h3>
+          <div class="sc-info-card">
+            <div class="sc-info-number">5</div>
+            <h3 class="sc-info-title">Present Quote</h3>
+            <p class="sc-info-description">Send the approved quote email with the proposal attached. Note any pre‑bind or trailing documents and read the conditional quote statement before presenting the rate.</p>
           </div>
-        </div>
-      </div>
-      
-      <div style="margin-top: 30px;" class="quick-ref">
-        <h3 class="quick-ref-title">
-          <span class="info-panel-icon">⚡</span>
-          Smart Choice Quick Reference
-        </h3>
-        <div class="quick-ref-grid">
-          <div class="quick-ref-item">
-            <div class="quick-ref-label">Email</div>
-            <div class="quick-ref-value"><a href="mailto:CLSmart@nationwide.com">CLSmart@nationwide.com</a></div>
+          <div class="sc-info-card">
+            <div class="sc-info-number">6</div>
+            <h3 class="sc-info-title">Bind Request</h3>
+            <p class="sc-info-description">Agents should reply to the approved quote email with answers to bind questions. They may also call to provide this information. Ensure they have reviewed payment instructions if they haven’t sent a bind email.</p>
           </div>
-          <div class="quick-ref-item">
-            <div class="quick-ref-label">New Business Code</div>
-            <div class="quick-ref-value">61650</div>
+          <div class="sc-info-card">
+            <div class="sc-info-number">7</div>
+            <h3 class="sc-info-title">Bind Coverage</h3>
+            <p class="sc-info-description">Update effective and expiration dates, mailing and billing addresses, and issue the policy based on the agent’s selected payment option. Enter payment details directly into the system, send the REFT form via DocuSign, and email the bind confirmation to the agent (and customer if requested).</p>
           </div>
-          <div class="quick-ref-item">
-            <div class="quick-ref-label">Renewal Code</div>
-            <div class="quick-ref-value">57850</div>
-          </div>
-          <div class="quick-ref-item">
-            <div class="quick-ref-label">Producer</div>
-            <div class="quick-ref-value">Ashley Wingate</div>
-          </div>
-          <div class="quick-ref-item">
-            <div class="quick-ref-label">Amendments</div>
-            <div class="quick-ref-value"><a href="mailto:CLAmendment@nationwide.com">CLAmendment@nationwide.com</a></div>
-          </div>
-          <div class="quick-ref-item">
-            <div class="quick-ref-label">Post-Bind Issues</div>
-            <div class="quick-ref-value"><a href="mailto:CLInside@nationwide.com">CLInside@nationwide.com</a></div>
+          <div class="sc-info-card">
+            <div class="sc-info-number">8</div>
+            <h3 class="sc-info-title">Pre‑Renewal Direction</h3>
+            <p class="sc-info-description">From the Account Summary screen, set a pre‑renewal direction to refer the account to a customer service representative. Instruct the CSR to update the agency code to 57850 at renewal while keeping the producer the same and to contact <a href="mailto:CLInside@nationwide.com">CLInside@nationwide.com</a> for post‑bind first‑term questions.</p>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- Smart Choice - Customer Contact Flow -->
-    <div class="section-container" id="smart-choice-customer">
-      <div class="section-header">
-        <h2 class="section-title">Smart Choice - Customer Contact</h2>
-        <p class="section-subtitle">Direct customer service workflow</p>
-      </div>
-      <div class="card-grid">
-        <div class="card" onclick="openModal('sc-cust-1')">
-          <div class="card-number">1</div>
-          <div class="card-icon">📧</div>
-          <h3 class="card-title">Obtain New Lead</h3>
+        <!-- Quick reference panel for agent -->
+        <div style="margin-top: 30px;" class="quick-ref">
+          <h3 class="quick-ref-title">
+            <span class="info-panel-icon">⚡</span>
+            Smart Choice Quick Reference
+          </h3>
+          <div class="quick-ref-grid">
+            <div class="quick-ref-item">
+              <div class="quick-ref-label">Email</div>
+              <div class="quick-ref-value"><a href="mailto:CLSmart@nationwide.com">CLSmart@nationwide.com</a></div>
+            </div>
+            <div class="quick-ref-item">
+              <div class="quick-ref-label">New Business Code</div>
+              <div class="quick-ref-value">61650</div>
+            </div>
+            <div class="quick-ref-item">
+              <div class="quick-ref-label">Renewal Code</div>
+              <div class="quick-ref-value">57850</div>
+            </div>
+            <div class="quick-ref-item">
+              <div class="quick-ref-label">Producer</div>
+              <div class="quick-ref-value">Ashley Wingate</div>
+            </div>
+            <div class="quick-ref-item">
+              <div class="quick-ref-label">Amendments</div>
+              <div class="quick-ref-value"><a href="mailto:CLAmendment@nationwide.com">CLAmendment@nationwide.com</a></div>
+            </div>
+            <div class="quick-ref-item">
+              <div class="quick-ref-label">Post-Bind Issues</div>
+              <div class="quick-ref-value"><a href="mailto:CLInside@nationwide.com">CLInside@nationwide.com</a></div>
+            </div>
+          </div>
         </div>
-        <div class="card" onclick="openModal('sc-cust-2')">
-          <div class="card-number">2</div>
-          <div class="card-icon">✓</div>
-          <h3 class="card-title">Review Eligibility</h3>
-        </div>
-        <div class="card" onclick="openModal('sc-cust-3')">
-          <div class="card-number">3</div>
-          <div class="card-icon">📞</div>
-          <h3 class="card-title">Outbound Call</h3>
-        </div>
-        <div class="card" onclick="openModal('sc-cust-4')">
-          <div class="card-number">4</div>
-          <div class="card-icon">📝</div>
-          <h3 class="card-title">Gather Information</h3>
-        </div>
-        <div class="card" onclick="openModal('sc-cust-5')">
-          <div class="card-number">5</div>
-          <div class="card-icon">💰</div>
-          <h3 class="card-title">Quote the Risk</h3>
-        </div>
-        <div class="card" onclick="openModal('sc-cust-6')">
-          <div class="card-number">6</div>
-          <div class="card-icon">🚫</div>
-          <h3 class="card-title">Ineligible Risks</h3>
-        </div>
-        <div class="card" onclick="openModal('sc-cust-7')">
-          <div class="card-number">7</div>
-          <div class="card-icon">📬</div>
-          <h3 class="card-title">Present Quote</h3>
-        </div>
-        <div class="card" onclick="openModal('sc-cust-8')">
-          <div class="card-number">8</div>
-          <div class="card-icon">✅</div>
-          <h3 class="card-title">Bind</h3>
-        </div>
-        <div class="card" onclick="openModal('sc-cust-9')">
-          <div class="card-number">9</div>
-          <div class="card-icon">🎯</div>
-          <h3 class="card-title">Pre-Renewal Direction</h3>
+        <!-- Additional agent topics -->
+        <div style="margin-top: 30px;">
+          <div class="card-grid">
+            <div class="card" onclick="openModal('sc-agent-aor')">
+              <div class="card-icon">📄</div>
+              <h3 class="card-title">AOR/BOR Requests</h3>
+            </div>
+            <div class="card" onclick="openModal('sc-agent-middle')">
+              <div class="card-icon">🏢</div>
+              <h3 class="card-title">Middle Market</h3>
+            </div>
+            <div class="card" onclick="openModal('sc-agent-reply')">
+              <div class="card-icon">💬</div>
+              <h3 class="card-title">Reply Emails</h3>
+            </div>
+            <div class="card" onclick="openModal('sc-agent-followup')">
+              <div class="card-icon">🔄</div>
+              <h3 class="card-title">Follow Ups</h3>
+            </div>
+            <div class="card" onclick="openModal('sc-agent-templates')">
+              <div class="card-icon">📋</div>
+              <h3 class="card-title">Email Templates</h3>
+            </div>
+          </div>
         </div>
       </div>
-      
-      <div style="margin-top: 30px;">
-        <div class="card-grid">
-          <div class="card" onclick="openModal('sc-cust-aor')">
-            <div class="card-icon">📄</div>
-            <h3 class="card-title">AOR/BOR Requests</h3>
+      <!-- Customer tab content -->
+      <div id="sc-customer" class="sc-tab-content">
+        <div class="sc-info-grid">
+          <div class="sc-info-card">
+            <div class="sc-info-number">1</div>
+            <h3 class="sc-info-title">Obtain New Lead</h3>
+            <p class="sc-info-description">Receive a lead via email. If the agent wants to handle the customer directly, switch to the agent workflow. Leads should be sent to <a href="mailto:CLSmart@nationwide.com">CLSmart@nationwide.com</a>.</p>
           </div>
-          <div class="card" onclick="openModal('sc-cust-middle')">
-            <div class="card-icon">🏢</div>
-            <h3 class="card-title">Middle Market</h3>
+          <div class="sc-info-card">
+            <div class="sc-info-number">2</div>
+            <h3 class="sc-info-title">Review Eligibility</h3>
+            <p class="sc-info-description">Determine eligibility for coverage. If the risk is clearly ineligible before calling, notify the agent via the decline email template. Otherwise gather information or call to clarify.</p>
           </div>
-          <div class="card" onclick="openModal('sc-cust-followup')">
-            <div class="card-icon">🔄</div>
-            <h3 class="card-title">Follow Ups</h3>
+          <div class="sc-info-card">
+            <div class="sc-info-number">3</div>
+            <h3 class="sc-info-title">Outbound Call</h3>
+            <p class="sc-info-description">Call the customer and introduce yourself as a Nationwide agent on behalf of their sub‑agency. Use the sub‑agency name (not “Smart&nbsp;Choice”), ask if they have time to discuss, leave a callback message if they don’t answer, and include the TCPA statement.</p>
           </div>
-          <div class="card" onclick="openModal('sc-cust-templates')">
-            <div class="card-icon">📋</div>
-            <h3 class="card-title">Email Templates</h3>
+          <div class="sc-info-card">
+            <div class="sc-info-number">4</div>
+            <h3 class="sc-info-title">Gather Information</h3>
+            <p class="sc-info-description">If the call is answered, set up the account and ask underwriting questions while quoting. If the risk is complex and requires more time, schedule a later appointment to present the quote.</p>
+          </div>
+          <div class="sc-info-card">
+            <div class="sc-info-number">5</div>
+            <h3 class="sc-info-title">Quote the Risk</h3>
+            <p class="sc-info-description">Use the correct codes (NB&nbsp;61650, Producer&nbsp;Ashley&nbsp;Wingate) and review Workers’&nbsp;Compensation owner inclusion/exclusion rules. Gather all necessary forms before presenting the quote.</p>
+          </div>
+          <div class="sc-info-card">
+            <div class="sc-info-number">6</div>
+            <h3 class="sc-info-title">Ineligible Risks</h3>
+            <p class="sc-info-description">If the risk is ineligible for Nationwide coverage, advise the customer and refer them back to their sub‑agent for other options. Inform the agent of the ineligibility and whether you contacted the customer.</p>
+          </div>
+          <div class="sc-info-card">
+            <div class="sc-info-number">7</div>
+            <h3 class="sc-info-title">Present Quote</h3>
+            <p class="sc-info-description">Present all base coverages, at least one endorsement, and read the conditional quote statement. Explain payment options (monthly, REFT, etc.), ask for the sale, handle objections, and schedule a follow‑up if the customer isn’t ready to bind.</p>
+          </div>
+          <div class="sc-info-card">
+            <div class="sc-info-number">8</div>
+            <h3 class="sc-info-title">Bind</h3>
+            <p class="sc-info-description">Read the required pre‑bind and payment statements, update the policy details (effective/expiration dates, addresses), issue the policy based on the chosen payment option, send the DocuSign package, and email the bind confirmation to both the agent and the customer (from <a href="mailto:CLSmart@nationwide.com">CLSmart@nationwide.com</a>).</p>
+          </div>
+          <div class="sc-info-card">
+            <div class="sc-info-number">9</div>
+            <h3 class="sc-info-title">Pre‑Renewal Direction</h3>
+            <p class="sc-info-description">From the Account Summary screen, set a pre‑renewal direction instructing the CSR to update the agency code to 57850 at renewal while keeping the producer the same. Direct post‑bind first‑term concerns to <a href="mailto:CLInside@nationwide.com">CLInside@nationwide.com</a>.</p>
+          </div>
+        </div>
+        <!-- Contact information panel for customer -->
+        <div style="margin-top: 30px;" class="quick-ref">
+          <h3 class="quick-ref-title">
+            <span class="info-panel-icon">📞</span>
+            Contact Information
+          </h3>
+          <div class="quick-ref-grid">
+            <div class="quick-ref-item">
+              <div class="quick-ref-label">Agents</div>
+              <div class="quick-ref-value">1‑800‑896‑2277</div>
+            </div>
+            <div class="quick-ref-item">
+              <div class="quick-ref-label">Customers</div>
+              <div class="quick-ref-value">1‑888‑282‑3717</div>
+            </div>
+            <div class="quick-ref-item">
+              <div class="quick-ref-label">Email</div>
+              <div class="quick-ref-value"><a href="mailto:CLSmart@nationwide.com">CLSmart@nationwide.com</a></div>
+            </div>
+          </div>
+        </div>
+        <!-- Additional customer topics -->
+        <div style="margin-top: 30px;">
+          <div class="card-grid">
+            <div class="card" onclick="openModal('sc-cust-aor')">
+              <div class="card-icon">📄</div>
+              <h3 class="card-title">AOR/BOR Requests</h3>
+            </div>
+            <div class="card" onclick="openModal('sc-cust-middle')">
+              <div class="card-icon">🏢</div>
+              <h3 class="card-title">Middle Market</h3>
+            </div>
+            <div class="card" onclick="openModal('sc-cust-followup')">
+              <div class="card-icon">🔄</div>
+              <h3 class="card-title">Follow Ups</h3>
+            </div>
+            <div class="card" onclick="openModal('sc-cust-templates')">
+              <div class="card-icon">📋</div>
+              <h3 class="card-title">Email Templates</h3>
+            </div>
           </div>
         </div>
       </div>
@@ -2140,9 +2049,31 @@
         badge: 'STATEMENT',
         title: 'Fraud Statements - State Specific',
         sections: [
-          { content: 'Select the appropriate state-specific fraud statement:' },
-          { content: '<strong>Available States:</strong><br>AL, AR, CO, DC, FL, KY, ME, MD, NJ, NM, NY, OH, OK, OR, PA, RI, TN, UT, VA, WA, WV' },
-          { content: '<div class="warning-box">⚠️ Each state has specific wording requirements. Refer to the complete document or your training materials for exact state-specific fraud statements.</div>' }
+          { content: '<div class="script-box"><strong>AL:</strong> Any person who knowingly presents a false or fraudulent claim for payment of a loss or benefit or who knowingly presents false information in an application for insurance is guilty of a crime and may be subject to restitution fines or confinement in prison, or any combination thereof.</div>' },
+          { content: '<div class="script-box"><strong>AR:</strong> Any person who knowingly presents a false or fraudulent claim for payment of a loss or benefit or knowingly presents false information in an application for insurance is guilty of a crime and may be subject to fines and confinement in prison.</div>' },
+          { content: '<div class="script-box"><strong>CO:</strong> It is unlawful to knowingly provide false, incomplete, or misleading facts or information to an insurance company for the purpose of defrauding or attempting to defraud the company. Penalties may include imprisonment, fines, denial of insurance, and civil damages. Any insurance company or agent of an insurance company who knowingly provides false, incomplete, or misleading facts or information to a policyholder or claimant for the purpose of defrauding or attempting to defraud the policyholder or claimant with regard to a settlement or award payable from insurance proceeds shall be reported to the Colorado division of insurance within the department of regulatory agencies.</div>' },
+          { content: '<div class="script-box"><strong>DC:</strong> WARNING: It is a crime to provide false or misleading information to an insurer for the purpose of defrauding the insurer or any other person. Penalties include imprisonment and/or fines. In addition, an insurer may deny insurance benefits, if false information materially related to a claim was provided by the applicant.</div>' },
+          { content: '<div class="script-box"><strong>FL:</strong> Any person who knowingly and with intent to injure, defraud, or deceive any insurer files a statement of claim or an application containing any false, incomplete, or misleading information is guilty of a felony of the third degree.</div>' },
+          { content: '<div class="script-box"><strong>KY:</strong> Any person who knowingly and with intent to defraud any insurance company or other person files an application for insurance containing any materially false information or conceals, for the purpose of misleading, information concerning any fact material thereto commits a fraudulent insurance act, which is a crime.</div>' },
+          { content: '<div class="script-box"><strong>ME:</strong> It is a crime to knowingly provide false, incomplete or misleading information to an insurance company for the purpose of defrauding the company. Penalties may include imprisonment, fines or a denial of insurance benefits.</div>' },
+          { content: '<div class="script-box"><strong>MD:</strong> Any person who knowingly or willfully presents a false or fraudulent claim for payment of a loss or benefit or who knowingly or willfully presents false information in an application for insurance is guilty of a crime and may be subject to fines and confinement in prison.</div>' },
+          { content: '<div class="script-box"><strong>NJ (Commercial Auto):</strong> Any person who knowingly makes an application for motor vehicle insurance coverage containing any statement that the applicant resides or is domiciled in this state when, in fact, that applicant resides or is domiciled in a state other than this state, is subject to civil and criminal penalties. Any person who includes any false or misleading information on an application for an insurance policy is subject to criminal and civil penalties.</div>' },
+          { content: '<div class="script-box"><strong>NJ (Other Commercial Lines):</strong> Any person who knowingly makes an application for insurance coverage containing any statement that the applicant resides or is domiciled in this state when, in fact, that applicant resides or is domiciled in a state other than this state, is subject to civil and criminal penalties. Any person who includes any false or misleading information on an application for an insurance policy is subject to criminal and civil penalties.</div>' },
+          { content: '<div class="script-box"><strong>NM:</strong> Any person who knowingly presents a false or fraudulent claim for payment of a loss or benefit or knowingly presents false information in an application for insurance is guilty of a crime and may be subject to civil fines and criminal penalties.</div>' },
+          { content: '<div class="script-box"><strong>NY (Commercial Auto):</strong> Any person who knowingly and with intent to defraud any insurance company or other person files an application for commercial insurance or a statement of claim for any commercial or personal insurance benefits containing any materially false information, or conceals for the purpose of misleading, information concerning any fact material thereto, and any person who, in connection with such application or claim, knowingly makes or knowingly assists, abets, solicits or conspires with another to make a false report of the theft, destruction, damage or conversion of any motor vehicle to a law enforcement agency, the department of motor vehicles or an insurance company commits a fraudulent insurance act, which is a crime, and shall also be subject to a civil penalty not to exceed five thousand dollars and the value of the subject motor vehicle or stated claim for each violation.</div>' },
+          { content: '<div class="script-box"><strong>NY (Other Commercial Lines):</strong> Any person who knowingly and with intent to defraud any insurance company or other person files an application for insurance or statement of claim containing any materially false information, or conceals for the purpose of misleading, information concerning any fact material thereto, commits a fraudulent insurance act, which is a crime and shall also be subject to a civil penalty not to exceed five thousand dollars and the stated value of the claim for each such violation.</div>' },
+          { content: '<div class="script-box"><strong>OH:</strong> Any person who, with intent to defraud or knowing that they are facilitating a fraud against an insurer, submits an application or files a claim containing a false or deceptive statement is guilty of insurance fraud.</div>' },
+          { content: '<div class="script-box"><strong>OK:</strong> WARNING: Any person who knowingly, and with intent to injure, defraud or deceive any insurer, makes any claim for the proceeds of an insurance policy containing any false, incomplete or misleading information is guilty of a felony.</div>' },
+          { content: '<div class="script-box"><strong>OR:</strong> Any person who makes an intentional misstatement that is material to the risk may be found guilty of insurance fraud by a court of law. Any person who, with intent to defraud or knowing that he is facilitating a fraud against an insurer, submits an application or files a claim containing a false or deceptive statement may be guilty of insurance fraud. (In this statement the &quot;intent&quot; and &quot;may be guilty&quot; could make it acceptable even though the &quot;false or deceptive statement&quot; is not identified as material.) Willfully falsifying material facts on an application or claim may subject you to criminal penalties. Any person who knowingly and with intent to defraud or solicit another to defraud an insurer: (1) by submitting an application, or (2) by filing a claim containing a false statement as to any material fact, may be violating state law.</div>' },
+          { content: '<div class="script-box"><strong>PA (Commercial Auto):</strong> Any person who knowingly and with intent to injure or defraud any insurer files an application or claim containing any false, incomplete or misleading information shall, upon conviction, be subject to imprisonment for up to seven years and payment of a fine of up to 15,000 dollars.</div>' },
+          { content: '<div class="script-box"><strong>PA (Other Commercial Lines):</strong> Any person who knowingly and with intent to defraud any insurance company or other person files an application for insurance or statement of claim containing any materially false information or conceals for the purpose of misleading, information concerning any fact material thereto commits a fraudulent insurance act, which is a crime and subjects such person to criminal and civil penalties.</div>' },
+          { content: '<div class="script-box"><strong>RI:</strong> Any person who knowingly presents a false or fraudulent claim for payment of a loss or benefit or knowingly presents false information in an application for insurance is guilty of a crime and may be subject to fines and confinement in prison.</div>' },
+          { content: '<div class="script-box"><strong>TN (Workers&#39; Compensation):</strong> It is a crime to knowingly provide false, incomplete or misleading information to any party to a workers&#39; compensation transaction for the purpose of committing fraud. Penalties include imprisonment, fines and denial of insurance benefits.</div>' },
+          { content: '<div class="script-box"><strong>TN (Other Commercial Lines):</strong> It is a crime to knowingly provide false, incomplete or misleading information to an insurance company for the purpose of defrauding the company. Penalties may include imprisonment, fines or a denial of insurance benefits.</div>' },
+          { content: '<div class="script-box"><strong>UT:</strong> Any person who knowingly presents false or fraudulent underwriting information, files or causes to be filed a false or fraudulent claim for disability compensation or medical benefits, or submits a false or fraudulent report or billing for health care fees or other professional services is guilty of a crime and may be subject to fines and confinement in state prison.</div>' },
+          { content: '<div class="script-box"><strong>VA:</strong> It is a crime to knowingly provide false, incomplete or misleading information to an insurance company for the purpose of defrauding the company. Penalties may include imprisonment, fines or a denial of insurance benefits.</div>' },
+          { content: '<div class="script-box"><strong>WA:</strong> It is a crime to knowingly provide false, incomplete, or misleading information to an insurance company for the purpose of defrauding the company. Penalties include imprisonment, fines, and denial of insurance benefits.</div>' },
+          { content: '<div class="script-box"><strong>WV:</strong> Any person who knowingly presents a false or fraudulent claim for payment of a loss or benefit or knowingly presents false information in an application for insurance is guilty of a crime and may be subject to fines and confinement in prison.</div>' }
         ]
       },
       
@@ -2318,6 +2249,32 @@
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    /*
+      Toggle the Smart Choice tabs. This helper hides all tab contents,
+      clears the active state from all tab buttons, then activates the
+      selected tab and its corresponding content. It should be bound to
+      the onclick handler of each tab button.
+    */
+    function showSmartChoiceTab(type, btn) {
+      // Hide all tab contents
+      document.querySelectorAll('.sc-tab-content').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      // Deactivate all tabs
+      document.querySelectorAll('.sc-tab').forEach(function(tab) {
+        tab.classList.remove('active');
+      });
+      // Show selected content
+      var content = document.getElementById('sc-' + type);
+      if (content) {
+        content.classList.add('active');
+      }
+      // Mark clicked tab as active
+      if (btn) {
+        btn.classList.add('active');
       }
     }
 
