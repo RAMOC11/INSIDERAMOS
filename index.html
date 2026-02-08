@@ -6,42 +6,42 @@
   <title>NSS CL Inside Sales Hub - Complete Edition</title>
   <style>
     * { box-sizing: border-box; }
-    body, html {
-      margin: 0;
-      padding: 0;
-      min-height: 100%;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    body, html { 
+      margin: 0; 
+      padding: 0; 
+      min-height: 100%; 
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
-
-    .container {
-      padding: 40px 20px;
+    
+    .container { 
+      padding: 40px 20px; 
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       min-height: 100vh;
     }
-
+    
     .hero-header {
       text-align: center;
       margin-bottom: 50px;
       color: white;
       animation: fadeIn 0.8s ease-out;
     }
-
-    .main-title {
-      font-size: 48px;
+    
+    .main-title { 
+      font-size: 48px; 
       font-weight: 800;
       margin-bottom: 12px;
       letter-spacing: -1px;
       text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
-
+    
     .main-subtitle {
       font-size: 20px;
       opacity: 0.95;
       font-weight: 400;
       margin-bottom: 30px;
     }
-
+    
     /* Style for the grid of navigation cards beneath the header */
     .nav-card-grid {
       display: grid;
@@ -71,7 +71,9 @@
       transform: translateY(-4px);
       box-shadow: 0 12px 28px rgba(0,0,0,0.25);
     }
-    .nav-card:active { transform: translateY(-2px); }
+    .nav-card:active {
+      transform: translateY(-2px);
+    }
     .nav-card-icon {
       font-size: 32px;
       margin-bottom: 8px;
@@ -104,7 +106,9 @@
       border-radius: 8px;
       transition: background 0.3s ease;
     }
-    .top-bar a:hover { background: rgba(255,255,255,0.3); }
+    .top-bar a:hover {
+      background: rgba(255,255,255,0.3);
+    }
 
     /* Resource list styling */
     .resource-list {
@@ -115,29 +119,37 @@
       font-size: 14px;
       line-height: 1.6;
     }
-    .resource-list li { margin-bottom: 6px; }
+    .resource-list li {
+      margin-bottom: 6px;
+    }
     .resource-list a {
       color: #374151;
       text-decoration: none;
       transition: color 0.2s ease;
       font-weight: 500;
     }
-    .resource-list a:hover { color: #667eea; }
+    .resource-list a:hover {
+      color: #667eea;
+    }
 
     /* Hide the initial resources section in the hero header */
-    #resources-top { display: none; }
-
+    #resources-top {
+      display: none;
+    }
+    
+    /* Remove legacy nav-pill styling since it is no longer used */
+    
     .section-container {
       max-width: 1400px;
       margin: 0 auto 60px;
     }
-
+    
     .section-header {
       text-align: center;
       margin-bottom: 30px;
       animation: fadeInUp 0.6s ease-out;
     }
-
+    
     .section-title {
       font-size: 28px;
       font-weight: 700;
@@ -145,19 +157,19 @@
       margin-bottom: 8px;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
-
+    
     .section-subtitle {
       font-size: 16px;
       color: rgba(255, 255, 255, 0.9);
     }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    
+    .card-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
       gap: 20px;
     }
-
-    .card {
+    
+    .card { 
       background: white;
       border: none;
       border-radius: 16px;
@@ -171,7 +183,7 @@
       animation: fadeInUp 0.6s ease-out forwards;
       opacity: 0;
     }
-
+    
     .card:nth-child(1) { animation-delay: 0.1s; }
     .card:nth-child(2) { animation-delay: 0.15s; }
     .card:nth-child(3) { animation-delay: 0.2s; }
@@ -184,15 +196,29 @@
     .card:nth-child(10) { animation-delay: 0.55s; }
     .card:nth-child(11) { animation-delay: 0.6s; }
     .card:nth-child(12) { animation-delay: 0.65s; }
-
+    
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px) scale(0.95); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-    /* Smart Choice tab styles */
+    /*
+      Tab styles for the Smart Choice unified section. These buttons sit below
+      the section header and allow users to toggle between the agent and
+      customer workflows. The colours use semi‑transparent white to stand out
+      against the purple background and mirror the navigation card styling.
+    */
     .sc-tabs {
       display: flex;
       justify-content: center;
@@ -210,17 +236,21 @@
       cursor: pointer;
       transition: background 0.3s, transform 0.2s;
     }
-    .sc-tab:hover { background: rgba(255, 255, 255, 0.3); }
+    .sc-tab:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
     .sc-tab.active {
       background: rgba(255, 255, 255, 0.35);
       transform: translateY(-2px);
     }
-    .sc-tab-content { display: none; }
+    .sc-tab-content {
+      display: none;
+    }
     .sc-tab-content.active {
       display: block;
       animation: fadeIn 0.4s ease-out forwards;
     }
-
+    
     .card::before {
       content: '';
       position: absolute;
@@ -231,14 +261,20 @@
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
       transition: left 0.6s ease;
     }
-    .card:hover::before { left: 100%; }
-
+    
+    .card:hover::before {
+      left: 100%;
+    }
+    
     .card:hover {
       transform: translateY(-10px) scale(1.02);
       box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
     }
-    .card:active { transform: translateY(-8px) scale(0.98); }
-
+    
+    .card:active {
+      transform: translateY(-8px) scale(0.98);
+    }
+    
     .card-number {
       position: absolute;
       top: 14px;
@@ -255,7 +291,7 @@
       justify-content: center;
       box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
     }
-
+    
     .card-icon {
       font-size: 48px;
       margin-bottom: 16px;
@@ -263,12 +299,13 @@
       animation: float 3s ease-in-out infinite;
       filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
     }
+    
     @keyframes float {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
       25% { transform: translateY(-8px) rotate(-2deg); }
       75% { transform: translateY(-8px) rotate(2deg); }
     }
-
+    
     .card-title {
       font-size: 18px;
       font-weight: 700;
@@ -276,13 +313,14 @@
       color: #1f2937;
       line-height: 1.3;
     }
+    
     .card-subtitle {
       font-size: 13px;
       color: #6b7280;
       margin-top: 8px;
       font-weight: 500;
     }
-
+    
     .info-panel {
       background: white;
       border-radius: 16px;
@@ -291,7 +329,7 @@
       margin-bottom: 30px;
       animation: fadeInUp 0.6s ease-out;
     }
-
+    
     .info-panel-title {
       font-size: 22px;
       font-weight: 700;
@@ -301,8 +339,59 @@
       align-items: center;
       gap: 12px;
     }
-    .info-panel-icon { font-size: 28px; }
-
+    
+    .info-panel-icon {
+      font-size: 28px;
+    }
+    
+    .table-responsive {
+      overflow-x: auto;
+    }
+    
+    .partnership-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+    
+    .partnership-table th {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 16px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .partnership-table th:first-child {
+      border-top-left-radius: 12px;
+    }
+    
+    .partnership-table th:last-child {
+      border-top-right-radius: 12px;
+    }
+    
+    .partnership-table td {
+      padding: 16px;
+      border-bottom: 1px solid #e5e7eb;
+      color: #374151;
+      font-size: 14px;
+    }
+    
+    .partnership-table tr:last-child td:first-child {
+      border-bottom-left-radius: 12px;
+    }
+    
+    .partnership-table tr:last-child td:last-child {
+      border-bottom-right-radius: 12px;
+    }
+    
+    .partnership-table tr:hover td {
+      background: #f9fafb;
+    }
+    
     .quick-ref {
       background: white;
       border-radius: 16px;
@@ -310,6 +399,7 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       animation: fadeInUp 0.6s ease-out;
     }
+    
     .quick-ref-title {
       font-size: 22px;
       font-weight: 700;
@@ -319,7 +409,7 @@
       align-items: center;
       gap: 12px;
     }
-
+    /* Info card styles for Smart Choice steps (Agent and Customer) */
     .sc-info-grid {
       display: grid;
       gap: 20px;
@@ -366,21 +456,24 @@
       line-height: 1.5;
       margin: 0;
     }
-
+    
     .quick-ref-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
     }
+    
     .quick-ref-item {
       border-left: 4px solid #667eea;
       padding-left: 16px;
       transition: all 0.3s ease;
     }
+    
     .quick-ref-item:hover {
       border-left-color: #764ba2;
       transform: translateX(4px);
     }
+    
     .quick-ref-label {
       font-size: 12px;
       font-weight: 700;
@@ -389,21 +482,29 @@
       letter-spacing: 0.5px;
       margin-bottom: 6px;
     }
+    
     .quick-ref-value {
       font-size: 15px;
       color: #374151;
       font-weight: 600;
     }
+    
     .quick-ref-value a {
       color: #667eea;
       text-decoration: none;
       transition: color 0.2s ease;
     }
-    .quick-ref-value a:hover { color: #764ba2; }
-
+    
+    .quick-ref-value a:hover {
+      color: #764ba2;
+    }
+    
     .modal-overlay {
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(8px);
       display: none;
@@ -413,8 +514,11 @@
       animation: fadeIn 0.3s ease-out;
       padding: 20px;
     }
-    .modal-overlay.active { display: flex; }
-
+    
+    .modal-overlay.active {
+      display: flex;
+    }
+    
     .modal-content {
       background: white;
       padding: 40px;
@@ -427,11 +531,18 @@
       max-height: 90vh;
       overflow-y: auto;
     }
+    
     @keyframes modalSlideUp {
-      from { opacity: 0; transform: translateY(50px) scale(0.9); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+      from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
-
+    
     .modal-header {
       display: flex;
       justify-content: space-between;
@@ -439,15 +550,17 @@
       margin-bottom: 28px;
       gap: 20px;
     }
-
+    
     .modal-icon {
       font-size: 56px;
       flex-shrink: 0;
       filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
     }
-
-    .modal-title-section { flex: 1; }
-
+    
+    .modal-title-section {
+      flex: 1;
+    }
+    
     .modal-title {
       font-size: 28px;
       font-weight: 700;
@@ -455,7 +568,7 @@
       color: #1f2937;
       line-height: 1.2;
     }
-
+    
     .modal-badge {
       display: inline-block;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -469,7 +582,7 @@
       margin-top: 10px;
       box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
     }
-
+    
     .close-btn {
       background: #f3f4f6;
       border: none;
@@ -485,25 +598,29 @@
       justify-content: center;
       border-radius: 10px;
     }
+    
     .close-btn:hover {
       background: #e5e7eb;
       color: #1f2937;
       transform: rotate(90deg);
     }
-
+    
     .modal-body {
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
-
+    
     .modal-section {
       border-left: 4px solid #e5e7eb;
       padding-left: 20px;
       transition: border-color 0.3s ease;
     }
-    .modal-section:hover { border-left-color: #667eea; }
-
+    
+    .modal-section:hover {
+      border-left-color: #667eea;
+    }
+    
     .modal-section-title {
       font-size: 14px;
       font-weight: 700;
@@ -512,20 +629,29 @@
       letter-spacing: 0.5px;
       margin: 0 0 8px 0;
     }
-
+    
     .modal-section-content {
       font-size: 15px;
       line-height: 1.7;
       color: #374151;
       margin: 0;
     }
-
+    
+    .modal-section-content strong {
+      color: #1f2937;
+      font-weight: 600;
+    }
+    
     .modal-list {
       margin: 8px 0;
       padding-left: 20px;
     }
-    .modal-list li { margin-bottom: 8px; line-height: 1.6; }
-
+    
+    .modal-list li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    
     .highlight-box {
       background: #f0f4ff;
       border-left: 4px solid #667eea;
@@ -533,7 +659,7 @@
       border-radius: 8px;
       margin: 12px 0;
     }
-
+    
     .script-box {
       background: #f9fafb;
       border: 2px solid #e5e7eb;
@@ -544,9 +670,8 @@
       color: #1f2937;
       margin: 12px 0;
       line-height: 1.6;
-      white-space: pre-wrap;
     }
-
+    
     .warning-box {
       background: #fef3c7;
       border-left: 4px solid #f59e0b;
@@ -554,7 +679,7 @@
       border-radius: 8px;
       margin: 12px 0;
     }
-
+    
     .critical-box {
       background: #fee2e2;
       border-left: 4px solid #ef4444;
@@ -563,12 +688,23 @@
       margin: 12px 0;
       font-weight: 600;
     }
-
+    
     @media (max-width: 768px) {
-      .main-title { font-size: 32px; }
-      .card-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
-      .modal-content { padding: 24px; }
-      .quick-ref-grid { grid-template-columns: 1fr; }
+      .main-title {
+        font-size: 32px;
+      }
+      
+      .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      }
+      
+      .modal-content {
+        padding: 24px;
+      }
+      
+      .quick-ref-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* Flip card styles for partnership directory */
@@ -576,7 +712,7 @@
       background-color: transparent;
       width: 100%;
       height: 260px;
-      perspective: 1000px;
+      perspective: 1000px; /* Adds depth to the flip animation */
     }
 
     .flip-card-inner {
@@ -588,7 +724,9 @@
       transform-style: preserve-3d;
     }
 
-    .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
 
     .flip-card-front, .flip-card-back {
       position: absolute;
@@ -605,76 +743,62 @@
       align-items: center;
     }
 
-    .flip-card-front { background: white; color: #1f2937; }
+    .flip-card-front {
+      background: white;
+      color: #1f2937;
+    }
+
     .flip-card-back {
       background: #f9fafb;
       color: #374151;
       transform: rotateY(180deg);
       overflow-y: auto;
-      text-align: left;
-      align-items: flex-start;
-      justify-content: flex-start;
     }
   </style>
 </head>
-
 <body>
   <!-- Top navigation bar with quick links -->
   <div class="top-bar">
-    inside_sales_home.html🏠 Home</a>
-    https://www.nationwide.com🏢 Nationwide</a>
-    https://onyourside.sharepoint.com📁 SharePoint</a>
-    #🔍 Search this site</a>
+    <a href="inside_sales_home.html">🏠 Home</a>
+    <a href="https://www.nationwide.com" target="_blank">🏢 Nationwide</a>
+    <a href="https://onyourside.sharepoint.com" target="_blank">📁 SharePoint</a>
+    <a href="#" onclick="searchAlert()">🔍 Search this site</a>
     <span style="margin-left: 8px; font-weight: 600;">CRCR</span>
   </div>
-
   <div class="container">
     <div class="hero-header">
       <h1 class="main-title">🎯 NSS CL Inside Sales Hub</h1>
       <p class="main-subtitle">Your Complete Guide to Partnership Success</p>
-
       <div class="nav-card-grid">
         <div class="nav-card" onclick="scrollToSection('partnerships')">
           <span class="nav-card-icon">📊</span>
           <span class="nav-card-title">Partnerships</span>
         </div>
-
+        <!-- Combined Smart Choice nav card points to unified tabbed section -->
         <div class="nav-card" onclick="scrollToSection('smart-choice')">
           <span class="nav-card-icon">🤝</span>
           <span class="nav-card-title">Smart&nbsp;Choice</span>
         </div>
-
         <div class="nav-card" onclick="scrollToSection('insureon')">
           <span class="nav-card-icon">📱</span>
           <span class="nav-card-title">Insureon</span>
         </div>
-
         <div class="nav-card" onclick="scrollToSection('kma')">
           <span class="nav-card-icon">🏢</span>
           <span class="nav-card-title">KMA</span>
         </div>
-
         <div class="nav-card" onclick="scrollToSection('statements')">
           <span class="nav-card-icon">📜</span>
           <span class="nav-card-title">Statements</span>
         </div>
-
         <div class="nav-card" onclick="scrollToSection('veruna')">
           <span class="nav-card-icon">💻</span>
           <span class="nav-card-title">Veruna</span>
         </div>
-
         <div class="nav-card" onclick="scrollToSection('rules')">
           <span class="nav-card-icon">⚖️</span>
           <span class="nav-card-title">Rules</span>
         </div>
-
-        <!-- NEW NAV CARD -->
-        <div class="nav-card" onclick="scrollToSection('inside-sales-updates')">
-          <span class="nav-card-icon">🧭</span>
-          <span class="nav-card-title">Inside Sales</span>
-        </div>
-
         <div class="nav-card" onclick="scrollToSection('resources')">
           <span class="nav-card-icon">🔗</span>
           <span class="nav-card-title">Resources</span>
@@ -682,187 +806,7 @@
       </div>
     </div>
 
-    <!-- ✅ NEW SECTION: NSS CL Inside Sales (SharePoint content) -->
-    <div class="section-container" id="inside-sales-updates">
-      <div class="section-header">
-        <h2 class="section-title">NSS CL Inside Sales</h2>
-        <p class="section-subtitle">Current topics, initiatives, reminders &amp; contacts</p>
-      </div>
-
-      <div class="info-panel">
-        <h2 class="info-panel-title">
-          <span class="info-panel-icon">📌</span>
-          Current Topics and Resources
-        </h2>
-
-        <ul class="resource-list">
-          <li><strong>2026 Inside Sales Team Plan</strong></li>
-          <li><strong>Appetite Updates 3/2026</strong></li>
-          <li>
-            https://onyourside.sharepoint.com/:p:/r/sites/NSSCLDirect/Inside%20Sales%20Document/Archive/Inside%20Sales%202026%20Team%20Plans.pptx?d=w87f77cc73e834af2b5bfe5e865680571&csf=1&web=1&e=aoNk4q
-              Open Here – Inside Sales 2026 Team Plans (PPTX)
-            </a>
-          </li>
-          <li>
-            https://onyourside.sharepoint.com/:b:/s/AppetiteSprints/IQCMhKzOqdXwTYTc5XYBye-oAfJM6HM3H1sEtMtmYxGVrqc?e=bFZ3O4
-              Open Here – Appetite Updates Resource
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="info-panel">
-        <h2 class="info-panel-title">
-          <span class="info-panel-icon">🚀</span>
-          Current Initiatives
-        </h2>
-
-        <div class="highlight-box">
-          <strong>1/28/26 – NY Limited reopen for all agencies</strong>
-          <ul class="modal-list">
-            <li>Limited to Auto Service, Services, and Office classes only.</li>
-            <li>BOP, BA, and WC only</li>
-            <li>As of 2/5 does not appear state page has been updated</li>
-          </ul>
-        </div>
-
-        <div class="highlight-box">
-          <strong>12/22/25 – Tracking Additional Business Auto Notation in Binding Instructions</strong>
-          <p style="margin: 10px 0 0 0;">
-            Include the following in all quotes and binds for business auto, in the policy <strong>Binding Instructions</strong> box:
-          </p>
-          <ul class="modal-list">
-            <li>Number of Drivers</li>
-            <li>Number of Vehicles</li>
-            <li>Types of Vehicles</li>
-            <li>Any competitive pricing or other carrier information if account is lost or won (if able to obtain)</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="info-panel">
-        <h2 class="info-panel-title">
-          <span class="info-panel-icon">📈</span>
-          Ongoing 2026 Initiatives
-        </h2>
-
-        <ul class="resource-list">
-          <li>
-            <strong>Small Commercial Identity (Appetite) Updates (Ongoing Review)</strong><br>
-            Monitor and understand appetite changes and expansions and share with Agents.<br>
-            https://onyourside.sharepoint.com/sites/SmallCommercialIdentityandAppetite
-              SharePoint Link – Small Commercial Identity and Appetite
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="info-panel">
-        <h2 class="info-panel-title">
-          <span class="info-panel-icon">🗂️</span>
-          Reminders (Time Off / Make Up Time)
-        </h2>
-
-        <div class="warning-box">
-          <strong>Time Off Reminders</strong>
-          <ul class="modal-list">
-            <li>Approved time off must be submitted and approved in Genesys before entering in Workday to be considered approved time.</li>
-            <li>If Genesys declines, send email to John with screenshot(s) of declination and clearly list the date(s)/time(s) you are requesting off.</li>
-            <li>Vacation Bids occur for January–August, then September–December. You can only request dates that have already gone through a bid.</li>
-          </ul>
-        </div>
-
-        <div class="warning-box">
-          <strong>Make Up Time Reminders</strong>
-          <ul class="modal-list">
-            <li>Make up time requests are submitted in the Genesys WEM tool (Genesys → Apps → WFM Software Suite)</li>
-            <li>You must submit “Will make up time” first - this is the time you want to take off.</li>
-            <li>Once approved, you must submit one or more blocks of “Make up time” equal to the amount of “Will make up time” during the same week.</li>
-            <li>Make up time should not extend open hours by more than 30 minutes unless discussed with leader.</li>
-            <li>If declined, send email to John with screenshot and clearly list the date(s)/time(s) you are requesting.</li>
-          </ul>
-        </div>
-
-        <div class="highlight-box">
-          <strong>Other Reminders</strong>
-          <ul class="modal-list">
-            <li>Do not send time off requests by email if you have not attempted to submit in the system yet.</li>
-            <li>Be mindful of the exact date, time and AM/PM you are requesting to prevent errors requiring manual corrections.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="quick-ref">
-        <h3 class="quick-ref-title">
-          <span class="info-panel-icon">☎️</span>
-          Underwriting Contacts (Small Market)
-        </h3>
-
-        <div class="quick-ref-grid">
-          <div class="quick-ref-item">
-            <div class="quick-ref-label">Hours</div>
-            <div class="quick-ref-value">8am–8pm ET</div>
-          </div>
-
-          <div class="quick-ref-item">
-            <div class="quick-ref-label">Phone</div>
-            <div class="quick-ref-value">1-800-211-2843</div>
-          </div>
-
-          <div class="quick-ref-item">
-            <div class="quick-ref-label">New Business Email</div>
-            <div class="quick-ref-value">
-              mailto:AskCLNewBusiness@nationwide.comAskCLNewBusiness@nationwide.com</a>
-            </div>
-          </div>
-
-          <div class="quick-ref-item">
-            <div class="quick-ref-label">Existing Business Email</div>
-            <div class="quick-ref-value">
-              mailto:AskCLExistingBusiness@nationwide.comAskCLExistingBusiness@nationwide.com</a>
-            </div>
-          </div>
-
-          <div class="quick-ref-item">
-            <div class="quick-ref-label">John M. Cell</div>
-            <div class="quick-ref-value">860-306-5886</div>
-          </div>
-
-          <div class="quick-ref-item">
-            <div class="quick-ref-label">Justin Cell</div>
-            <div class="quick-ref-value">561-358-9259</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="info-panel">
-        <h2 class="info-panel-title">
-          <span class="info-panel-icon">🤖</span>
-          AI Agents (Teams)
-        </h2>
-
-        <ul class="resource-list">
-          <li>
-            <strong>Scout – UW Coach</strong><br>
-            https://teams.microsoft.com/l/app/f6405520-7907-4464-8f6e-9889e2fb7d8f?templateInstanceId=00a01ab3-4aa3-4d71-aa75-b25d881c5889&environment=Default-22140e4c-d390-45c2-b297-a26c516dc461
-              Add to Teams
-            </a>
-          </li>
-          <li style="margin-top: 10px;">
-            <strong>AgentWriter – Draft Email Help</strong><br>
-            https://teams.microsoft.com/l/app/f6405520-7907-4464-8f6e-9889e2fb7d8f?templateInstanceId=2c02fb02-638f-4794-b04d-da8dea6be7e0&environment=Default-22140e4c-d390-45c2-b297-a26c516dc461
-              Add to Teams
-            </a>
-          </li>
-          <li style="margin-top: 10px;">
-            Once an AI agent has been opened in Teams and you start an initial chat, you can find the agent in your Chats view and pin it.
-          </li>
-        </ul>
-      </div>
-    </div>
-    <!-- ✅ END NEW SECTION -->
-
-    <!-- Resources Section (hidden at top, legacy) -->
+    <!-- Resources Section -->
     <div class="section-container" id="resources-top">
       <div class="section-header">
         <h2 class="section-title">Resources</h2>
@@ -878,21 +822,20 @@
             </div>
             <div class="flip-card-back">
               <ul class="resource-list">
-                <li>https://clnss.my.salesforce.comSalesforce (CLNSS)</a></li>
-                <li>https://clpolicycenter.apps.nwie.net/pc/service/launch/PolicyCenter.doPolicyCenter (Commercial Lines)</a></li>
-                <li>https://agentcenter.nwie.net/homeAgent Center</a></li>
-                <li>https://nwpcknowledge.nationwide.com/Premium Audit – Minimum Payroll Info</a></li>
-                <li>https://gateway-login.verisk.com/app/prometrix/auth/loginVerisk Prometrix</a></li>
-                <li>https://app.askkodiak.com/#/carriersAsk Kodiak – Carriers</a></li>
-                <li>https://www.secstates.com/Secretary of State Search Portal</a></li>
-                <li>https://hrconnect.nationwide.com/HR Connect</a></li>
-                <li>https://www.myworkday.com/nationwide/d/inst/13102!CK5mGhIKBggDEMenAhIICgYI1A0QmQE~*mMeOGB47owk~/cacheable-task/12709$14.htmldWorkday Task</a></li>
-                <li>https://www.myworkday.com/nationwide/learningWorkday Learning</a></li>
+                <li><a href="https://clnss.my.salesforce.com" target="_blank">Salesforce (CLNSS)</a></li>
+                <li><a href="https://clpolicycenter.apps.nwie.net/pc/service/launch/PolicyCenter.do?_gl=1*tu5xk5*_ga*OTUyNzQxMTA1LjE3NzAxMzQ5MjY.*_ga_GLJSQEPWL4*czE3NzAxMzQ5MjYkbzEkZzEkdDE3NzAxMzk0NDAkajUwJGwwJGgw" target="_blank">PolicyCenter (Commercial Lines)</a></li>
+                <li><a href="https://agentcenter.nwie.net/home" target="_blank">Agent Center</a></li>
+                <li><a href="https://nwpcknowledge.nationwide.com/groups/59210/posts/5798822-premium-audit-minimum-payroll-state-specific-information?words=Premium&words=Audit&words=-&words=Minimum&words=Payroll/State&words=Specific&words=Information#State_Information" target="_blank">Premium Audit – Minimum Payroll Info</a></li>
+                <li><a href="https://gateway-login.verisk.com/app/prometrix/auth/login" target="_blank">Verisk Prometrix</a></li>
+                <li><a href="https://app.askkodiak.com/#/carriers" target="_blank">Ask Kodiak – Carriers</a></li>
+                <li><a href="https://www.secstates.com/" target="_blank">Secretary of State Search Portal</a></li>
+                <li><a href="https://hrconnect.nationwide.com/" target="_blank">HR Connect</a></li>
+                <li><a href="https://www.myworkday.com/nationwide/d/inst/13102!CK5mGhIKBggDEMenAhIICgYI1A0QmQE~*mMeOGB47owk~/cacheable-task/12709$14.htmld" target="_blank">Workday Task</a></li>
+                <li><a href="https://www.myworkday.com/nationwide/learning" target="_blank">Workday Learning</a></li>
               </ul>
             </div>
           </div>
         </div>
-
         <!-- SharePoint Navigation -->
         <div class="flip-card">
           <div class="flip-card-inner">
@@ -902,22 +845,21 @@
             </div>
             <div class="flip-card-back">
               <ul class="resource-list">
-                <li>/sites/CierraTestHome</a></li>
-                <li>/sites/CierraTest/Lists/Inventory%20list/Inventory List</a></li>
-                <li>/sites/CierraTest/_layouts/15/Doc.aspx?sourcedoc={6e59f5b6-d067-46bf-a150-15b9120dac2b}&action=editnewNotebook</a></li>
-                <li>/sites/CierraTest/Lists/Employee%20onboarding/Onboarding Checklist</a></li>
-                <li>/sites/CierraTest/Shared%20Documents/Forms/AllItems.aspxDocuments</a></li>
-                <li>/sites/CierraTest/Lists/Tasks/AllItems.aspxTasks</a></li>
-                <li>/sites/CierraTest/CIERRA%20HTML%20ASSETS/Forms/AllItems.aspxCIERRA HTML ASSETS</a></li>
-                <li>/sites/CierraTest/Lists/Deliverables/AllItems.aspxDeliverables</a></li>
-                <li>/sites/CierraTest/Lists/Risks/AllItems.aspxRisks</a></li>
-                <li>/sites/CierraTest/Lists/Issues/AllItems.aspxIssues</a></li>
+                <li><a href="/sites/CierraTest">Home</a></li>
+                <li><a href="/sites/CierraTest/Lists/Inventory list/">Inventory List</a></li>
+                <li><a href="/sites/CierraTest/_layouts/15/Doc.aspx?sourcedoc={6e59f5b6-d067-46bf-a150-15b9120dac2b}&action=editnew">Notebook</a></li>
+                <li><a href="/sites/CierraTest/Lists/Employee onboarding/">Onboarding Checklist</a></li>
+                <li><a href="/sites/CierraTest/Shared Documents/Forms/AllItems.aspx">Documents</a></li>
+                <li><a href="/sites/CierraTest/Lists/Tasks/AllItems.aspx">Tasks</a></li>
+                <li><a href="/sites/CierraTest/CIERRA HTML ASSETS/Forms/AllItems.aspx">CIERRA HTML ASSETS</a></li>
+                <li><a href="/sites/CierraTest/Lists/Deliverables/AllItems.aspx">Deliverables</a></li>
+                <li><a href="/sites/CierraTest/Lists/Risks/AllItems.aspx">Risks</a></li>
+                <li><a href="/sites/CierraTest/Lists/Issues/AllItems.aspx">Issues</a></li>
               </ul>
             </div>
           </div>
         </div>
-
-        <!-- Admin Links (✅ FIXED quotes) -->
+        <!-- Admin Links -->
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
@@ -926,13 +868,13 @@
             </div>
             <div class="flip-card-back">
               <ul class="resource-list">
-                <li>https://onyourside.sharepoint.com/_vti_bin/afdcache.ashx/_userprofile/userphoto.jpgUser Photo Endpoint</a></li>
-                <li>https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/SignOut.aspxSign Out</a></li>
-                <li>https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/viewlsts.aspxSite Contents</a></li>
-                <li>https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/settings.aspxSite Settings</a></li>
-                <li>https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/CreateSitePage.aspx?source=SiteSettingsAdd a Page</a></li>
-                <li>https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/appStore.aspx#/myApps?entry=SettingAddAnAppAdd an App</a></li>
-                <li>https://onyourside.sharepoint.com/sites/CierraTest/PWAGettingStarted.aspxGetting Started (PWA)</a></li>
+                <li><a href="https://onyourside.sharepoint.com/_vti_bin/afdcache.ashx/_userprofile/userphoto.jpg" target="_blank">User Photo Endpoint</a></li>
+                <li><a href="https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/SignOut.aspx" target="_blank">Sign Out</a></li>
+                <li><a href="https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/viewlsts.aspx" target="_blank">Site Contents</a></li>
+                <li><a href="https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/settings.aspx" target="_blank">Site Settings</a></li>
+                <li><a href="https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/CreateSitePage.aspx?source=SiteSettings" target="_blank">Add a Page</a></li>
+                <li><a href="https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/appStore.aspx#/myApps?entry=SettingAddAnApp" target="_blank">Add an App</a></li>
+                <li><a href="https://onyourside.sharepoint.com/sites/CierraTest/PWAGettingStarted.aspx" target="_blank">Getting Started (PWA)</a></li>
               </ul>
             </div>
           </div>
@@ -947,7 +889,7 @@
           <span class="info-panel-icon">🤝</span>
           Partnership Directory
         </h2>
-
+        <!-- Dynamic flip cards replacing the static table -->
         <div class="card-grid partnership-cards">
           <!-- Smart Choice -->
           <div class="flip-card">
@@ -957,25 +899,12 @@
                 <p class="card-subtitle">"Smart Start Program"</p>
               </div>
               <div class="flip-card-back">
-                <p><strong>Contact</strong><br>
-                  Agents: 1-800-896-2277<br>
-                  Customers: 1-888-282-3717<br>
-                  Email: mailto:CLSmart@nationwide.comCLSmart@nationwide.com</a>
-                </p>
-                <p><strong>Codes</strong><br>
-                  NB: 61650<br>
-                  RWL: 57850<br>
-                  Producer: Ashley Wingate
-                </p>
-                <p><strong>Underwriting</strong><br>
-                  P&amp;C: NSS Queue Underwriters<br>
-                  Bonds: Trevor Sharp<br>
-                  (mailto:SHARPT4@nationwide.comSHARPT4@nationwide.com</a> – 515-508-6432)
-                </p>
+                <p><strong>Contact</strong><br>Agents: 1-800-896-2277<br>Customers: 1-888-282-3717<br>Email: <a href="mailto:CLSmart@nationwide.com">CLSmart@nationwide.com</a></p>
+                <p><strong>Codes</strong><br>NB: 61650<br>RWL: 57850<br>Producer: Ashley Wingate</p>
+                <p><strong>Underwriting</strong><br>P&C: NSS Queue Underwriters<br>Bonds: Trevor Sharp<br>(<a href="mailto:SHARPT4@nationwide.com">SHARPT4@nationwide.com</a> – 515-508-6432)</p>
               </div>
             </div>
           </div>
-
           <!-- Collective Underwriters -->
           <div class="flip-card">
             <div class="flip-card-inner">
@@ -984,16 +913,12 @@
                 <p class="card-subtitle">(Pending)</p>
               </div>
               <div class="flip-card-back">
-                <p><strong>Contact</strong><br>
-                  All: 1-855-736-9559<br>
-                  Email: mailto:CLInside@nationwide.comCLInside@nationwide.com</a>
-                </p>
+                <p><strong>Contact</strong><br>All: 1-855-736-9559<br>Email: <a href="mailto:CLInside@nationwide.com">CLInside@nationwide.com</a></p>
                 <p><strong>Codes</strong><br>Pending</p>
-                <p><strong>Underwriting</strong><br>P&amp;C: NSS Queue Underwriters</p>
+                <p><strong>Underwriting</strong><br>P&C: NSS Queue Underwriters</p>
               </div>
             </div>
           </div>
-
           <!-- First Choice -->
           <div class="flip-card">
             <div class="flip-card-inner">
@@ -1002,16 +927,12 @@
                 <p class="card-subtitle">(Pending)</p>
               </div>
               <div class="flip-card-back">
-                <p><strong>Contact</strong><br>
-                  All: 1-855-890-9784<br>
-                  Email: mailto:CLInside@nationwide.comCLInside@nationwide.com</a>
-                </p>
+                <p><strong>Contact</strong><br>All: 1-855-890-9784<br>Email: <a href="mailto:CLInside@nationwide.com">CLInside@nationwide.com</a></p>
                 <p><strong>Codes</strong><br>Pending</p>
-                <p><strong>Underwriting</strong><br>P&amp;C: NSS Queue Underwriters</p>
+                <p><strong>Underwriting</strong><br>P&C: NSS Queue Underwriters</p>
               </div>
             </div>
           </div>
-
           <!-- Insureon -->
           <div class="flip-card">
             <div class="flip-card-inner">
@@ -1019,20 +940,12 @@
                 <h3 class="card-title">Insureon</h3>
               </div>
               <div class="flip-card-back">
-                <p><strong>Contact</strong><br>
-                  All: 1-877-588-2392<br>
-                  Email: mailto:CLInside@nationwide.comCLInside@nationwide.com</a>
-                </p>
-                <p><strong>Codes</strong><br>
-                  NB: 62719<br>
-                  RWL: 62788<br>
-                  Producer: Angela M Ondrick
-                </p>
-                <p><strong>Underwriting</strong><br>P&amp;C: NSS Queue Underwriters</p>
+                <p><strong>Contact</strong><br>All: 1-877-588-2392<br>Email: <a href="mailto:CLInside@nationwide.com">CLInside@nationwide.com</a></p>
+                <p><strong>Codes</strong><br>NB: 62719<br>RWL: 62788<br>Producer: Angela M Ondrick</p>
+                <p><strong>Underwriting</strong><br>P&C: NSS Queue Underwriters</p>
               </div>
             </div>
           </div>
-
           <!-- IOA -->
           <div class="flip-card">
             <div class="flip-card-inner">
@@ -1040,16 +953,12 @@
                 <h3 class="card-title">IOA</h3>
               </div>
               <div class="flip-card-back">
-                <p><strong>Contact</strong><br>
-                  All: 1-877-588-2380<br>
-                  Email: mailto:CLInside@nationwide.comCLInside@nationwide.com</a>
-                </p>
+                <p><strong>Contact</strong><br>All: 1-877-588-2380<br>Email: <a href="mailto:CLInside@nationwide.com">CLInside@nationwide.com</a></p>
                 <p><strong>Codes</strong><br>NB: 67667<br>RWL: –</p>
-                <p><strong>Underwriting</strong><br>P&amp;C: NSS Queue Underwriters</p>
+                <p><strong>Underwriting</strong><br>P&C: NSS Queue Underwriters</p>
               </div>
             </div>
           </div>
-
           <!-- IOA - LRO Tenants -->
           <div class="flip-card">
             <div class="flip-card-inner">
@@ -1058,16 +967,12 @@
                 <p class="card-subtitle">(Pending)</p>
               </div>
               <div class="flip-card-back">
-                <p><strong>Contact</strong><br>
-                  All: 1-855-590-9785<br>
-                  Email: mailto:CLInside@nationwide.comCLInside@nationwide.com</a>
-                </p>
+                <p><strong>Contact</strong><br>All: 1-855-590-9785<br>Email: <a href="mailto:CLInside@nationwide.com">CLInside@nationwide.com</a></p>
                 <p><strong>Codes</strong><br>Pending</p>
-                <p><strong>Underwriting</strong><br>P&amp;C: NSS Queue Underwriters</p>
+                <p><strong>Underwriting</strong><br>P&C: NSS Queue Underwriters</p>
               </div>
             </div>
           </div>
-
           <!-- KMA Insurance Group -->
           <div class="flip-card">
             <div class="flip-card-inner">
@@ -1075,12 +980,9 @@
                 <h3 class="card-title">KMA Insurance Group</h3>
               </div>
               <div class="flip-card-back">
-                <p><strong>Contact</strong><br>
-                  All: 1-800-730-8413<br>
-                  Email: mailto:CLInside@nationwide.comCLInside@nationwide.com</a>
-                </p>
+                <p><strong>Contact</strong><br>All: 1-800-730-8413<br>Email: <a href="mailto:CLInside@nationwide.com">CLInside@nationwide.com</a></p>
                 <p><strong>Codes</strong><br>NB: 62549<br>RWL: 68159</p>
-                <p><strong>Underwriting</strong><br>P&amp;C: NSS Queue Underwriters</p>
+                <p><strong>Underwriting</strong><br>P&C: NSS Queue Underwriters</p>
               </div>
             </div>
           </div>
@@ -1099,13 +1001,13 @@
           <div class="highlight-box">
             <strong>All Partnerships (Identify via Lead Source):</strong>
             <div class="script-box">
-"Thanks for calling Nationwide on behalf of &lt;Agency Name&gt;, this is &lt;your name&gt; a licensed commercial agent, how may I help you?"
+              "Thanks for calling Nationwide on behalf of &lt;Agency Name&gt;, this is &lt;your name&gt; a licensed commercial agent, how may I help you?"
             </div>
           </div>
           <div class="highlight-box">
             <strong>Smart Choice - Customer:</strong>
             <div class="script-box">
-"Thanks for calling Nationwide, this is &lt;your name&gt; a licensed commercial agent, how may I help you?"
+              "Thanks for calling Nationwide, this is &lt;your name&gt; a licensed commercial agent, how may I help you?"
             </div>
           </div>
         </div>
@@ -1118,83 +1020,55 @@
         <h2 class="section-title">Smart Choice</h2>
         <p class="section-subtitle">Agent &amp; Customer Workflows</p>
       </div>
-
+      <!-- Tab buttons for Smart Choice -->
       <div class="sc-tabs">
         <button class="sc-tab active" onclick="showSmartChoiceTab('agent', this)">Agent Contact</button>
         <button class="sc-tab" onclick="showSmartChoiceTab('customer', this)">Customer Contact</button>
       </div>
-
       <!-- Agent tab content -->
       <div id="sc-agent" class="sc-tab-content active">
         <div class="sc-info-grid">
           <div class="sc-info-card">
             <div class="sc-info-number">1</div>
             <h3 class="sc-info-title">Obtain New Lead</h3>
-            <p class="sc-info-description">
-              Receive lead via email and check if the agent requests that you contact the customer directly. All Smart&nbsp;Choice leads should be sent to
-              mailto:CLSmart@nationwide.comCLSmart@nationwide.com</a>.
-            </p>
+            <p class="sc-info-description">Receive lead via email and check if the agent requests that you contact the customer directly. All Smart&nbsp;Choice leads should be sent to <a href="mailto:CLSmart@nationwide.com">CLSmart@nationwide.com</a>.</p>
           </div>
-
           <div class="sc-info-card">
             <div class="sc-info-number">2</div>
             <h3 class="sc-info-title">Review Eligibility</h3>
-            <p class="sc-info-description">
-              Examine the submission to determine if the risk is eligible. When in doubt, lean towards gathering more information or contacting the agent rather than declining outright.
-            </p>
+            <p class="sc-info-description">Examine the submission to determine if the risk is eligible. When in doubt, lean towards gathering more information or contacting the agent rather than declining outright.</p>
           </div>
-
           <div class="sc-info-card">
             <div class="sc-info-number">3</div>
             <h3 class="sc-info-title">Gather Information</h3>
-            <p class="sc-info-description">
-              Make outbound calls to agents to get basic information needed for quoting. If calls go unanswered, follow up with emails. Full underwriting questions can be sent via email along with an indication.
-            </p>
+            <p class="sc-info-description">Make outbound calls to agents to get basic information needed for quoting. If calls go unanswered, follow up with emails. Full underwriting questions can be sent via email along with an indication.</p>
           </div>
-
           <div class="sc-info-card">
             <div class="sc-info-number">4</div>
             <h3 class="sc-info-title">Quote the Risk</h3>
-            <p class="sc-info-description">
-              Prepare a quote using the correct codes (NB&nbsp;61650, Producer&nbsp;Ashley&nbsp;Wingate) and verify owner inclusion/exclusion rules for Workers’&nbsp;Compensation. Gather any required forms.
-            </p>
+            <p class="sc-info-description">Prepare a quote using the correct codes (NB&nbsp;61650, Producer&nbsp;Ashley&nbsp;Wingate) and verify owner inclusion/exclusion rules for Workers’&nbsp;Compensation. Gather any required forms.</p>
           </div>
-
           <div class="sc-info-card">
             <div class="sc-info-number">5</div>
             <h3 class="sc-info-title">Present Quote</h3>
-            <p class="sc-info-description">
-              Send the approved quote email with the proposal attached. Note any pre‑bind or trailing documents and read the conditional quote statement before presenting the rate.
-            </p>
+            <p class="sc-info-description">Send the approved quote email with the proposal attached. Note any pre‑bind or trailing documents and read the conditional quote statement before presenting the rate.</p>
           </div>
-
           <div class="sc-info-card">
             <div class="sc-info-number">6</div>
             <h3 class="sc-info-title">Bind Request</h3>
-            <p class="sc-info-description">
-              Agents should reply to the approved quote email with answers to bind questions. They may also call to provide this information. Ensure they have reviewed payment instructions if they haven’t sent a bind email.
-            </p>
+            <p class="sc-info-description">Agents should reply to the approved quote email with answers to bind questions. They may also call to provide this information. Ensure they have reviewed payment instructions if they haven’t sent a bind email.</p>
           </div>
-
           <div class="sc-info-card">
             <div class="sc-info-number">7</div>
             <h3 class="sc-info-title">Bind Coverage</h3>
-            <p class="sc-info-description">
-              Update effective and expiration dates, mailing and billing addresses, and issue the policy based on the agent’s selected payment option. Enter payment details directly into the system, send the REFT form via DocuSign, and email the bind confirmation to the agent (and customer if requested).
-            </p>
+            <p class="sc-info-description">Update effective and expiration dates, mailing and billing addresses, and issue the policy based on the agent’s selected payment option. Enter payment details directly into the system, send the REFT form via DocuSign, and email the bind confirmation to the agent (and customer if requested).</p>
           </div>
-
           <div class="sc-info-card">
             <div class="sc-info-number">8</div>
             <h3 class="sc-info-title">Pre‑Renewal Direction</h3>
-            <p class="sc-info-description">
-              From the Account Summary screen, set a pre‑renewal direction to refer the account to a customer service representative. Instruct the CSR to update the agency code to 57850 at renewal while keeping the producer the same and to contact
-              mailto:CLInside@nationwide.comCLInside@nationwide.com</a>
-              for post‑bind first‑term questions.
-            </p>
+            <p class="sc-info-description">From the Account Summary screen, set a pre‑renewal direction to refer the account to a customer service representative. Instruct the CSR to update the agency code to 57850 at renewal while keeping the producer the same and to contact <a href="mailto:CLInside@nationwide.com">CLInside@nationwide.com</a> for post‑bind first‑term questions.</p>
           </div>
         </div>
-
         <!-- Quick reference panel for agent -->
         <div style="margin-top: 30px;" class="quick-ref">
           <h3 class="quick-ref-title">
@@ -1204,7 +1078,7 @@
           <div class="quick-ref-grid">
             <div class="quick-ref-item">
               <div class="quick-ref-label">Email</div>
-              <div class="quick-ref-value">mailto:CLSmart@nationwide.comCLSmart@nationwide.com</a></div>
+              <div class="quick-ref-value"><a href="mailto:CLSmart@nationwide.com">CLSmart@nationwide.com</a></div>
             </div>
             <div class="quick-ref-item">
               <div class="quick-ref-label">New Business Code</div>
@@ -1220,15 +1094,14 @@
             </div>
             <div class="quick-ref-item">
               <div class="quick-ref-label">Amendments</div>
-              <div class="quick-ref-value">mailto:CLAmendment@nationwide.comCLAmendment@nationwide.com</a></div>
+              <div class="quick-ref-value"><a href="mailto:CLAmendment@nationwide.com">CLAmendment@nationwide.com</a></div>
             </div>
             <div class="quick-ref-item">
               <div class="quick-ref-label">Post-Bind Issues</div>
-              <div class="quick-ref-value">mailto:CLInside@nationwide.comCLInside@nationwide.com</a></div>
+              <div class="quick-ref-value"><a href="mailto:CLInside@nationwide.com">CLInside@nationwide.com</a></div>
             </div>
           </div>
         </div>
-
         <!-- Additional agent topics -->
         <div style="margin-top: 30px;">
           <div class="card-grid">
@@ -1255,13 +1128,96 @@
           </div>
         </div>
       </div>
-
       <!-- Customer tab content -->
       <div id="sc-customer" class="sc-tab-content">
-        <div class="info-panel">
-          <p style="text-align:center; margin:0; color:#374151;">
-            Customer workflow remains in your original modal content (kept as-is).
-          </p>
+        <div class="sc-info-grid">
+          <div class="sc-info-card">
+            <div class="sc-info-number">1</div>
+            <h3 class="sc-info-title">Obtain New Lead</h3>
+            <p class="sc-info-description">Receive a lead via email. If the agent wants to handle the customer directly, switch to the agent workflow. Leads should be sent to <a href="mailto:CLSmart@nationwide.com">CLSmart@nationwide.com</a>.</p>
+          </div>
+          <div class="sc-info-card">
+            <div class="sc-info-number">2</div>
+            <h3 class="sc-info-title">Review Eligibility</h3>
+            <p class="sc-info-description">Determine eligibility for coverage. If the risk is clearly ineligible before calling, notify the agent via the decline email template. Otherwise gather information or call to clarify.</p>
+          </div>
+          <div class="sc-info-card">
+            <div class="sc-info-number">3</div>
+            <h3 class="sc-info-title">Outbound Call</h3>
+            <p class="sc-info-description">Call the customer and introduce yourself as a Nationwide agent on behalf of their sub‑agency. Use the sub‑agency name (not “Smart&nbsp;Choice”), ask if they have time to discuss, leave a callback message if they don’t answer, and include the TCPA statement.</p>
+          </div>
+          <div class="sc-info-card">
+            <div class="sc-info-number">4</div>
+            <h3 class="sc-info-title">Gather Information</h3>
+            <p class="sc-info-description">If the call is answered, set up the account and ask underwriting questions while quoting. If the risk is complex and requires more time, schedule a later appointment to present the quote.</p>
+          </div>
+          <div class="sc-info-card">
+            <div class="sc-info-number">5</div>
+            <h3 class="sc-info-title">Quote the Risk</h3>
+            <p class="sc-info-description">Use the correct codes (NB&nbsp;61650, Producer&nbsp;Ashley&nbsp;Wingate) and review Workers’&nbsp;Compensation owner inclusion/exclusion rules. Gather all necessary forms before presenting the quote.</p>
+          </div>
+          <div class="sc-info-card">
+            <div class="sc-info-number">6</div>
+            <h3 class="sc-info-title">Ineligible Risks</h3>
+            <p class="sc-info-description">If the risk is ineligible for Nationwide coverage, advise the customer and refer them back to their sub‑agent for other options. Inform the agent of the ineligibility and whether you contacted the customer.</p>
+          </div>
+          <div class="sc-info-card">
+            <div class="sc-info-number">7</div>
+            <h3 class="sc-info-title">Present Quote</h3>
+            <p class="sc-info-description">Present all base coverages, at least one endorsement, and read the conditional quote statement. Explain payment options (monthly, REFT, etc.), ask for the sale, handle objections, and schedule a follow‑up if the customer isn’t ready to bind.</p>
+          </div>
+          <div class="sc-info-card">
+            <div class="sc-info-number">8</div>
+            <h3 class="sc-info-title">Bind</h3>
+            <p class="sc-info-description">Read the required pre‑bind and payment statements, update the policy details (effective/expiration dates, addresses), issue the policy based on the chosen payment option, send the DocuSign package, and email the bind confirmation to both the agent and the customer (from <a href="mailto:CLSmart@nationwide.com">CLSmart@nationwide.com</a>).</p>
+          </div>
+          <div class="sc-info-card">
+            <div class="sc-info-number">9</div>
+            <h3 class="sc-info-title">Pre‑Renewal Direction</h3>
+            <p class="sc-info-description">From the Account Summary screen, set a pre‑renewal direction instructing the CSR to update the agency code to 57850 at renewal while keeping the producer the same. Direct post‑bind first‑term concerns to <a href="mailto:CLInside@nationwide.com">CLInside@nationwide.com</a>.</p>
+          </div>
+        </div>
+        <!-- Contact information panel for customer -->
+        <div style="margin-top: 30px;" class="quick-ref">
+          <h3 class="quick-ref-title">
+            <span class="info-panel-icon">📞</span>
+            Contact Information
+          </h3>
+          <div class="quick-ref-grid">
+            <div class="quick-ref-item">
+              <div class="quick-ref-label">Agents</div>
+              <div class="quick-ref-value">1‑800‑896‑2277</div>
+            </div>
+            <div class="quick-ref-item">
+              <div class="quick-ref-label">Customers</div>
+              <div class="quick-ref-value">1‑888‑282‑3717</div>
+            </div>
+            <div class="quick-ref-item">
+              <div class="quick-ref-label">Email</div>
+              <div class="quick-ref-value"><a href="mailto:CLSmart@nationwide.com">CLSmart@nationwide.com</a></div>
+            </div>
+          </div>
+        </div>
+        <!-- Additional customer topics -->
+        <div style="margin-top: 30px;">
+          <div class="card-grid">
+            <div class="card" onclick="openModal('sc-cust-aor')">
+              <div class="card-icon">📄</div>
+              <h3 class="card-title">AOR/BOR Requests</h3>
+            </div>
+            <div class="card" onclick="openModal('sc-cust-middle')">
+              <div class="card-icon">🏢</div>
+              <h3 class="card-title">Middle Market</h3>
+            </div>
+            <div class="card" onclick="openModal('sc-cust-followup')">
+              <div class="card-icon">🔄</div>
+              <h3 class="card-title">Follow Ups</h3>
+            </div>
+            <div class="card" onclick="openModal('sc-cust-templates')">
+              <div class="card-icon">📋</div>
+              <h3 class="card-title">Email Templates</h3>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1286,23 +1242,114 @@
         <h2 class="section-title">KMA Insurance Group - Customer Contact</h2>
         <p class="section-subtitle">Inbound call workflow for KMA partnership</p>
       </div>
-      <div class="info-panel">
-        <p style="text-align:center; margin:0; color:#374151;">
-          Your KMA modal/cards remain in your original content (kept as-is).
-        </p>
+      <div class="card-grid">
+        <div class="card" onclick="openModal('kma-1')">
+          <div class="card-number">1</div>
+          <div class="card-icon">📞</div>
+          <h3 class="card-title">Obtain Lead - Inbound</h3>
+        </div>
+        <div class="card" onclick="openModal('kma-2')">
+          <div class="card-number">2</div>
+          <div class="card-icon">📝</div>
+          <h3 class="card-title">Gather Information</h3>
+        </div>
+        <div class="card" onclick="openModal('kma-3')">
+          <div class="card-number">3</div>
+          <div class="card-icon">💰</div>
+          <h3 class="card-title">Quote the Risk</h3>
+        </div>
+        <div class="card" onclick="openModal('kma-4')">
+          <div class="card-number">4</div>
+          <div class="card-icon">📬</div>
+          <h3 class="card-title">Present Quote</h3>
+        </div>
+        <div class="card" onclick="openModal('kma-5')">
+          <div class="card-number">5</div>
+          <div class="card-icon">✅</div>
+          <h3 class="card-title">Bind</h3>
+        </div>
+        <div class="card" onclick="openModal('kma-6')">
+          <div class="card-number">6</div>
+          <div class="card-icon">🚫</div>
+          <h3 class="card-title">Ineligible Risks</h3>
+        </div>
+        <div class="card" onclick="openModal('kma-7')">
+          <div class="card-number">7</div>
+          <div class="card-icon">🎯</div>
+          <h3 class="card-title">Pre-Renewal Direction</h3>
+        </div>
+      </div>
+      
+      <div style="margin-top: 30px;">
+        <div class="card-grid">
+          <div class="card" onclick="openModal('kma-scenario')">
+            <div class="card-icon">📖</div>
+            <h3 class="card-title">Partnership Scenario</h3>
+          </div>
+          <div class="card" onclick="openModal('kma-details')">
+            <div class="card-icon">ℹ️</div>
+            <h3 class="card-title">Additional Details</h3>
+          </div>
+          <div class="card" onclick="openModal('kma-aor')">
+            <div class="card-icon">📄</div>
+            <h3 class="card-title">AOR/BOR Requests</h3>
+          </div>
+          <div class="card" onclick="openModal('kma-followup')">
+            <div class="card-icon">🔄</div>
+            <h3 class="card-title">Follow Ups</h3>
+          </div>
+          <div class="card" onclick="openModal('kma-templates')">
+            <div class="card-icon">📋</div>
+            <h3 class="card-title">Email Templates</h3>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Pre-Bind & Payment Statements -->
     <div class="section-container" id="statements">
       <div class="section-header">
-        <h2 class="section-title">Pre-Bind &amp; Payment Statements</h2>
+        <h2 class="section-title">Pre-Bind & Payment Statements</h2>
         <p class="section-subtitle">Required statements for all binds</p>
       </div>
-      <div class="info-panel">
-        <p style="text-align:center; margin:0; color:#374151;">
-          Your statement cards and modal content remain in your original content (kept as-is).
-        </p>
+      <div class="card-grid">
+        <div class="card" onclick="openModal('privacy-all')">
+          <div class="card-icon">🔒</div>
+          <h3 class="card-title">Privacy - All States</h3>
+        </div>
+        <div class="card" onclick="openModal('privacy-ca')">
+          <div class="card-icon">🔒</div>
+          <h3 class="card-title">Privacy - California</h3>
+        </div>
+        <div class="card" onclick="openModal('privacy-vt')">
+          <div class="card-icon">🔒</div>
+          <h3 class="card-title">Privacy - Vermont</h3>
+        </div>
+        <div class="card" onclick="openModal('fraud-all')">
+          <div class="card-icon">⚠️</div>
+          <h3 class="card-title">Fraud - All States</h3>
+        </div>
+        <div class="card" onclick="openModal('fraud-states')">
+          <div class="card-icon">⚠️</div>
+          <h3 class="card-title">Fraud - State Specific</h3>
+          <p class="card-subtitle">Select your state</p>
+        </div>
+        <div class="card" onclick="openModal('payment-cc')">
+          <div class="card-icon">💳</div>
+          <h3 class="card-title">Payment - Credit Card</h3>
+        </div>
+        <div class="card" onclick="openModal('payment-eft-onetime')">
+          <div class="card-icon">🏦</div>
+          <h3 class="card-title">Payment - One-Time EFT</h3>
+        </div>
+        <div class="card" onclick="openModal('payment-eft-recurring')">
+          <div class="card-icon">🏦</div>
+          <h3 class="card-title">Payment - Recurring EFT</h3>
+        </div>
+        <div class="card" onclick="openModal('payment-installment')">
+          <div class="card-icon">📋</div>
+          <h3 class="card-title">Installment Fee Disclosure</h3>
+        </div>
       </div>
     </div>
 
@@ -1312,10 +1359,27 @@
         <h2 class="section-title">Veruna / Salesforce Procedures</h2>
         <p class="section-subtitle">CRM tracking and management</p>
       </div>
-      <div class="info-panel">
-        <p style="text-align:center; margin:0; color:#374151;">
-          Your Veruna cards and modal content remain in your original content (kept as-is).
-        </p>
+      <div class="card-grid">
+        <div class="card" onclick="openModal('veruna-accounts')">
+          <div class="card-icon">🏢</div>
+          <h3 class="card-title">Account Management</h3>
+          <p class="card-subtitle">Customer & Agency Accounts</p>
+        </div>
+        <div class="card" onclick="openModal('veruna-contacts')">
+          <div class="card-icon">👥</div>
+          <h3 class="card-title">Contact Management</h3>
+          <p class="card-subtitle">Agent & Customer Contacts</p>
+        </div>
+        <div class="card" onclick="openModal('veruna-activities')">
+          <div class="card-icon">📋</div>
+          <h3 class="card-title">Activities & Tasks</h3>
+          <p class="card-subtitle">Documentation Requirements</p>
+        </div>
+        <div class="card" onclick="openModal('veruna-policies')">
+          <div class="card-icon">📄</div>
+          <h3 class="card-title">Policy Tracking</h3>
+          <p class="card-subtitle">Quotes, Binds & Status</p>
+        </div>
       </div>
     </div>
 
@@ -1325,10 +1389,27 @@
         <h2 class="section-title">Rules of Engagement</h2>
         <p class="section-subtitle">Credit and coverage guidelines</p>
       </div>
-      <div class="info-panel">
-        <p style="text-align:center; margin:0; color:#374151;">
-          Your ROE cards and modal content remain in your original content (kept as-is).
-        </p>
+      <div class="card-grid">
+        <div class="card" onclick="openModal('roe-in-office')">
+          <div class="card-icon">✅</div>
+          <h3 class="card-title">Agent In Office</h3>
+        </div>
+        <div class="card" onclick="openModal('roe-out-office')">
+          <div class="card-icon">🏖️</div>
+          <h3 class="card-title">Agent Out of Office</h3>
+        </div>
+        <div class="card" onclick="openModal('roe-departed')">
+          <div class="card-icon">👤</div>
+          <h3 class="card-title">Agent Departed</h3>
+        </div>
+        <div class="card" onclick="openModal('roe-definitions')">
+          <div class="card-icon">📖</div>
+          <h3 class="card-title">Definitions</h3>
+        </div>
+        <div class="card" onclick="openModal('roe-overview')">
+          <div class="card-icon">ℹ️</div>
+          <h3 class="card-title">Overview & Objective</h3>
+        </div>
       </div>
     </div>
 
@@ -1338,32 +1419,30 @@
         <h2 class="section-title">Resources</h2>
         <p class="section-subtitle">Key systems, navigation and admin tools</p>
       </div>
-
       <div class="card-grid">
         <!-- Systems & Platforms -->
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <h3 class="card-title">Systems &amp; Platforms</h3>
+              <h3 class="card-title">Systems & Platforms</h3>
               <p class="card-subtitle">Core tools</p>
             </div>
             <div class="flip-card-back">
               <ul class="resource-list">
-                <li>https://clnss.my.salesforce.comSalesforce (CLNSS)</a></li>
-                <li>https://clpolicycenter.apps.nwie.net/pc/service/launch/PolicyCenter.doPolicyCenter (Commercial Lines)</a></li>
-                <li>https://agentcenter.nwie.net/homeAgent Center</a></li>
-                <li>https://nwpcknowledge.nationwide.com/Premium Audit – Minimum Payroll Info</a></li>
-                <li>https://gateway-login.verisk.com/app/prometrix/auth/loginVerisk Prometrix</a></li>
-                <li>https://app.askkodiak.com/#/carriersAsk Kodiak – Carriers</a></li>
-                <li>https://www.secstates.com/Secretary of State Search Portal</a></li>
-                <li>https://hrconnect.nationwide.com/HR Connect</a></li>
-                <li>https://www.myworkday.com/nationwide/d/inst/13102!CK5mGhIKBggDEMenAhIICgYI1A0QmQE~*mMeOGB47owk~/cacheable-task/12709$14.htmldWorkday Task</a></li>
-                <li>https://www.myworkday.com/nationwide/learningWorkday Learning</a></li>
+                <li><a href="https://clnss.my.salesforce.com" target="_blank">Salesforce (CLNSS)</a></li>
+                <li><a href="https://clpolicycenter.apps.nwie.net/pc/service/launch/PolicyCenter.do?_gl=1*tu5xk5*_ga*OTUyNzQxMTA1LjE3NzAxMzQ5MjY.*_ga_GLJSQEPWL4*czE3NzAxMzQ5MjYkbzEkZzEkdDE3NzAxMzk0NDAkajUwJGwwJGgw" target="_blank">PolicyCenter (Commercial Lines)</a></li>
+                <li><a href="https://agentcenter.nwie.net/home" target="_blank">Agent Center</a></li>
+                <li><a href="https://nwpcknowledge.nationwide.com/groups/59210/posts/5798822-premium-audit-minimum-payroll-state-specific-information?words=Premium&words=Audit&words=-&words=Minimum&words=Payroll/State&words=Specific&words=Information#State_Information" target="_blank">Premium Audit – Minimum Payroll Info</a></li>
+                <li><a href="https://gateway-login.verisk.com/app/prometrix/auth/login" target="_blank">Verisk Prometrix</a></li>
+                <li><a href="https://app.askkodiak.com/#/carriers" target="_blank">Ask Kodiak – Carriers</a></li>
+                <li><a href="https://www.secstates.com/" target="_blank">Secretary of State Search Portal</a></li>
+                <li><a href="https://hrconnect.nationwide.com/" target="_blank">HR Connect</a></li>
+                <li><a href="https://www.myworkday.com/nationwide/d/inst/13102!CK5mGhIKBggDEMenAhIICgYI1A0QmQE~*mMeOGB47owk~/cacheable-task/12709$14.htmld" target="_blank">Workday Task</a></li>
+                <li><a href="https://www.myworkday.com/nationwide/learning" target="_blank">Workday Learning</a></li>
               </ul>
             </div>
           </div>
         </div>
-
         <!-- SharePoint Navigation -->
         <div class="flip-card">
           <div class="flip-card-inner">
@@ -1373,39 +1452,106 @@
             </div>
             <div class="flip-card-back">
               <ul class="resource-list">
-                <li>/sites/CierraTestHome</a></li>
-                <li>/sites/CierraTest/Lists/Inventory%20list/Inventory List</a></li>
-                <li>/sites/CierraTest/_layouts/15/Doc.aspx?sourcedoc={6e59f5b6-d067-46bf-a150-15b9120dac2b}&action=editnewNotebook</a></li>
-                <li>/sites/CierraTest/Lists/Employee%20onboarding/Onboarding Checklist</a></li>
-                <li>/sites/CierraTest/Shared%20Documents/Forms/AllItems.aspxDocuments</a></li>
-                <li>/sites/CierraTest/Lists/Tasks/AllItems.aspxTasks</a></li>
-                <li>/sites/CierraTest/CIERRA%20HTML%20ASSETS/Forms/AllItems.aspxCIERRA HTML ASSETS</a></li>
-                <li>/sites/CierraTest/Lists/Deliverables/AllItems.aspxDeliverables</a></li>
-                <li>/sites/CierraTest/Lists/Risks/AllItems.aspxRisks</a></li>
-                <li>/sites/CierraTest/Lists/Issues/AllItems.aspxIssues</a></li>
+                <li><a href="/sites/CierraTest">Home</a></li>
+                <li><a href="/sites/CierraTest/Lists/Inventory list/">Inventory List</a></li>
+                <li><a href="/sites/CierraTest/_layouts/15/Doc.aspx?sourcedoc={6e59f5b6-d067-46bf-a150-15b9120dac2b}&action=editnew">Notebook</a></li>
+                <li><a href="/sites/CierraTest/Lists/Employee onboarding/">Onboarding Checklist</a></li>
+                <li><a href="/sites/CierraTest/Shared Documents/Forms/AllItems.aspx">Documents</a></li>
+                <li><a href="/sites/CierraTest/Lists/Tasks/AllItems.aspx">Tasks</a></li>
+                <li><a href="/sites/CierraTest/CIERRA HTML ASSETS/Forms/AllItems.aspx">CIERRA HTML ASSETS</a></li>
+                <li><a href="/sites/CierraTest/Lists/Deliverables/AllItems.aspx">Deliverables</a></li>
+                <li><a href="/sites/CierraTest/Lists/Risks/AllItems.aspx">Risks</a></li>
+                <li><a href="/sites/CierraTest/Lists/Issues/AllItems.aspx">Issues</a></li>
               </ul>
             </div>
           </div>
         </div>
-
-        <!-- Admin Links (✅ FIXED quotes) -->
+        <!-- Admin Links -->
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <h3 class="card-title">Admin Links</h3>
-              <p class="card-subtitle">Profile &amp; Settings</p>
+              <p class="card-subtitle">Profile & Settings</p>
             </div>
             <div class="flip-card-back">
               <ul class="resource-list">
-                <li>https://onyourside.sharepoint.com/_vti_bin/afdcache.ashx/_userprofile/userphoto.jpgUser Photo Endpoint</a></li>
-                <li>https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/SignOut.aspxSign Out</a></li>
-                <li>https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/viewlsts.aspxSite Contents</a></li>
-                <li>https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/settings.aspxSite Settings</a></li>
-                <li>https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/CreateSitePage.aspx?source=SiteSettingsAdd a Page</a></li>
-                <li>https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/appStore.aspx#/myApps?entry=SettingAddAnAppAdd an App</a></li>
-                <li>https://onyourside.sharepoint.com/sites/CierraTest/PWAGettingStarted.aspxGetting Started (PWA)</a></li>
+                <li><a href="https://onyourside.sharepoint.com/_vti_bin/afdcache.ashx/_userprofile/userphoto.jpg" target="_blank">User Photo Endpoint</a></li>
+                <li><a href="https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/SignOut.aspx" target="_blank">Sign Out</a></li>
+                <li><a href="https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/viewlsts.aspx" target="_blank">Site Contents</a></li>
+                <li><a href="https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/settings.aspx" target="_blank">Site Settings</a></li>
+                <li><a href="https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/CreateSitePage.aspx?source=SiteSettings" target="_blank">Add a Page</a></li>
+                <li><a href="https://onyourside.sharepoint.com/sites/CierraTest/_layouts/15/appStore.aspx#/myApps?entry=SettingAddAnApp" target="_blank">Add an App</a></li>
+                <li><a href="https://onyourside.sharepoint.com/sites/CierraTest/PWAGettingStarted.aspx" target="_blank">Getting Started (PWA)</a></li>
               </ul>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Agency Codes Reference -->
+    <div class="section-container">
+      <div class="info-panel">
+        <h2 class="info-panel-title">
+          <span class="info-panel-icon">🔢</span>
+          Agency Codes History
+        </h2>
+        <div class="quick-ref-grid">
+          <div class="quick-ref-item">
+            <div class="quick-ref-label">Smart Choice - New Business</div>
+            <div class="quick-ref-value">61650</div>
+          </div>
+          <div class="quick-ref-item">
+            <div class="quick-ref-label">Smart Choice - Renewal</div>
+            <div class="quick-ref-value">57850</div>
+          </div>
+          <div class="quick-ref-item">
+            <div class="quick-ref-label">Insureon - New Business</div>
+            <div class="quick-ref-value">62719</div>
+          </div>
+          <div class="quick-ref-item">
+            <div class="quick-ref-label">Insureon - Renewal</div>
+            <div class="quick-ref-value">62788</div>
+          </div>
+          <div class="quick-ref-item">
+            <div class="quick-ref-label">KMA - New Business</div>
+            <div class="quick-ref-value">62549</div>
+          </div>
+          <div class="quick-ref-item">
+            <div class="quick-ref-label">KMA - Renewal</div>
+            <div class="quick-ref-value">68159</div>
+          </div>
+          <div class="quick-ref-item">
+            <div class="quick-ref-label">USI - New Business</div>
+            <div class="quick-ref-value">66783</div>
+          </div>
+          <div class="quick-ref-item">
+            <div class="quick-ref-label">USI - Renewal</div>
+            <div class="quick-ref-value">63850</div>
+          </div>
+          <div class="quick-ref-item">
+            <div class="quick-ref-label">IOA - New Business</div>
+            <div class="quick-ref-value">67667</div>
+          </div>
+          <div class="quick-ref-item">
+            <div class="quick-ref-label">NAPA Insurance Center</div>
+            <div class="quick-ref-value">61667 (Former Partner)</div>
+          </div>
+          <div class="quick-ref-item">
+            <div class="quick-ref-label">One Digital - New Business</div>
+            <div class="quick-ref-value">67662 (Former Partner)</div>
+          </div>
+          <div class="quick-ref-item">
+            <div class="quick-ref-label">One Digital - Renewal</div>
+            <div class="quick-ref-value">25201 (Former Partner)</div>
+          </div>
+          <div class="quick-ref-item">
+            <div class="quick-ref-label">NSS All States (Except CA)</div>
+            <div class="quick-ref-value">75095</div>
+          </div>
+          <div class="quick-ref-item">
+            <div class="quick-ref-label">NSS California Only</div>
+            <div class="quick-ref-value">75104</div>
           </div>
         </div>
       </div>
@@ -1429,64 +1575,710 @@
   </div>
 
   <script>
-    // NOTE:
-    // Your original modalData object was extremely long.
-    // Keep your existing modalData content here exactly as you had it.
-    // (No changes required for the SharePoint section.)
-
+    // Due to length, I'll split the modal data into a separate comprehensive structure
+    // This will be the complete modal data with ALL content from the document
+    
     const modalData = {
-      // ... KEEP YOUR ORIGINAL modalData CONTENT HERE ...
+      // Smart Choice - Agent Contact (Steps 1-8)
+      'sc-agent-1': {
+        icon: '📧',
+        badge: 'START',
+        title: 'Obtain New Lead',
+        sections: [
+          { content: 'Obtain new lead via email - Identify if agent requests direct contact' },
+          { content: 'If agent requests customer contact, proceed to Smart Choice Customer Contact section' },
+          { content: 'Email for Smart Choice should come into the CLSmart@nationwide.com address only' }
+        ]
+      },
+      'sc-agent-2': {
+        icon: '✓',
+        badge: 'REVIEW',
+        title: 'Review Eligibility',
+        sections: [
+          { content: 'Review submission to determine eligibility' },
+          { content: 'Give benefit of doubt if unsure if eligible, always lean to gather information or call agent unless certain the risk is ineligible.' }
+        ]
+      },
+      'sc-agent-3': {
+        icon: '📞',
+        badge: 'GATHER',
+        title: 'Gather Information',
+        sections: [
+          { content: 'Gather information and prepare quote' },
+          { content: 'Make outbound calls to agents as primary mode of contact to obtain basic information needed to quote the risk.' },
+          { content: 'Questions emails may be sent if we receive no answer to these calls.' },
+          { content: 'Full underwriting questions can be sent via email along with an Indication, suggested not to try to ask all on phone unless agent requests to do so.' }
+        ]
+      },
+      'sc-agent-4': {
+        icon: '💰',
+        badge: 'QUOTE',
+        title: 'Quote the Risk',
+        sections: [
+          { title: 'Agency Codes', content: 'Use the correct agency codes & producer for the partnership. Smart Choice New Business: Code 61650 & Producer: Ashley Wingate' },
+          { title: 'Workers Compensation', content: 'Owner Inclusion/Exclusion rules must be reviewed and documented at quote to ensure compliance including required forms are obtained prior to or shortly after bind.' }
+        ]
+      },
+      'sc-agent-5': {
+        icon: '📬',
+        badge: 'PRESENT',
+        title: 'Present Quote',
+        sections: [
+          { content: 'Quotes should be presented to the customer by the agent if we are working with the agent directly.' },
+          { content: 'Send the Approved Quote email template with proposal attached' },
+          { content: 'Include notation of any pre-bind or trailing documents such as WC forms' },
+          { content: 'Read all required statements prior to presenting a rate by phone:' },
+          { title: 'Conditional Quote', content: '"All quotes are calculated based upon our current rates, and the information that you provide during the application process, supplemented by publicly available data. Any information provided or discovered at a later date could affect your rate and/or eligibility."' }
+        ]
+      },
+      'sc-agent-6': {
+        icon: '🔗',
+        badge: 'REQUEST',
+        title: 'Bind Request',
+        sections: [
+          { content: 'Agents should reply to our Approved Quote email answering all of our bind questions.' },
+          { content: 'Agents may also call in and provide the answers to our bind questions if desired. Interaction should be clearly documented.' },
+          { content: 'If agent requests to provide payment information for customer and did not email in a bind request, ask if they reviewed payment instructions in email.' },
+          { content: 'Proceed to bind coverage once all bind questions have been answered.' }
+        ]
+      },
+      'sc-agent-7': {
+        icon: '✅',
+        badge: 'BIND',
+        title: 'Bind Coverage',
+        sections: [
+          { content: 'Make any final updates or corrections to the policy including:' },
+          { content: '• Updating Effective and Expiration Dates<br>• Updating Mailing/Billing Address' },
+          { content: 'Proceed to Issue the policy based on the payment options selected by the agent' },
+          { content: 'If taking payment information from the agent, ask them to read you the EFT account numbers to enter in the system, or to type the Credit Card number into the phone with Semafone.' },
+          { content: '<div class="critical-box">⚠️ <strong>CRITICAL:</strong> Payment information must be entered into the system as you bind. Do not write down or save any payment information.</div>' },
+          { content: 'If REFT is established, the REFT form must be sent to the customer via Docusign immediately post bind. This form can be found on the post-bind screen in Policy Center.' },
+          { content: 'Send to CLAmendment@nationwide.com when signature is obtained.' },
+          { content: 'Once issued, download Application and Dec pages to be attached' },
+          { content: 'Send a reply email to the agent with the Bind template completed' },
+          { content: 'Send a separate Bind email template to the Customer if elected by agent (ensure it is sent FROM CLSmart@nationwide.com for this partnership)' }
+        ]
+      },
+      'sc-agent-8': {
+        icon: '🎯',
+        badge: 'COMPLETE',
+        title: 'Pre-Renewal Direction',
+        sections: [
+          { content: 'A PRD must be set for each new account bound from the Account Summary Screen in Policy Center' },
+          { content: 'Choose Actions, then Pre-Renewal Direction, and fill in as follows:' },
+          { title: 'Direction', content: '"Refer to Customer Service Representative"' },
+          { title: 'Subject', content: '"Refer to CSR"' },
+          { title: 'Text (Copy/Paste)', content: '<div class="script-box">At renewal update agency code to 57850 please keep producer the same. This is part of transfer between agency codes that has been vetted by NSS with proper documentation. Please allow 57850 to service the policy prior to the agency code update at the upcoming renewal. POST BIND CONTACT: Contact CLInside@nationwide.com regarding any post-bind 1st term underwriting concerns prior to contacting primary listed agent due to this being sell-on-behalf business from the NSS CL Inside Sales team.</div>' }
+        ]
+      },
+      
+      // Smart Choice - Agent Additional Procedures
+      'sc-agent-aor': {
+        icon: '📄',
+        badge: 'PROCEDURES',
+        title: 'AOR/BOR Requests',
+        sections: [
+          { content: '✅ We can accept an AOR for Quotes' },
+          { content: '⚠️ Refer agents to their Smart Choice rep if we receive an AOR for an active account.' }
+        ]
+      },
+      'sc-agent-middle': {
+        icon: '🏢',
+        badge: 'PROCEDURES',
+        title: 'Middle Market',
+        sections: [
+          { content: 'Review with leader to determine if we may be able to get a SM exception.' },
+          { content: 'These may be referred to the Smart Choice contact for middle market using the middle market email template.' }
+        ]
+      },
+      'sc-agent-reply': {
+        icon: '💬',
+        badge: 'PROCEDURES',
+        title: 'Reply Emails',
+        sections: [
+          { content: 'Ensure reply emails continue to contain our email templates to allow for clarity in next steps.' },
+          { content: '<strong>Example:</strong> You send an Indication Present, agent replies with a question, you should re-send the Indication Present email (with the unanswered questions) and put your reply to their question at the top.' }
+        ]
+      },
+      'sc-agent-followup': {
+        icon: '🔄',
+        badge: 'PROCEDURES',
+        title: 'Follow Ups',
+        sections: [
+          { content: 'Follow up calls and emails should be made consistently on outstanding accounts.' },
+          { title: 'Pre-Quote', content: 'Make additional follow up call after initial call attempt (at least 1 suggested at this stage)' },
+          { title: 'Quote', content: 'Make 1 follow up call within 24 hours of sending a proposal to allow for objections to be overcome. 3 total follow ups over time should be made. (suggest no more than 1 week in between unless accurate effective date necessitates future calls)' }
+        ]
+      },
+      'sc-agent-templates': {
+        icon: '📋',
+        badge: 'PROCEDURES',
+        title: 'Email Templates',
+        sections: [
+          { title: 'More Information Needed', content: 'Agent does not answer, need a lot more information to consider the risk' },
+          { title: 'Quote Questions', content: 'Agent does not answer, send limited number of basic questions to help with eligibility and to prepare an indication' },
+          { title: 'Indication Present', content: 'To send an indication (prior to verifying all application questions) and must include all outstanding questions in the email body.' },
+          { title: 'Approved Quote', content: 'Only to be sent if there are no outstanding questions, application is fully approved and ready to bind.' },
+          { title: 'Decline', content: 'Risk is ineligible, provide accurate description of ineligibility. Include any online references if these lead to the decline.' }
+        ]
+      },
+      
+      // Smart Choice - Customer Contact (Steps 1-9)
+      'sc-cust-1': {
+        icon: '📧',
+        badge: 'START',
+        title: 'Obtain New Lead',
+        sections: [
+          { content: 'Obtain new lead via email' },
+          { content: 'If agent requests direct contact, proceed to Smart Choice Agent Contact section' },
+          { content: 'Email for Smart Choice should come into the CLSmart@nationwide.com address only' }
+        ]
+      },
+      'sc-cust-2': {
+        icon: '✓',
+        badge: 'REVIEW',
+        title: 'Review Eligibility',
+        sections: [
+          { content: 'Review submission to determine eligibility' },
+          { content: 'Give benefit of doubt if unsure if eligible, always lean to gather information or call agent unless certain the risk is ineligible.' },
+          { content: 'If found to be ineligible right away, proceed to 6. Ineligible Risks' }
+        ]
+      },
+      'sc-cust-3': {
+        icon: '📞',
+        badge: 'CONTACT',
+        title: 'Outbound Call',
+        sections: [
+          { title: 'Answer', content: '<div class="script-box">"Hi, this is &lt;name&gt; from Nationwide Insurance calling on behalf of &lt;Sub-Agency Name&gt; regarding a requested insurance quote. Do you have a few minutes to discuss?"</div>' },
+          { title: 'No Answer', content: '<div class="script-box">"This is &lt;name&gt; from Nationwide Insurance calling on behalf of &lt;Sub-Agency Name&gt; regarding your request for a quote. We need additional information to complete your quote. Please give me a call back at &lt;agent direct number&gt; or reply to my email when you have a moment to speak"</div>' },
+          { content: 'Send no answer email template' },
+          { content: '<div class="critical-box">⚠️ <strong>CRITICAL:</strong> Use the name of the Sub-Agency, NOT "Smart Choice". The customers will not know who "Smart Choice" is.</div>' },
+          { title: 'TCPA Statement', content: '<div class="script-box">"Though your consent to receive a call is not required to make a purchase, Nationwide and its Agents may use automated technology to contact you for sales purposes. You may revoke consent at any time. Do you agree to receive such calls at the phone number you provided?"</div>' }
+        ]
+      },
+      'sc-cust-4': {
+        icon: '📝',
+        badge: 'GATHER',
+        title: 'Gather Information and Prepare Quote',
+        sections: [
+          { content: 'If call is answered, set up the account and be prepared to quote the account while on the phone with the customer.' },
+          { content: 'Full underwriting questions should be asked on the phone while quoting.' },
+          { content: 'If unable to quote by phone due to complexity, set an appointment to contact the customer back to present later that day.' }
+        ]
+      },
+      'sc-cust-5': {
+        icon: '💰',
+        badge: 'QUOTE',
+        title: 'Quote the Risk',
+        sections: [
+          { title: 'Agency Codes', content: 'Use the correct agency codes & producer for the partnership. Smart Choice New Business: Code 61650 & Producer: Ashley Wingate' },
+          { title: 'Workers Compensation', content: 'Owner Inclusion/Exclusion rules must be reviewed and documented at quote to ensure compliance including required forms are obtained prior to or shortly after bind.' }
+        ]
+      },
+      'sc-cust-6': {
+        icon: '🚫',
+        badge: 'DECLINE',
+        title: 'Ineligible Risks',
+        sections: [
+          { title: 'Pre-Customer Call', content: 'If risk can be determined ineligible prior to calling customer, email agent the Decline email template with reason.' },
+          { title: 'Post-Customer Call', content: 'If risk is ineligible for coverage with Nationwide, advise the customer by phone and advise that their agent ("Sub-Agent/Agency Name") may have other options and you will make them aware.' },
+          { content: 'Send agent the Decline email template and advise if you contacted the customer.' }
+        ]
+      },
+      'sc-cust-7': {
+        icon: '📬',
+        badge: 'PRESENT',
+        title: 'Present Quote',
+        sections: [
+          { content: 'Quotes should be presented to the customer fully when working directly with the customer.' },
+          { content: 'Present all base coverages including limits, deductibles, and a coverage example. For endorsements, at least one coverage must also be presented and explained.' },
+          { content: 'Ask customers if they have any additional questions on coverages or limits.' },
+          { content: 'Read all required statements prior to presenting a rate:' },
+          { title: 'Conditional Quote', content: '<div class="script-box">"All quotes are calculated based upon our current rates, and the information that you provide during the application process, supplemented by publicly available data. Any information provided or discovered at a later date could affect your rate and/or eligibility."</div>' },
+          { content: 'Present the rate to the customer and explain our payment options (Including monthly payment, REFT, etc.)' },
+          { content: '<strong>Ask for the sale & Handle objections</strong>' },
+          { content: 'If not sold, request to set a date to follow up with the customer' }
+        ]
+      },
+      'sc-cust-8': {
+        icon: '✅',
+        badge: 'BIND',
+        title: 'Bind',
+        sections: [
+          { content: '<div class="warning-box"><strong>Required:</strong> Read the Required Pre-Bind Statements (Privacy & Fraud) and then return here to proceed.</div>' },
+          { content: 'Make any final updates or corrections to the policy including:' },
+          { content: '• Updating Effective and Expiration Dates<br>• Updating Mailing/Billing Address' },
+          { content: '<div class="warning-box"><strong>Required:</strong> Read the Required Payment Statements and then return here to proceed.</div>' },
+          { content: 'Proceed to Issue the policy based on the payment options selected' },
+          { content: 'Once issued, download Application and Dec pages to be attached' },
+          { content: 'Send the Application DocuSign via PolicyCenter' },
+          { content: 'Advise customer of the NW Service Center and contact information for certificates or future needs.' },
+          { content: 'Customer may contact us directly if additional lines of business are needed in the future.' },
+          { title: 'Email', content: 'Send an email to the agent with the Bind template completed<br>Send a separate Bind email template to the Customer' },
+          { content: '<div class="critical-box">⚠️ <strong>CRITICAL:</strong> Ensure email is sent FROM CLSmart@nationwide.com for this partnership</div>' }
+        ]
+      },
+      'sc-cust-9': {
+        icon: '🎯',
+        badge: 'COMPLETE',
+        title: 'Pre-Renewal Direction',
+        sections: [
+          { content: 'A PRD must be set for each new account bound from the Account Summary Screen in Policy Center' },
+          { content: 'Choose Actions, then Pre-Renewal Direction, and fill in as follows:' },
+          { title: 'Direction', content: '"Refer to Customer Service Representative"' },
+          { title: 'Subject', content: '"Refer to CSR"' },
+          { title: 'Text (Copy/Paste)', content: '<div class="script-box">At renewal update agency code to 57850 please keep producer the same. This is part of transfer between agency codes that has been vetted by NSS with proper documentation. Please allow 57850 to service the policy prior to the agency code update at the upcoming renewal. POST BIND CONTACT: Contact CLInside@nationwide.com regarding any post-bind 1st term underwriting concerns prior to contacting primary listed agent due to this being sell-on-behalf business from the NSS CL Inside Sales team.</div>' }
+        ]
+      },
+      
+      // Smart Choice - Customer Additional Procedures
+      'sc-cust-aor': {
+        icon: '📄',
+        badge: 'PROCEDURES',
+        title: 'AOR/BOR Requests',
+        sections: [
+          { content: '✅ We can accept an AOR for Quotes' }
+        ]
+      },
+      'sc-cust-middle': {
+        icon: '🏢',
+        badge: 'PROCEDURES',
+        title: 'Middle Market',
+        sections: [
+          { content: 'Review with leader to determine if we may be able to get a SM exception.' },
+          { content: 'These may be referred to the Smart Choice contact for middle market using the middle market email template.' }
+        ]
+      },
+      'sc-cust-followup': {
+        icon: '🔄',
+        badge: 'PROCEDURES',
+        title: 'Follow Ups',
+        sections: [
+          { content: 'Follow up calls and emails should be made consistently on outstanding accounts.' },
+          { title: 'Pre-Quote', content: 'Make additional follow up call after initial call attempt (at least 1 suggested at this stage)' },
+          { title: 'Quote', content: '3 total follow ups over time should be made based upon customer reaction and timeline. (suggest no more than 1 week in between unless accurate effective date necessitates future calls)' }
+        ]
+      },
+      'sc-cust-templates': {
+        icon: '📋',
+        badge: 'PROCEDURES',
+        title: 'Email Templates',
+        sections: [
+          { title: 'SC Customer No Answer', content: 'Initial call attempt unsuccessful, email to ask them to call you back.' },
+          { title: 'SC Customer Quote Presentation', content: 'Proposal attached and contact information to call back to bind.' }
+        ]
+      },
+      
+      // KMA Insurance Group - Customer Contact (Steps 1-7)
+      'kma-1': {
+        icon: '📞',
+        badge: 'START',
+        title: 'Obtain New Lead - Inbound Call',
+        sections: [
+          { title: 'Greeting', content: '<div class="script-box">"Thanks for calling Nationwide on behalf of The KMA Insurance Group, this is &lt;name&gt; a licensed commercial agent, how may I help you?"</div>' },
+          { title: 'TCPA Statement', content: '<div class="script-box">"Though your consent to receive a call is not required to make a purchase, Nationwide and its Agents may use automated technology to contact you for sales purposes. You may revoke consent at any time. Do you agree to receive such calls at the phone number you provided?"</div>' }
+        ]
+      },
+      'kma-2': {
+        icon: '📝',
+        badge: 'GATHER',
+        title: 'Gather Information and Prepare Account',
+        sections: [
+          { content: 'Gather information from customer' },
+          { content: 'Search Veruna, Enter account and Contact' }
+        ]
+      },
+      'kma-3': {
+        icon: '💰',
+        badge: 'QUOTE',
+        title: 'Quote the Risk',
+        sections: [
+          { content: 'Quote the account while on the phone with the customer.' },
+          { title: 'Agency Codes', content: 'Use the correct agency codes & producer for the partnership. KMA Insurance Group NB: 62549' },
+          { title: 'Workers Compensation', content: 'Owner Inclusion/Exclusion rules must be reviewed and documented at quote to ensure compliance including required forms are obtained prior to or shortly after bind.' },
+          { content: 'If unable to quote by phone due to complexity, set an appointment to contact the customer back to present later that day. Ensure all needed information is gathered.' },
+          { content: 'If found to be ineligible right away, proceed to 6. Ineligible Risks' }
+        ]
+      },
+      'kma-4': {
+        icon: '📬',
+        badge: 'PRESENT',
+        title: 'Present Quote',
+        sections: [
+          { content: 'Quotes should be presented to the customer fully.' },
+          { content: 'Present all base coverages including limits, deductibles, and a coverage example. For endorsements, at least one coverage must also be presented and explained.' },
+          { content: 'Ask customers if they have any additional questions on coverages or limits.' },
+          { content: 'Read required statement prior to presenting a rate:' },
+          { title: 'Conditional Quote', content: '<div class="script-box">"All quotes are calculated based upon our current rates, and the information that you provide during the application process, supplemented by publicly available data. Any information provided or discovered at a later date could affect your rate and/or eligibility."</div>' },
+          { content: 'Present the rate to the customer and explain our payment options' },
+          { content: 'Discuss monthly payment, REFT, etc. (Billing fee per invoice if not on REFT)' },
+          { content: '<strong>Ask for the Sale & handle objections</strong>' },
+          { content: 'If not sold, request to set a date to follow up with the customer, email copy of quote' },
+          { content: 'If declined, customer can be directed to agency for possible other options (see Ineligible Risks)' }
+        ]
+      },
+      'kma-5': {
+        icon: '✅',
+        badge: 'BIND',
+        title: 'Bind',
+        sections: [
+          { content: '<div class="warning-box"><strong>Required:</strong> Read the Required Pre-Bind Statements (Privacy & Fraud) and then return here to proceed.</div>' },
+          { content: 'Make any final updates or corrections to the policy including:' },
+          { content: '• Updating Effective and Expiration Dates<br>• Updating Mailing/Billing Address' },
+          { content: '<div class="warning-box"><strong>Required:</strong> Read the Required Payment Statements and then return here to proceed.</div>' },
+          { content: 'Proceed to Issue the policy based on the payment options selected' },
+          { content: 'Once issued, download Application and Dec pages to be sent by email' },
+          { content: 'Send the Application DocuSign via PolicyCenter' },
+          { content: 'Advise customer of the NW Service Center and contact information for certificates or future needs.' },
+          { content: 'Customer may contact us directly if additional lines of business are needed in the future.' },
+          { content: 'Send an email to the customer and CC the agency' },
+          { content: '<div class="critical-box">⚠️ <strong>CRITICAL:</strong> Ensure email is sent FROM CLInside@nationwide.com for this partnership</div>' }
+        ]
+      },
+      'kma-6': {
+        icon: '🚫',
+        badge: 'DECLINE',
+        title: 'Ineligible Risks',
+        sections: [
+          { content: 'If risk is ineligible for coverage with Nationwide, advise the customer by phone that other options will be available and we can connect them with a representative directly at the agency to review additional options.' },
+          { title: 'Warm Transfer', content: 'Warm transfer the caller to: <strong>423-375-2370 (Jared Allen)</strong>' },
+          { content: 'Make the rep aware you are with the Nationwide Sell-On-Behalf program and we did not have an option for the customer.' },
+          { content: 'Make rep aware of any information you have gathered that may help them with the account.' },
+          { content: 'Email agency information on customer (if customer does not want to be transferred): <strong>quotes@kmainsurancegroup.com</strong>' }
+        ]
+      },
+      'kma-7': {
+        icon: '🎯',
+        badge: 'COMPLETE',
+        title: 'Pre-Renewal Direction',
+        sections: [
+          { content: 'A PRD must be set for each new account bound from the Account Summary Screen in Policy Center' },
+          { content: 'Choose Actions, then Pre-Renewal Direction, and fill in as follows:' },
+          { title: 'Direction', content: '"Refer to Customer Service Representative"' },
+          { title: 'Subject', content: '"Refer to CSR"' },
+          { title: 'Text (Copy/Paste)', content: '<div class="script-box">At renewal update agency code to 68159 please keep producer the same. This is part of transfer between agency codes that has been vetted by NSS with proper documentation. Please allow 68159 to service the policy prior to the agency code update at the upcoming renewal. POST BIND CONTACT: Contact CLInside@nationwide.com regarding any post-bind 1st term underwriting concerns prior to contacting primary listed agent due to this being sell-on-behalf business from the NSS CL Inside Sales team.</div>' }
+        ]
+      },
+      
+      // KMA Additional Info
+      'kma-scenario': {
+        icon: '📖',
+        badge: 'INFO',
+        title: 'Partnership Scenario',
+        sections: [
+          { content: 'Customers will receive a marketing email targeting their WC rates and offering a quote.' },
+          { content: 'Inside Sales will offer to quote their WC as well as other lines to package the account.' }
+        ]
+      },
+      'kma-details': {
+        icon: 'ℹ️',
+        badge: 'INFO',
+        title: 'Additional Partnership Details',
+        sections: [
+          { content: '<strong>KMA Insurance Group based in TN</strong>' },
+          { content: 'Also has locations in PA' },
+          { content: 'Named after owner Kyle Miller' },
+          { content: 'Website: KMA Insurance Group' }
+        ]
+      },
+      'kma-aor': {
+        icon: '📄',
+        badge: 'PROCEDURES',
+        title: 'AOR/BOR Requests',
+        sections: [
+          { content: '✅ We can accept an AOR for Quotes' },
+          { content: '⚠️ Active Policy AOR - Speak with Supervisor' }
+        ]
+      },
+      'kma-followup': {
+        icon: '🔄',
+        badge: 'PROCEDURES',
+        title: 'Follow Ups',
+        sections: [
+          { content: 'Follow up calls and emails should be made consistently on outstanding accounts.' },
+          { title: 'Quote', content: '3 total follow ups over time should be made based upon customer reaction and timeline. (suggest no more than 1 week in between unless accurate effective date necessitates future calls)' }
+        ]
+      },
+      'kma-templates': {
+        icon: '📋',
+        badge: 'PROCEDURES',
+        title: 'Email Templates',
+        sections: [
+          { title: 'SC Customer No Answer', content: 'Initial call attempt unsuccessful, email to ask them to call you back.' },
+          { title: 'SC Customer Quote Presentation', content: 'Proposal attached and contact information to call back to bind.' }
+        ]
+      },
+      
+      // Privacy Statements
+      'privacy-all': {
+        icon: '🔒',
+        badge: 'STATEMENT',
+        title: 'Privacy Statement - All Other States',
+        sections: [
+          { content: '<div class="script-box">"Nationwide has a privacy policy to protect your personal information, which is available upon request. To offer you the quote you requested and for any policy renewal, we may verify loss history and use consumer reports, including credit reports where permitted by law. A third party may be used in the development of a credit-based insurance score. You have the right to review your personal information in our files and can request correction of any inaccuracies."</div>' }
+        ]
+      },
+      'privacy-ca': {
+        icon: '🔒',
+        badge: 'STATEMENT',
+        title: 'Privacy Statement - California',
+        sections: [
+          { content: '<div class="script-box">"Nationwide has a privacy policy to protect your personal information, which is available upon request. To offer you the quote you requested and for any policy renewal, we may verify loss history and use consumer reports for you and any individuals listed in the application. You have the right to review your personal information in our files and can request a correction of any inaccuracies. We will, upon your request, reevaluate you based on corrected information from a consumer reporting agency."</div>' }
+        ]
+      },
+      'privacy-vt': {
+        icon: '🔒',
+        badge: 'STATEMENT',
+        title: 'Privacy Statement - Vermont',
+        sections: [
+          { content: '<div class="script-box">"Nationwide has a privacy policy to protect your personal information, which is available upon request. You have the right to review your personal information in our files and can request correction of any inaccuracies. We will, upon request, re-evaluate you based on corrected credit information from a consumer reporting agency. To offer you the quote you requested and for any policy renewal, we may verify loss history and use consumer reports, including credit reports where permitted by law, for you and any individuals listed in the application. A third party may be used in the development of a credit-based insurance score. Do I have your permission to proceed?"</div>' }
+        ]
+      },
+      
+      // Fraud Statements (abbreviated - would need full version for all states)
+      'fraud-all': {
+        icon: '⚠️',
+        badge: 'STATEMENT',
+        title: 'Fraud Statement - All Other States',
+        sections: [
+          { content: '<div class="script-box">"Any person who knowingly presents a false or fraudulent claim for payment of a loss or benefit or knowingly presents false information in an application for insurance is guilty of a crime and may be subject to fines and confinement in prison."</div>' }
+        ]
+      },
+      'fraud-states': {
+        icon: '⚠️',
+        badge: 'STATEMENT',
+        title: 'Fraud Statements - State Specific',
+        sections: [
+          { content: '<div class="script-box"><strong>AL:</strong> Any person who knowingly presents a false or fraudulent claim for payment of a loss or benefit or who knowingly presents false information in an application for insurance is guilty of a crime and may be subject to restitution fines or confinement in prison, or any combination thereof.</div>' },
+          { content: '<div class="script-box"><strong>AR:</strong> Any person who knowingly presents a false or fraudulent claim for payment of a loss or benefit or knowingly presents false information in an application for insurance is guilty of a crime and may be subject to fines and confinement in prison.</div>' },
+          { content: '<div class="script-box"><strong>CO:</strong> It is unlawful to knowingly provide false, incomplete, or misleading facts or information to an insurance company for the purpose of defrauding or attempting to defraud the company. Penalties may include imprisonment, fines, denial of insurance, and civil damages. Any insurance company or agent of an insurance company who knowingly provides false, incomplete, or misleading facts or information to a policyholder or claimant for the purpose of defrauding or attempting to defraud the policyholder or claimant with regard to a settlement or award payable from insurance proceeds shall be reported to the Colorado division of insurance within the department of regulatory agencies.</div>' },
+          { content: '<div class="script-box"><strong>DC:</strong> WARNING: It is a crime to provide false or misleading information to an insurer for the purpose of defrauding the insurer or any other person. Penalties include imprisonment and/or fines. In addition, an insurer may deny insurance benefits, if false information materially related to a claim was provided by the applicant.</div>' },
+          { content: '<div class="script-box"><strong>FL:</strong> Any person who knowingly and with intent to injure, defraud, or deceive any insurer files a statement of claim or an application containing any false, incomplete, or misleading information is guilty of a felony of the third degree.</div>' },
+          { content: '<div class="script-box"><strong>KY:</strong> Any person who knowingly and with intent to defraud any insurance company or other person files an application for insurance containing any materially false information or conceals, for the purpose of misleading, information concerning any fact material thereto commits a fraudulent insurance act, which is a crime.</div>' },
+          { content: '<div class="script-box"><strong>ME:</strong> It is a crime to knowingly provide false, incomplete or misleading information to an insurance company for the purpose of defrauding the company. Penalties may include imprisonment, fines or a denial of insurance benefits.</div>' },
+          { content: '<div class="script-box"><strong>MD:</strong> Any person who knowingly or willfully presents a false or fraudulent claim for payment of a loss or benefit or who knowingly or willfully presents false information in an application for insurance is guilty of a crime and may be subject to fines and confinement in prison.</div>' },
+          { content: '<div class="script-box"><strong>NJ (Commercial Auto):</strong> Any person who knowingly makes an application for motor vehicle insurance coverage containing any statement that the applicant resides or is domiciled in this state when, in fact, that applicant resides or is domiciled in a state other than this state, is subject to civil and criminal penalties. Any person who includes any false or misleading information on an application for an insurance policy is subject to criminal and civil penalties.</div>' },
+          { content: '<div class="script-box"><strong>NJ (Other Commercial Lines):</strong> Any person who knowingly makes an application for insurance coverage containing any statement that the applicant resides or is domiciled in this state when, in fact, that applicant resides or is domiciled in a state other than this state, is subject to civil and criminal penalties. Any person who includes any false or misleading information on an application for an insurance policy is subject to criminal and civil penalties.</div>' },
+          { content: '<div class="script-box"><strong>NM:</strong> Any person who knowingly presents a false or fraudulent claim for payment of a loss or benefit or knowingly presents false information in an application for insurance is guilty of a crime and may be subject to civil fines and criminal penalties.</div>' },
+          { content: '<div class="script-box"><strong>NY (Commercial Auto):</strong> Any person who knowingly and with intent to defraud any insurance company or other person files an application for commercial insurance or a statement of claim for any commercial or personal insurance benefits containing any materially false information, or conceals for the purpose of misleading, information concerning any fact material thereto, and any person who, in connection with such application or claim, knowingly makes or knowingly assists, abets, solicits or conspires with another to make a false report of the theft, destruction, damage or conversion of any motor vehicle to a law enforcement agency, the department of motor vehicles or an insurance company commits a fraudulent insurance act, which is a crime, and shall also be subject to a civil penalty not to exceed five thousand dollars and the value of the subject motor vehicle or stated claim for each violation.</div>' },
+          { content: '<div class="script-box"><strong>NY (Other Commercial Lines):</strong> Any person who knowingly and with intent to defraud any insurance company or other person files an application for insurance or statement of claim containing any materially false information, or conceals for the purpose of misleading, information concerning any fact material thereto, commits a fraudulent insurance act, which is a crime and shall also be subject to a civil penalty not to exceed five thousand dollars and the stated value of the claim for each such violation.</div>' },
+          { content: '<div class="script-box"><strong>OH:</strong> Any person who, with intent to defraud or knowing that they are facilitating a fraud against an insurer, submits an application or files a claim containing a false or deceptive statement is guilty of insurance fraud.</div>' },
+          { content: '<div class="script-box"><strong>OK:</strong> WARNING: Any person who knowingly, and with intent to injure, defraud or deceive any insurer, makes any claim for the proceeds of an insurance policy containing any false, incomplete or misleading information is guilty of a felony.</div>' },
+          { content: '<div class="script-box"><strong>OR:</strong> Any person who makes an intentional misstatement that is material to the risk may be found guilty of insurance fraud by a court of law. Any person who, with intent to defraud or knowing that he is facilitating a fraud against an insurer, submits an application or files a claim containing a false or deceptive statement may be guilty of insurance fraud. (In this statement the &quot;intent&quot; and &quot;may be guilty&quot; could make it acceptable even though the &quot;false or deceptive statement&quot; is not identified as material.) Willfully falsifying material facts on an application or claim may subject you to criminal penalties. Any person who knowingly and with intent to defraud or solicit another to defraud an insurer: (1) by submitting an application, or (2) by filing a claim containing a false statement as to any material fact, may be violating state law.</div>' },
+          { content: '<div class="script-box"><strong>PA (Commercial Auto):</strong> Any person who knowingly and with intent to injure or defraud any insurer files an application or claim containing any false, incomplete or misleading information shall, upon conviction, be subject to imprisonment for up to seven years and payment of a fine of up to 15,000 dollars.</div>' },
+          { content: '<div class="script-box"><strong>PA (Other Commercial Lines):</strong> Any person who knowingly and with intent to defraud any insurance company or other person files an application for insurance or statement of claim containing any materially false information or conceals for the purpose of misleading, information concerning any fact material thereto commits a fraudulent insurance act, which is a crime and subjects such person to criminal and civil penalties.</div>' },
+          { content: '<div class="script-box"><strong>RI:</strong> Any person who knowingly presents a false or fraudulent claim for payment of a loss or benefit or knowingly presents false information in an application for insurance is guilty of a crime and may be subject to fines and confinement in prison.</div>' },
+          { content: '<div class="script-box"><strong>TN (Workers&#39; Compensation):</strong> It is a crime to knowingly provide false, incomplete or misleading information to any party to a workers&#39; compensation transaction for the purpose of committing fraud. Penalties include imprisonment, fines and denial of insurance benefits.</div>' },
+          { content: '<div class="script-box"><strong>TN (Other Commercial Lines):</strong> It is a crime to knowingly provide false, incomplete or misleading information to an insurance company for the purpose of defrauding the company. Penalties may include imprisonment, fines or a denial of insurance benefits.</div>' },
+          { content: '<div class="script-box"><strong>UT:</strong> Any person who knowingly presents false or fraudulent underwriting information, files or causes to be filed a false or fraudulent claim for disability compensation or medical benefits, or submits a false or fraudulent report or billing for health care fees or other professional services is guilty of a crime and may be subject to fines and confinement in state prison.</div>' },
+          { content: '<div class="script-box"><strong>VA:</strong> It is a crime to knowingly provide false, incomplete or misleading information to an insurance company for the purpose of defrauding the company. Penalties may include imprisonment, fines or a denial of insurance benefits.</div>' },
+          { content: '<div class="script-box"><strong>WA:</strong> It is a crime to knowingly provide false, incomplete, or misleading information to an insurance company for the purpose of defrauding the company. Penalties include imprisonment, fines, and denial of insurance benefits.</div>' },
+          { content: '<div class="script-box"><strong>WV:</strong> Any person who knowingly presents a false or fraudulent claim for payment of a loss or benefit or knowingly presents false information in an application for insurance is guilty of a crime and may be subject to fines and confinement in prison.</div>' }
+        ]
+      },
+      
+      // Payment Statements
+      'payment-cc': {
+        icon: '💳',
+        badge: 'PAYMENT',
+        title: 'Down Payment by Credit Card',
+        sections: [
+          { content: '<div class="script-box">"Nationwide is invested in protecting your payment information. We now accept credit card payments through a separate, secure system that does not require you to verbally share your card information over the phone. With this process, you will enter your VISA, Mastercard or American express credit card number via touchtone when prompted. I will then request your expiration date and submit your payment."</div>' }
+        ]
+      },
+      'payment-installment': {
+        icon: '📋',
+        badge: 'PAYMENT',
+        title: 'Installment Fee Disclosure',
+        sections: [
+          { content: '<div class="script-box">"The price quoted includes setting up a recurring checking or savings draft for future payments. Without recurring drafts for future billings a Service Charge of up to $8.00 per future billing would be added. The fee amount varies per state. Do you have your banking information available?"</div>' }
+        ]
+      },
+      'payment-eft-onetime': {
+        icon: '🏦',
+        badge: 'PAYMENT',
+        title: 'One-Time EFT Authorization',
+        sections: [
+          { content: '<div class="warning-box">⚠️ <strong>First, ask:</strong> "Are you an authorized signer on, or otherwise authorized to transact in, this bank account?" (Proceed only if "Yes")</div>' },
+          { content: '<div class="script-box">"I want to advise you &lt;insert name of person authorized to transact&gt;, that your oral authorization obtained today, &lt;insert month, date and year&gt;, will be used to originate a one-time Automated Clearing House debit entry in the amount of &lt;insert dollar amount&gt; to &lt;insert business name&gt;\'s bank account ending in XXXX &lt;insert last four digits of account number&gt;.<br><br>This amount will be deducted from this bank account on or after &lt;insert today\'s date&gt;.<br><br>If any debit request by Nationwide for payment is declined, a fee may be charged. In that event, this authorization also permits Nationwide to electronically deduct a one-time fee from the same bank account for each declined payment in an amount permitted by law.<br><br>You also authorize Nationwide to initiate credit entries to this bank account for any refunds, credits, payments or other amounts at any time due from Nationwide to &lt;insert business name&gt;, and to electronically debit or credit this account for corrections, as necessary.<br><br>Each of Nationwide and &lt;insert business name&gt; agrees to be bound by NACHA Operating Rules and acknowledges that the origination of ACH transactions to this account must comply with applicable U.S. law.<br><br>If you need assistance regarding this authorization or wish to take action to revoke this authorization, please contact us at 888-508-8622."</div>' }
+        ]
+      },
+      'payment-eft-recurring': {
+        icon: '🏦',
+        badge: 'PAYMENT',
+        title: 'Recurring EFT Authorization',
+        sections: [
+          { content: '<div class="warning-box">⚠️ <strong>First, ask:</strong> "Are you an authorized signer on, or otherwise authorized to transact in, this bank account?" (Proceed only if "Yes")</div>' },
+          { content: '<div class="script-box">"I want to advise you that your oral authorization obtained today, &lt;insert month, date and year&gt;, will be used by Nationwide to originate recurring Automated Clearing House debit entries, to the bank account ending in XXXX &lt;insert last four digits of account number&gt;, each in the amount of the payment due as specified on the billing statement.<br><br>This amount will be deducted from this bank account no earlier than each due date listed on the billing statement.<br><br>If any debit request by Nationwide for payment is declined, a fee may be charged. In that event, this authorization also permits Nationwide to electronically deduct a one-time fee from the same bank account for each declined payment in an amount permitted by law.<br><br>You also authorize Nationwide to initiate credit entries to this bank account for any refunds, credits, payments or other amounts at any time due from Nationwide to &lt;insert business name&gt;, and to electronically debit or credit this account for corrections, as necessary.<br><br>Each of Nationwide and &lt;insert business name&gt; agrees to be bound by NACHA Operating Rules and acknowledges that the origination of ACH transactions to this account must comply with applicable U.S. law.<br><br>If you need assistance regarding this authorization or wish to revoke this authorization, please contact us at 888-508-8622."</div>' }
+        ]
+      },
+      
+      // Veruna/Salesforce
+      'veruna-accounts': {
+        icon: '🏢',
+        badge: 'VERUNA',
+        title: 'Account Management',
+        sections: [
+          { title: 'Customer Accounts', content: 'All new leads should be tracked in Veruna after searching to locate possible existing accounts. All Inside Sales leads should have their own account, ignore any CL Direct accounts for the same customer. All new accounts are to be "Business Account - Suspect/Prospect" type.' },
+          { title: 'Account Name', content: 'Individual: First & Last Name<br>Corp/LLC: Business Name (Include LLC or Inc at end)<br>DBA: Include if applicable' },
+          { title: 'Key Fields', content: 'Branch: Inside Sales<br>Department: Commercial<br>Profit Center: Choose correct partnership<br>Type: Prospect<br>Primary P&C Producer: Your name' },
+          { title: 'Agency Accounts', content: 'All agencies should have an Agency Account created to be linked to the Contact profile. Type: Vendor / Sub-Producer / Finance Company. Vendor Type: Sub-Producer' }
+        ]
+      },
+      'veruna-contacts': {
+        icon: '👥',
+        badge: 'VERUNA',
+        title: 'Contact Management',
+        sections: [
+          { title: 'Agent Contacts', content: 'Name: First and Last name<br>Account: Link to Agency account<br>Primary Role: Sub Agent<br>Email & Phone: Required<br>TCPA: Choose Unknown (not needed for agents)<br>Mailing Address: Enter agent state if known' },
+          { title: 'Customer Contacts', content: 'Name: First and Last name<br>Account: Link to Business account<br>Level: Select Primary for main contact (Only 1 primary per account)<br>Primary Role: Business Owner or Business Contact<br>TCPA: Follow TCPA guidelines (update once asked)' },
+          { title: 'Key Codes', content: 'Add to Last Name field:<br>(+FL) - Agent based in another state but verified to write in FL' }
+        ]
+      },
+      'veruna-activities': {
+        icon: '📋',
+        badge: 'VERUNA',
+        title: 'Activities & Tasks',
+        sections: [
+          { content: 'Activities and Tasks are required throughout the quoting process. All phone calls (and most email interactions) must be documented as an Activity. Any information gathered by phone must be documented in Veruna.' },
+          { title: 'Subject Types', content: 'Choose Email or Call' },
+          { title: 'Activity Types', content: '• <strong>Bind</strong> - Policy Bind Notes<br>• <strong>Follow Up</strong> - Contact post-quote only<br>• <strong>Information Gathering</strong> - Prior to quote<br>• <strong>Initial Call Attempt</strong> - Cold call, no answer<br>• <strong>Initial Call Complete</strong> - Cold call with answer<br>• <strong>Inquiry</strong> - Not related to active quote<br>• <strong>Quote</strong> - Quote presentation call<br>• <strong>Other</strong> - Catch-all' },
+          { title: 'Status', content: 'Open = Task (To-Do Item)<br>Complete = Activity (Completed action)' },
+          { content: '<div class="warning-box">⚠️ <strong>Important:</strong> Activities should not be changed after creation (point-in-time documentation). Tasks must be edited with comments before marking Complete. Do not re-use Tasks - create new ones for subsequent actions.</div>' }
+        ]
+      },
+      'veruna-policies': {
+        icon: '📄',
+        badge: 'VERUNA',
+        title: 'Policy Tracking',
+        sections: [
+          { content: 'All new leads, quotes, and binds must be tracked via a policies object in Veruna. All new policies: Type = Prospective CL' },
+          { title: 'Required Fields', content: '• Policy/Coverage Type: Choose Line of Business (NOT Commercial Package - separate GL and CP)<br>• Account: Link to correct account<br>• Primary Producer: Your name<br>• Policy: Enter "1" (required before Save)' },
+          { title: 'Status Updates', content: '• <strong>Information Gathering:</strong> Initial lead, not yet quoted<br>• <strong>Submitted to Carrier:</strong> Quote in progress<br>• <strong>Proposal:</strong> Quote complete and presented<br>• <strong>Not Written (Not Sold):</strong> Quote eligible but not bound<br>• <strong>Written (Sold):</strong> Policy has been bound<br>• <strong>Decline:</strong> Risk is ineligible' },
+          { title: 'Reason Field', content: 'Choose when moving to Not Written or Decline. Use broadest reason that applies: (1) Insurance History (2) New Venture (3) Business Classification (4) Business Operation' },
+          { content: '<div class="warning-box">⚠️ <strong>Before Bind Must Enter:</strong> Policy Number, Initial Premium Amount, Effective & Expiration Dates, Billing Company</div>' }
+        ]
+      },
+      
+      // Rules of Engagement
+      'roe-in-office': {
+        icon: '✅',
+        badge: 'ROE',
+        title: 'Assigned Agent In Office',
+        sections: [
+          { content: 'Assigned Agent should be sent all email and calls for the accounts they are actively working on.' },
+          { content: 'If the Assigned Agent is temporarily unavailable but not out of office, the Assisting Agent should help if immediate assistance is needed, while Assigned Agent retains credit.' }
+        ]
+      },
+      'roe-out-office': {
+        icon: '🏖️',
+        badge: 'ROE',
+        title: 'Assigned Agent Out of Office',
+        sections: [
+          { title: 'Assigned Agent Retains Credit When:', content: '• Assigned Agent tracked a policy (lead) in Salesforce for that line of business<br>• Assigned Agent has notated the account (including status, next steps, contacts)<br>• <em>Note: Auto Declines do not count as a Quote</em>' },
+          { title: 'Assisting Agent May Receive Credit For:', content: '• A quote for that Line of Business has not been tracked by the Assigned Agent<br>• Assisting Agent offers and quotes additional lines of business not quoted by the Assigned Agent' }
+        ]
+      },
+      'roe-departed': {
+        icon: '👤',
+        badge: 'ROE',
+        title: 'Assigned Agent No Longer with NSS',
+        sections: [
+          { content: 'Assisting Agent will take the account.' },
+          { content: 'Update Veruna/Salesforce to reflect new Primary Producer' },
+          { content: 'Review all notes and status to ensure continuity of service' }
+        ]
+      },
+      'roe-definitions': {
+        icon: '📖',
+        badge: 'ROE',
+        title: 'Key Definitions',
+        sections: [
+          { title: 'Assigned Agent', content: 'Agent listed as primary producer on policy records (or the primary producer on the account if no quotes have been tracked, or has the most recent notes regarding working a quote if the listed producer is no longer with NSS)' },
+          { title: 'Assisting Agent', content: 'The agent who receives the lead email and/or call for an Assigned Agents account' },
+          { title: 'Credit', content: 'The agent who will remain as the "Primary Producer" on the policy record' },
+          { title: 'Out of Office', content: 'An agent is considered "Out of Office" if they are scheduled off for more than 2 hours and they will not be returning later in the day. <strong>Lunch is not considered "Out of Office"</strong>' }
+        ]
+      },
+      'roe-overview': {
+        icon: 'ℹ️',
+        badge: 'ROE',
+        title: 'Overview & Objective',
+        sections: [
+          { title: 'Objective', content: 'To provide the best customer service and solutions to our agents and customers through excellent teamwork. Regardless of who is assisting them, Assigned Agents should generally retain credit for the quotes and relationships formed with agents when out of the office, while allowing Assisting Agents to receive credit for their work in certain circumstances.' },
+          { title: 'Updates and Changes', content: 'This policy is subject to change as new situations are encountered. Unclear situations will be decided by the supervisor and updated in this process.' },
+          { title: 'Expectations', content: 'If an agent is out of the office, it is expected others will assist with those accounts regardless of whether they will receive credit for the quote or bind. Customers should receive the same service regardless of who is assisting them at the time.' }
+        ]
+      }
     };
 
     function openModal(key) {
       const modal = document.getElementById('modal');
       const data = modalData[key];
+      
       if (!data) return;
-
+      
       document.getElementById('modal-icon').textContent = data.icon;
       document.getElementById('modal-title').textContent = data.title;
-
+      
       const badge = document.getElementById('modal-badge');
       badge.textContent = data.badge;
-
+      
       const body = document.getElementById('modal-body');
       body.innerHTML = data.sections.map(section => {
         if (section.title) {
-          return `<div class="modal-section">
-                    <div class="modal-section-title">${section.title}</div>
-                    <div class="modal-section-content">${section.content}</div>
-                  </div>`;
+          return `<div class="modal-section"><div class="modal-section-title">${section.title}</div><div class="modal-section-content">${section.content}</div></div>`;
         } else {
-          return `<div class="modal-section">
-                    <div class="modal-section-content">${section.content}</div>
-                  </div>`;
+          return `<div class="modal-section"><div class="modal-section-content">${section.content}</div></div>`;
         }
       }).join('');
-
+      
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
 
     function closeModal(event) {
-      if (event && event.target.classList && event.target.classList.contains('modal-content')) return;
+      if (event && event.target.classList.contains('modal-content')) {
+        return;
+      }
       document.getElementById('modal').classList.remove('active');
       document.body.style.overflow = 'auto';
     }
 
     function scrollToSection(id) {
       const element = document.getElementById(id);
-      if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
 
+    /*
+      Toggle the Smart Choice tabs. This helper hides all tab contents,
+      clears the active state from all tab buttons, then activates the
+      selected tab and its corresponding content. It should be bound to
+      the onclick handler of each tab button.
+    */
     function showSmartChoiceTab(type, btn) {
-      document.querySelectorAll('.sc-tab-content').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.sc-tab').forEach(tab => tab.classList.remove('active'));
-
-      const content = document.getElementById('sc-' + type);
-      if (content) content.classList.add('active');
-      if (btn) btn.classList.add('active');
+      // Hide all tab contents
+      document.querySelectorAll('.sc-tab-content').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      // Deactivate all tabs
+      document.querySelectorAll('.sc-tab').forEach(function(tab) {
+        tab.classList.remove('active');
+      });
+      // Show selected content
+      var content = document.getElementById('sc-' + type);
+      if (content) {
+        content.classList.add('active');
+      }
+      // Mark clicked tab as active
+      if (btn) {
+        btn.classList.add('active');
+      }
     }
 
+    // Alert for search link in the top bar
     function searchAlert() {
       alert('Use Ctrl+F or your browser\'s search feature to find content on this page.');
     }
