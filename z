@@ -1,1 +1,266 @@
 s
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AI Tips & Prompts – Agent Training (v2)</title>
+<style>
+  :root{
+    --bg:#0f172a;          /* slate-900 */
+    --card:#111827;        /* gray-900 */
+    --accent:#22d3ee;      /* cyan-400 */
+    --text:#f8fafc;        /* slate-50 */
+    --muted:#cbd5e1;       /* slate-300 */
+    --border:#1f2937;      /* gray-800 */
+    --btn:#0ea5e9;         /* sky-500 */
+    --btn-hover:#0284c7;   /* sky-600 */
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+  .wrap{max-width:1100px;margin:0 auto;padding:24px}
+  h1{font-size:1.5rem;margin:0 0 16px 0}
+  p.lead{color:var(--muted);margin:0 0 16px 0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;display:flex;flex-direction:column}
+  .card h2{font-size:1rem;margin:0 0 8px 0;color:var(--accent)}
+  .card p{font-size:.9rem;margin:0 0 10px 0;color:var(--muted)}
+  .prompt{
+    width:100%;min-height:120px;resize:vertical;
+    background:#0b1220;color:var(--text);border:1px solid var(--border);
+    border-radius:8px;padding:10px;font:13px/1.4 ui-monospace,Consolas,Monaco,Menlo,monospace
+  }
+  .row{display:flex;gap:8px;margin-top:10px}
+  button.copy{
+    cursor:pointer;background:var(--btn);border:0;border-radius:8px;
+    color:white;padding:8px 10px;font-weight:600;font-size:.85rem
+  }
+  button.copy:hover{background:var(--btn-hover)}
+  .tiny{font-size:.75rem;color:var(--muted);margin-top:8px}
+  .footer{margin-top:20px;color:var(--muted);font-size:.85rem}
+  .links{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:0 0 22px 0}
+  .linkcard{ text-decoration:none;background:#111827;border:1px solid #1f2937;color:#f8fafc;padding:14px;border-radius:12px;display:block }
+  .linkcard .title{font-weight:700;color:#22d3ee;margin-bottom:6px}
+  .linkcard .desc{font-size:.9rem;color:#cbd5e1}
+  .banner{background:#0ea5e9;color:white;padding:24px;border-radius:14px;margin-bottom:22px}
+  .banner h1{margin:0;font-size:1.8rem;font-weight:700}
+  .quick{background:#111827;color:#f8fafc;padding:18px 20px;border:1px solid #1f2937;border-radius:12px;margin-bottom:26px}
+  .quick h2{margin:0 0 10px 0;color:#22d3ee;font-size:1.3rem}
+  .perso{background:#0f172a;color:#f8fafc;padding:20px;border-radius:12px;border:1px solid #1f2937;margin-bottom:26px}
+  .perso h2{margin:0 0 12px 0;color:#22d3ee;font-size:1.3rem}
+  .perso textarea{width:100%;min-height:260px;background:#0b1220;color:#f8fafc;border:1px solid #1f2937;border-radius:10px;padding:12px;font:13px/1.5 ui-monospace,Consolas,Monaco,monospace;resize:vertical}
+</style>
+</head>
+<body>
+<div class="wrap" role="region" aria-label="AI Tips and Prompts">
+
+  <!-- Banner -->
+  <div class="banner">
+    <h1>AI Tips & Prompts — Agent Training</h1>
+    <p style="margin:10px 0 0 0;font-size:1rem;opacity:0.95;">Practical, call‑ready AI guidance tailored for Inside Sales: underwriting questions, checklists, forms, CLNSS formatting, coverage summaries, and professional email support.</p>
+  </div>
+
+  <!-- Quick View -->
+  <div class="quick">
+    <h2>Quick View: What This Section Helps You Do</h2>
+    <ul style="margin:0;padding-left:20px;font-size:0.95rem;line-height:1.5;">
+      <li>Create clean agent‑ready <strong>email checklists</strong> with Yes/No fields.</li>
+      <li>Generate simple <strong>underwriting question forms</strong> for WC, Auto, BOP, GL & Property.</li>
+      <li>Extract ACORD/email/PDF data into <strong>Salesforce‑ready CLNSS format</strong>.</li>
+      <li>Identify correct <strong>SIC/NAICS and class codes</strong> with appetite notes.</li>
+      <li>Produce <strong>coverage summaries</strong> & <strong>side-by-side comparisons</strong>.</li>
+      <li>Rewrite emails for <strong>professional, clear communication</strong>.</li>
+      <li>Draft <strong>neutral, compliant declination statements</strong>.</li>
+      <li>Pull all data into clean, organized, easy‑to‑copy blocks.</li>
+    </ul>
+  </div>
+
+  <!-- Quick Links Row -->
+  <div class="links">
+    <a class="linkcard" href="https://agentcenter.nationwide.com/" target="_blank" rel="noopener">
+      <div class="title">Agent Center</div>
+      <div class="desc">Agent-facing workflows, appetite & servicing guidance.</div>
+    </a>
+    <a class="linkcard" href="https://policycenter.nationwide.com/" target="_blank" rel="noopener">
+      <div class="title">PolicyCenter (CL)</div>
+      <div class="desc">Policy lifecycle steps, endorsements & servicing.</div>
+    </a>
+    <a class="linkcard" href="https://clearquote.apps.nwie.net/account/information" target="_blank" rel="noopener">
+      <div class="title">ClearQuote</div>
+      <div class="desc">Quote setup & readiness; prepare data for rating.</div>
+    </a>
+    <a class="linkcard" href="https://www.myworkday.com/nationwide/d/inst/13102!CK5mGhIKBggDEMenAhIICgYI1A0QmQE~*mMeOGB47owk~/cacheable-task/12709$14.htmld" target="_blank" rel="noopener">
+      <div class="title">Time Entry (Workday)</div>
+      <div class="desc">Enter or review your current time card.</div>
+    </a>
+  </div>
+
+  <!-- Personalization Tip -->
+  <div class="perso">
+    <h2>Tip: Set Up Copilot Personalization (Use This Instructions Block)</h2>
+    <p style="margin:0 0 8px 0;font-size:0.95rem;color:#cbd5e1;">Paste the following into your Copilot Personalization settings to ensure responses align with Inside Sales, CLNSS, underwriting, and quoting workflows.</p>
+    <textarea aria-label="Copilot Personalization Prompt">I am an Inside Sales Agent supporting Nationwide Commercial Lines.
+
+My work involves:
+- Lead intake and qualification
+- Quoting and binding commercial policies
+- Managing opportunities in Salesforce (CLNSS)
+- Using ClearQuote for quote setup and readiness
+- Using PolicyCenter (Commercial Lines) for policy lifecycle steps
+- Using Agent Center for agent-facing workflows and servicing guidance
+- Using SharePoint resources and NWPC Knowledge
+
+When answering sales, quoting, underwriting, or policy questions:
+- Use Nationwide systems and Microsoft 365 content I have access to
+- Identify which system the answer is based on (CLNSS, ClearQuote, PolicyCenter, Agent Center, SharePoint)
+- If required information is not accessible, say so instead of guessing
+- Keep responses concise, practical, and usable during live sales calls
+- Provide step-by-step guidance, checklists, talk tracks, or email templates
+
+When creating a form, format, template, checklist, procedure, or workflow:
+- Present it in checklist or bullet‑point style
+- Keep content simple, clear, and easy to follow
+- Use step‑by‑step flow when appropriate
+- Prioritize readability and actionability (usable during calls, quoting, or Salesforce work)</textarea>
+    <p style="margin-top:10px;font-size:0.85rem;color:#cbd5e1;">Tip: Update these personalization settings every few months as processes evolve or systems change.</p>
+  </div>
+
+  <h1>Agent Training: AI Tips & Prompts</h1>
+  <p class="lead">Copy any prompt below (use the button or select from the box). These are optimized for client-facing and underwriting support.</p>
+
+  <div class="grid">
+    <!-- 1. Email Checklists -->
+    <section class="card" data-title="Email Checklist (Agent)">
+      <h2>1) Email Checklist (Agent)</h2>
+      <p>Creates a concise email with Yes/No items and short fill-ins.</p>
+      <textarea class="prompt" aria-label="Email Checklist Prompt">Create a professional email with a clean yes/no checklist using the information below. Keep it concise, agent‑friendly, and ready to send. Include clear spacing, bullet points, and simple underwriting questions.</textarea>
+      <div class="row">
+        <button class="copy" aria-label="Copy prompt">Copy</button>
+      </div>
+      <div class="tiny">Tip: Paste your case details under the checklist in the same email.</div>
+    </section>
+
+    <!-- 2. Underwriting Form Creation -->
+    <section class="card" data-title="Underwriting Question Form">
+      <h2>2) Underwriting Question Form</h2>
+      <p>Turns rough notes into a simple, call-friendly form.</p>
+      <textarea class="prompt" aria-label="Underwriting Question Form Prompt">Convert this information into a simple underwriting question form. Use clear bullet points, checkboxes, and short prompts. Format it so an agent can easily complete it during a call.</textarea>
+      <div class="row">
+        <button class="copy" aria-label="Copy prompt">Copy</button>
+      </div>
+      <div class="tiny">Use for WC, Auto, BOP, GL, Property, or specialty risks.</div>
+    </section>
+
+    <!-- 3. Salesforce / CLNSS Data Extraction -->
+    <section class="card" data-title="Salesforce/CLNSS Extraction">
+      <h2>3) Salesforce / CLNSS Extraction</h2>
+      <p>Extracts ACORD/email/PDF details into clean text for CLNSS.</p>
+      <textarea class="prompt" aria-label="Salesforce Extraction Prompt">Extract all insured, location, vehicle, driver, and coverage details from this document and return everything in a clean, Salesforce‑ready text format. Use labels, line breaks, and logical field order for fast data entry.</textarea>
+      <div class="row">
+        <button class="copy" aria-label="Copy prompt">Copy</button>
+      </div>
+      <div class="tiny">Paste directly into your CLNSS notes or fields.</div>
+    </section>
+
+    <!-- 4. Class Codes & Eligibility -->
+    <section class="card" data-title="Class Codes & Eligibility">
+      <h2>4) Class Codes & Eligibility</h2>
+      <p>Gets SIC/NAICS and GL/WC classes with quick appetite notes.</p>
+      <textarea class="prompt" aria-label="Class Codes Prompt">Based on this business description, provide the correct SIC/NAICS and GL/WC class codes using publicly available info. Include eligibility concerns, typical exposures, and underwriting red flags.</textarea>
+      <div class="row">
+        <button class="copy" aria-label="Copy prompt">Copy</button>
+      </div>
+      <div class="tiny">Add the business description below the prompt.</div>
+    </section>
+
+    <!-- 5. Coverage Summary -->
+    <section class="card" data-title="Coverage Summary (Client-Friendly)">
+      <h2>5) Coverage Summary (Client‑Friendly)</h2>
+      <p>Summarizes coverages, limits, endorsements, and gaps.</p>
+      <textarea class="prompt" aria-label="Coverage Summary Prompt">Summarize all major coverages and limits from this policy in a clear, client‑friendly bullet list. Include main limits, key endorsements, and any obvious coverage gaps or missing protections.</textarea>
+      <div class="row">
+        <button class="copy" aria-label="Copy prompt">Copy</button>
+      </div>
+      <div class="tiny">Great for quote delivery emails.</div>
+    </section>
+
+    <!-- 6. Policy Comparison -->
+    <section class="card" data-title="Policy Comparison (Side-by-Side)">
+      <h2>6) Policy Comparison (Side‑by‑Side)</h2>
+      <p>Highlights differences vs. competing carriers clearly.</p>
+      <textarea class="prompt" aria-label="Policy Comparison Prompt">Compare these two policies side‑by‑side and highlight their differences in coverages, limits, endorsements, exclusions, and notable gaps. Make it easy for an agent or client to understand at a glance.</textarea>
+      <div class="row">
+        <button class="copy" aria-label="Copy prompt">Copy</button>
+      </div>
+      <div class="tiny">Attach both dec pages or full forms for best results.</div>
+    </section>
+
+    <!-- 7. Professional Email Rewrite -->
+    <section class="card" data-title="Professional Email Rewrite">
+      <h2>7) Professional Email Rewrite</h2>
+      <p>Polishes tone and clarity without changing meaning.</p>
+      <textarea class="prompt" aria-label="Professional Email Rewrite Prompt">Rewrite this message to sound professional, friendly, and easy to understand for an agent or client. Keep it concise, improve clarity, and polish the tone without changing the meaning.</textarea>
+      <div class="row">
+        <button class="copy" aria-label="Copy prompt">Copy</button>
+      </div>
+      <div class="tiny">Paste your draft text under the prompt.</div>
+    </section>
+
+    <!-- 8. Declination Statement -->
+    <section class="card" data-title="Declination Statement (Neutral)">
+      <h2>8) Declination Statement (Neutral)</h2>
+      <p>Compliance‑safe, non‑judgmental wording.</p>
+      <textarea class="prompt" aria-label="Declination Statement Prompt">Write a neutral, professional declination statement explaining why we cannot offer a quote. Keep the wording compliant, non‑judgmental, and avoid implying wrongdoing by the insured.</textarea>
+      <div class="row">
+        <button class="copy" aria-label="Copy prompt">Copy</button>
+      </div>
+      <div class="tiny">Optionally include alternative markets or next steps.</div>
+    </section>
+
+    <!-- 9. Data Extraction (General) -->
+    <section class="card" data-title="Data Extraction (ACORDs/Emails/PDFs)">
+      <h2>9) Data Extraction (ACORDs / Emails / PDFs)</h2>
+      <p>Pulls all usable info into a single, easy‑copy block.</p>
+      <textarea class="prompt" aria-label="General Data Extraction Prompt">Extract all available insured, coverage, property, vehicle, and driver information from this file. Return it in a clean, easy‑to‑copy text block organized by category.</textarea>
+      <div class="row">
+        <button class="copy" aria-label="Copy prompt">Copy</button>
+      </div>
+      <div class="tiny">Great when submissions arrive as mixed emails + attachments.</div>
+    </section>
+  </div>
+
+  <div class="footer" aria-live="polite">
+    Note: If your SharePoint page blocks scripts, the “Copy” buttons may not work. You can still select and copy directly from the boxes.
+  </div>
+</div>
+
+<script>
+/* Copy buttons (works when hosted as a full HTML file in a document library and shown via File Viewer) */
+(function(){
+  function copyText(el){
+    const text = el.value || el.textContent || "";
+    if (!navigator.clipboard) {
+      // Fallback
+      el.select && el.select();
+      try { document.execCommand('copy'); } catch(e){}
+      return;
+    }
+    navigator.clipboard.writeText(text);
+  }
+  function flash(btn,msg){
+    const old = btn.textContent;
+    btn.textContent = msg;
+    btn.disabled = true;
+    setTimeout(()=>{ btn.textContent = old; btn.disabled = false; }, 1200);
+  }
+  document.querySelectorAll('button.copy').forEach(btn=>{
+    btn.addEventListener('click', function(){
+      const card = this.closest('.card');
+      const ta = card.querySelector('.prompt');
+      copyText(ta);
+      flash(this,'Copied!');
+    });
+  });
+})();
+</script>
+</body>
+</html>
