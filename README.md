@@ -1,7 +1,6 @@
-# INSIDERAMOS
 <iframe 
-    src="https://raw.githubusercontent.com/RAMOC11/INSIDERAMOS/aa40ba32a89968eec622137230eadaabd029008d/Inside%20Sales%20Page" 
+    src="https://raw.githubusercontent.com/RAMOC11/INSIDERAMOS/a43c9c1bfad0b0082d45bdc8dfe947db980b6c88/INSIDE.HTML"
     width="100%" 
-    height="600px" 
-    frameborder="0">
+    height="800"
+    style="border:none;">
 </iframe>
