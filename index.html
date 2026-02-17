@@ -1249,6 +1249,7 @@ When creating a form, format, template, checklist, procedure, or workflow:
         <p><strong>NB &amp; Renewal Codes:</strong> NB code 61650, Renewal code 68159</p>
 
         <!-- Full Smart Choice process inserted verbatim from reference text -->
+        <div id="sc-full-section">
         <h4>📘 Smart Choice Full Handling Process</h4>
         <p>The following section details the complete Smart Choice Inside Sales process, including agent and customer contact, quoting, binding, pre‑renewal direction, follow‑up, and email templates. Please follow these steps verbatim:</p>
         <pre style="white-space: pre-wrap; background: #f7f8fa; border: 1px solid #e0e0e0; padding: 12px; border-radius: 8px; font-size: 12px; line-height: 1.5;">
@@ -1499,6 +1500,7 @@ SC Customer Quote Presentation - Proposal attached and contact information to ca
 
 
         </pre>
+        </div>
 
         <h4>📋 Agency Codes</h4>
         <p><strong>Format:</strong> 5-digit numeric (e.g., 61650, 68159)</p>
@@ -1558,9 +1560,19 @@ SC Customer Quote Presentation - Proposal attached and contact information to ca
           <li><strong>UW Existing Business:</strong> AskCLExistingBusiness@nationwide.com</li>
         </ul>
 
+        <!-- Placeholder for Smart Choice section to be moved to end -->
+        <div id="sc-placeholder"></div>
         <p><em>For complete procedures, refer to the <strong>Handling Procedures</strong> site in Inside Sales Resources.</em></p>
       `;
       openModal('📖', 'Quick Reference Guide', 'PARTNERSHIPS', content);
+      // After opening the modal, move the Smart Choice full section to the placeholder at the bottom
+      setTimeout(() => {
+        const scSection = document.getElementById('sc-full-section');
+        const placeholder = document.getElementById('sc-placeholder');
+        if (scSection && placeholder) {
+          placeholder.appendChild(scSection);
+        }
+      }, 0);
     }
     
     function copyRefText(dataId, button) {
