@@ -1,1 +1,5 @@
-
+create a new card for underwriting appetite docs/guide
+https://onyourside.sharepoint.com/sites/NSSCLDirect/Inside%20Sales%20Document/Forms/AllItems.aspx?FolderCTID=0x012000390B87C06333BA41B75CD27C45FDEC8F&id=%2Fsites%2FNSSCLDirect%2FInside%20Sales%20Document%2FEmail%20Attachments
+https://onyourside.sharepoint.com/sites/NSSCLDirect/Inside%20Sales%20Document/Forms/AllItems.aspx?id=%2Fsites%2FNSSCLDirect%2FInside%20Sales%20Document%2FEmail%20Attachments%2FNationwide%20Small%20Commercial%20Appetite%20Guide%2Epdf&parent=%2Fsites%2FNSSCLDirect%2FInside%20Sales%20Document%2FEmail%20Attachments
+https://onyourside.sharepoint.com/sites/NSSCLDirect/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FNSSCLDirect%2FShared%20Documents%2FSharePoint%20Links%2FCommercial%5FLines%5FSC%5FIndustry%5FAppetite%2Epdf&parent=%2Fsites%2FNSSCLDirect%2FShared%20Documents%2FSharePoint%20Links
+https://onyourside.sharepoint.com/sites/NSSCLDirect/Inside%20Sales%20Document/Forms/AllItems.aspx?id=%2Fsites%2FNSSCLDirect%2FInside%20Sales%20Document%2FEmail%20Attachments%2FNationwide%20Contractors%20Enhancement%20and%20Plus%20Enhancement%2Epdf&parent=%2Fsites%2FNSSCLDirect%2FInside%20Sales%20Document%2FEmail%20Attachments
