@@ -71,6 +71,47 @@
       background: rgba(255,255,255,0.3);
     }
 
+    /* Quick Access Tile Cards */
+    .quick-access-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      max-width: 900px;
+      margin: 18px auto 0;
+    }
+    .quick-tile {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      border-radius: 14px;
+      padding: 12px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      min-width: 100px;
+      max-width: 130px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    }
+    .quick-tile:hover {
+      background: rgba(255, 255, 255, 0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+    }
+    .quick-tile:active { transform: translateY(-2px); }
+    .quick-tile-icon { font-size: 26px; }
+    .quick-tile-label {
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
     /* Style for the grid of navigation cards beneath the header */
     .nav-card-grid {
       display: grid;
@@ -681,6 +722,29 @@
 <div class="hero-header">
 <h1 class="main-title">NSS CL Inside Sales Hub</h1>
 <p class="main-subtitle">Your centralized command center for tools, scripts, and workflows</p>
+<!-- Quick Access Tile Cards -->
+<div class="quick-access-grid">
+  <a class="quick-tile" href="https://clpolicycenter.apps.nwie.net/pc/service/launch/PolicyCenter.do" target="_blank">
+    <span class="quick-tile-icon">📄</span>
+    <span class="quick-tile-label">PolicyCenter</span>
+  </a>
+  <a class="quick-tile" href="https://clearquote.apps.nwie.net/?_gl=1*4banrq*_ga*Nzg1ODE2OTc1LjE3NzE1MjM3NTc.*_ga_GLJSQEPWL4*czE3NzE5MDgzNjIkbzckZzEkdDE3NzE5MDkxNTIkajEwJGwwJGgwdg==" target="_blank">
+    <span class="quick-tile-icon">🧮</span>
+    <span class="quick-tile-label">ClearQuote</span>
+  </a>
+  <a class="quick-tile" href="https://clnss.lightning.force.com/lightning/page/home" target="_blank">
+    <span class="quick-tile-icon">☁️</span>
+    <span class="quick-tile-label">Salesforce</span>
+  </a>
+  <a class="quick-tile" href="https://onyourside.sharepoint.com/sites/NSSCLDirect" target="_blank">
+    <span class="quick-tile-icon">🏠</span>
+    <span class="quick-tile-label">Inside Sales Home</span>
+  </a>
+  <a class="quick-tile" href="https://agentcenter.nwie.net/home" target="_blank">
+    <span class="quick-tile-icon">🧭</span>
+    <span class="quick-tile-label">Agent Center</span>
+  </a>
+</div>
 <!-- Flip Cards for Sales Handling and Quick Reference -->
 <div class="flip-cards-container">
 <!-- SALES HANDLING FLIP CARD -->
@@ -722,8 +786,8 @@
 </ul>
 <h4>🔗 UW &amp; Service</h4>
 <ul>
-<li><strong>Trevor Sharp:</strong> SHARPT4@nationwide.com</li>
-<li><strong>UW New Business:</strong> AskCLNewBusiness@nationwide.com</li>
+<li><strong>Trevor Sharp:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e9baa1a8bbb9bddda987889d8086879e808d8cc78a8684">[email&#160;protected]</a></li>
+<li><strong>UW New Business:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ebaa9880a8a7a58e9ca99e9882858e9898ab858a9f8284859c828f8ec5888486">[email&#160;protected]</a></li>
 </ul>
 <button onclick="openQuickRefModal()" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; margin-top: 4px; font-size: 11px;">View All Details</button>
 </div>
@@ -772,38 +836,15 @@
 <div class="sys-title">Agent Center</div>
 <p class="sys-sub">Agent-facing workflows</p>
 </div>
-<div class="sys-card" onclick="openLink('https://clnss.lightning.force.com/lightning/r/Report/00OVu000006RSb3MAG/view?queryScope=userFolders')" title="Agent Pipeline Report">
-<div class="sys-tag">REPORTS</div>
-<div class="sys-ico">📊</div>
-<div class="sys-title">Agent Pipeline Report</div>
-<p class="sys-sub">Salesforce pipeline tracking</p>
-</div>
+
 <div class="sys-card" onclick="openLink('https://app.askkodiak.com/#/carriers')" title="Ask Kodiak">
 <div class="sys-tag">APPETITE</div>
 <div class="sys-ico">🧭</div>
 <div class="sys-title">Ask Kodiak</div>
 <p class="sys-sub">Carrier appetite search</p>
 </div>
-<div class="sys-card" onclick="openLink('https://nwpcknowledge.nationwide.com/')" title="PCKC Knowledge">
-<div class="sys-tag">KNOWLEDGE</div>
-<div class="sys-ico">📚</div>
-<div class="sys-title">PCKC Knowledge</div>
-<p class="sys-sub">Nationwide knowledge base</p>
-</div>
 
-<div class="sys-card" onclick="openLink('https://app.powerbi.com/links/sOR2l6hJ0s?ctid=22140e4c-d390-45c2-b297-a26c516dc461&amp;pbi_source=linkShare')" title="Power BI Reports">
-<div class="sys-tag">ANALYTICS</div>
-<div class="sys-ico">📈</div>
-<div class="sys-title">Power BI Reports</div>
-<p class="sys-sub">Business intelligence dashboards</p>
-</div>
 
-<div class="sys-card" onclick="openLink('https://www.secstates.com/')" title="Secretary of State">
-<div class="sys-tag">SEARCH</div>
-<div class="sys-ico">🏛️</div>
-<div class="sys-title">Secretary of State</div>
-<p class="sys-sub">Business entity verification</p>
-</div>
 <div class="sys-card" onclick="openLink('https://gateway-login.verisk.com/app/prometrix/auth/login')" title="Verisk Prometrix">
 <div class="sys-tag">VERISK</div>
 <div class="sys-ico">🏢</div>
@@ -856,6 +897,72 @@
 <div class="sys-ico">📓</div>
 <div class="sys-title">Team OneNote</div>
 <p class="sys-sub">Shared team notebook</p>
+</div>
+<div class="sys-card" onclick="openLink('https://onyourside.sharepoint.com/sites/NSSCLDirect/Inside%20Sales%20Document/Forms/AllItems.aspx?FolderCTID=0x012000390B87C06333BA41B75CD27C45FDEC8F&id=%2Fsites%2FNSSCLDirect%2FInside%20Sales%20Document%2FEmail%20Attachments')" title="Email Attachments Folder">
+<div class="sys-tag">SHAREPOINT</div>
+<div class="sys-ico">📁</div>
+<div class="sys-title">Email Attachments Folder</div>
+<p class="sys-sub">Agent Facing | Inside Sales SharePoint library</p>
+</div>
+<div class="sys-card" onclick="openLink('https://onyourside.sharepoint.com/sites/NSSCLDirect/Inside%20Sales%20Document/Forms/AllItems.aspx?id=%2Fsites%2FNSSCLDirect%2FInside%20Sales%20Document%2FEmail%20Attachments%2FNationwide%20Small%20Commercial%20Appetite%20Guide%2Epdf&parent=%2Fsites%2FNSSCLDirect%2FInside%20Sales%20Document%2FEmail%20Attachments')" title="SC Appetite Guide PDF">
+<div class="sys-tag">PDF</div>
+<div class="sys-ico">📄</div>
+<div class="sys-title">SC Appetite Guide (2025)</div>
+<p class="sys-sub">Small Commercial Appetite PDF</p>
+</div>
+<div class="sys-card" onclick="openLink('https://onyourside.sharepoint.com/sites/NSSCLDirect/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FNSSCLDirect%2FShared%20Documents%2FSharePoint%20Links%2FCommercial%5FLines%5FSC%5FIndustry%5FAppetite%2Epdf&parent=%2Fsites%2FNSSCLDirect%2FShared%20Documents%2FSharePoint%20Links')" title="SC Industry Appetite Flyers">
+<div class="sys-tag">PDF</div>
+<div class="sys-ico">📄</div>
+<div class="sys-title">SC Industry Appetite Flyers</div>
+<p class="sys-sub">2024 appetite flyer bundle</p>
+</div>
+<div class="sys-card" onclick="openLink('https://onyourside.sharepoint.com/sites/NSSCLDirect/Inside%20Sales%20Document/Forms/AllItems.aspx?id=%2Fsites%2FNSSCLDirect%2FInside%20Sales%20Document%2FEmail%20Attachments%2FNationwide%20Contractors%20Enhancement%20and%20Plus%20Enhancement%2Epdf&parent=%2Fsites%2FNSSCLDirect%2FInside%20Sales%20Document%2FEmail%20Attachments')" title="Contractors Enhancement & Plus">
+<div class="sys-tag">PDF</div>
+<div class="sys-ico">📄</div>
+<div class="sys-title">Contractors Enhancement &amp; Plus</div>
+<p class="sys-sub">Enhancement PDF (03/25)</p>
+</div>
+<div class="sys-card" onclick="openLink('https://clnss.lightning.force.com/lightning/r/Report/00OVu000006RSb3MAG/view?queryScope=userFolders')" title="Agent Pipeline Report">
+<div class="sys-tag">REPORTS</div>
+<div class="sys-ico">📊</div>
+<div class="sys-title">Agent Pipeline Report</div>
+<p class="sys-sub">Salesforce pipeline tracking</p>
+</div>
+<div class="sys-card" onclick="openLink('https://www.secstates.com/')" title="Secretary of State">
+<div class="sys-tag">SEARCH</div>
+<div class="sys-ico">🏛️</div>
+<div class="sys-title">Secretary of State (SOS)</div>
+<p class="sys-sub">Business entity verification</p>
+</div>
+<div class="sys-card" onclick="openLink('https://app.powerbi.com/links/sOR2l6hJ0s?ctid=22140e4c-d390-45c2-b297-a26c516dc461&amp;pbi_source=linkShare')" title="Power BI Reports">
+<div class="sys-tag">ANALYTICS</div>
+<div class="sys-ico">📈</div>
+<div class="sys-title">Power BI Reports</div>
+<p class="sys-sub">Business intelligence dashboards</p>
+</div>
+<div class="sys-card" onclick="openLink('https://nwpcknowledge.nationwide.com/')" title="PCKC Knowledge">
+<div class="sys-tag">KNOWLEDGE</div>
+<div class="sys-ico">📚</div>
+<div class="sys-title">PCKC Knowledge</div>
+<p class="sys-sub">Nationwide knowledge base</p>
+</div>
+</div>
+<!-- BONDS SECTION -->
+<h2 class="group-header">🔒 Bonds</h2>
+<p style="text-align:center;color:rgba(255,255,255,0.85);font-size:13px;margin:-8px 0 12px;">Login with Employee # + PW (e.g., Sam Smith → F2345S)</p>
+<div class="sys-grid">
+<div class="sys-card" onclick="openLink('https://identity.nationwide.com/as/authorization.oauth2?client_id=Y6lIHGir99yVYkrjEqC4HGchBV0Hi9HC&redirect_uri=https%3A%2F%2Fagentcenter.nationwide.com%2Fhome&response_type=code&scope=openid%20nwapi%20pci&nonce=32fcaaa22756f6d54a519afc5fbcdd111ccFqnauk&state=8b5156532350508bd0b73b5f6e0f29d81efjq60nJ&code_challenge=3MgV0jj9VpBm-1HPfYVasCF-u5QIkuOH8HZ7Zgl43-I&code_challenge_method=S256&iam_domain=partner-pnc-gsa&vnd_pi_application_name=EUAv3')" title="Agent Center Login #1">
+<div class="sys-tag">BONDS</div>
+<div class="sys-ico">🔑</div>
+<div class="sys-title">Agent Center Login #1</div>
+<p class="sys-sub">NW Identity → Agent Center</p>
+</div>
+
+<div class="sys-card" onclick="openLink('https://nwpcknowledge.nationwide.com/groups/59210/posts/5799895-commercial-bonds?words=bonds&words=nss')" title="Commercial Bonds Knowledge">
+<div class="sys-tag">KNOWLEDGE</div>
+<div class="sys-ico">📚</div>
+<div class="sys-title">Commercial Bonds</div>
+<p class="sys-sub">NW Knowledge Post for Bonds</p>
 </div>
 </div>
 <h2 class="group-header">📧 Underwriting &amp; Support</h2>
@@ -958,7 +1065,7 @@
 </div>
 </div>
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     function openLink(url){
       window.open(url, '_blank', 'noopener,noreferrer');
     }
@@ -1579,19 +1686,4 @@ SC Customer Quote Presentation - Proposal attached and contact information to ca
         document.body.removeChild(textarea);
       };
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).catch(() => {
-          doCopy();
-        });
-      } else {
-        doCopy();
-      }
-      const originalText = button.innerHTML;
-      button.innerHTML = '✓';
-      button.style.background = '#10b981';
-      setTimeout(() => {
-        button.innerHTML = originalText;
-        button.style.background = '';
-      }, 2000);
-    }  </script>
-</body>
-</html>
+        navigator.clipboard.writeText
