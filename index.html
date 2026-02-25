@@ -1,10 +1,13 @@
-<!doctype html>
+
+
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NSS CL Inside Sales Hub - Complete Edition</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NSS CL Inside Sales Hub - Complete Edition</title>
+<style>
     * { box-sizing: border-box; }
     body, html {
       margin: 0;
@@ -68,6 +71,47 @@
     }
     .top-bar a:hover {
       background: rgba(255,255,255,0.3);
+    }
+
+    /* Quick Access Tile Cards */
+    .quick-access-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      max-width: 900px;
+      margin: 18px auto 0;
+    }
+    .quick-tile {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      border-radius: 14px;
+      padding: 12px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      min-width: 100px;
+      max-width: 130px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    }
+    .quick-tile:hover {
+      background: rgba(255, 255, 255, 0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+    }
+    .quick-tile:active { transform: translateY(-2px); }
+    .quick-tile-icon { font-size: 26px; }
+    .quick-tile-label {
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.3;
     }
 
     /* Style for the grid of navigation cards beneath the header */
@@ -667,334 +711,362 @@
       margin: 0;
       line-height: 1.2;
     }
-  </style>
+  
+.sys-card-link{ text-decoration:none; color:inherit; display:block; }
+.sys-card-link:focus .sys-card, .sys-card-link:hover .sys-card{ transform: translateY(-10px) scale(1.02); box-shadow: 0 25px 50px rgba(0,0,0,0.25);}
+</style>
 </head>
 <body>
-  <div class="top-bar">
-    <a href="https://www.nationwide.com" target="_blank">Nationwide.com</a>
-    <a href="https://outlook.office.com/mail/" target="_blank">Outlook</a>
-    <a href="https://teams.microsoft.com" target="_blank">Teams</a>
-    <a href="https://onyourside.sharepoint.com" target="_blank">SharePoint</a>
-  </div>
-
-  <div class="container">
-    <div class="hero-header">
-      <h1 class="main-title">NSS CL Inside Sales Hub</h1>
-      <p class="main-subtitle">Your centralized command center for tools, scripts, and workflows</p>
-
-      <!-- Flip Cards for Sales Handling and Quick Reference -->
-      <div class="flip-cards-container">
-        <!-- SALES HANDLING FLIP CARD -->
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <div style="font-size: 42px;">📋</div>
-              <h3>Sales Handling</h3>
-              <p>Hover for quick procedures</p>
-            </div>
-            <div class="flip-card-back">
-              <h4>Quick Procedures</h4>
-              <ul>
-                <li><strong>Lead Intake:</strong> Qualify prospects, verify appetite</li>
-                <li><strong>Quote Process:</strong> ClearQuote → PolicyCenter</li>
-                <li><strong>Binding:</strong> Follow bind checklist, PRD setup</li>
-                <li><strong>Agency Codes:</strong> Check Quick Reference →</li>
-              </ul>
-              <button onclick="openLink('https://onyourside.sharepoint.com/:u:/r/sites/CIERRATEAM/SitePages/Cierra-Inside-Sales.aspx?csf=1&web=1&e=BtgVwk')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; margin-top: 8px; font-size: 11px;">View Full Procedures</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- QUICK REFERENCE FLIP CARD -->
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <div style="font-size: 42px;">📖</div>
-              <h3>Quick Reference</h3>
-              <p>Hover for key contacts</p>
-            </div>
-            <div class="flip-card-back">
-              <h4>📞 Key Contacts</h4>
-              <ul>
-                <li><strong>SC Agents:</strong> 1-800-896-2277</li>
-                <li><strong>SC Customers:</strong> 1-888-282-3717</li>
-                <li><strong>KMA:</strong> 1-800-730-8413</li>
-                <li><strong>Insureon:</strong> 1-877-588-2392</li>
-                <li><strong>IOA:</strong> 1-877-588-2380</li>
-              </ul>
-              <h4>🔗 UW & Service</h4>
-              <ul>
-                <li><strong>Trevor Sharp:</strong> SHARPT4@nationwide.com</li>
-                <li><strong>UW New Business:</strong> AskCLNewBusiness@nationwide.com</li>
-              </ul>
-              <button onclick="openQuickRefModal()" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; margin-top: 4px; font-size: 11px;">View All Details</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Search Box -->
-      <div class="search-container">
-        <input type="text" id="searchBox" class="search-box" placeholder="Search for systems, tools, or resources..." onkeyup="searchTiles()">
-        <span class="search-icon">🔍</span>
-      </div>
-      <div id="noResults" class="no-results">No results found. Try a different search term.</div>
-    </div>
-
-    <!-- AI TIPS BANNER CARD -->
-    <div class="ai-tips-banner" onclick="openAITipsModal()">
-      <span class="banner-icon">🤖</span>
-      <div class="banner-content">
-        <h3 class="banner-title">AI Tips & Prompts</h3>
-        <p class="banner-description">Copy-ready prompts for underwriting questions, checklists, CLNSS formatting, coverage summaries, and professional email support</p>
-      </div>
-      <span class="banner-tag">Click to View</span>
-    </div>
-
-      <!-- MAIN SYSTEMS SECTION -->
-      <div class="section-container">
-        <h2 class="group-header">🚀 Core Systems</h2>
-        <div class="sys-grid">
-          <!-- Alphabetically ordered cards for Core Systems -->
-          <div class="sys-card" onclick="openLink('https://agentcenter.nwie.net/home')" title="Agent Center">
-            <div class="sys-tag">AGENT</div>
-            <div class="sys-ico">🧭</div>
-            <div class="sys-title">Agent Center</div>
-            <p class="sys-sub">Agent-facing workflows</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://clnss.lightning.force.com/lightning/r/Report/00OVu000006RSb3MAG/view?queryScope=userFolders')" title="Agent Pipeline Report">
-            <div class="sys-tag">REPORTS</div>
-            <div class="sys-ico">📊</div>
-            <div class="sys-title">Agent Pipeline Report</div>
-            <p class="sys-sub">Salesforce pipeline tracking</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://app.askkodiak.com/#/carriers')" title="Ask Kodiak">
-            <div class="sys-tag">APPETITE</div>
-            <div class="sys-ico">🧭</div>
-            <div class="sys-title">Ask Kodiak</div>
-            <p class="sys-sub">Carrier appetite search</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://nwpcknowledge.nationwide.com/')" title="PCKC Knowledge">
-            <div class="sys-tag">KNOWLEDGE</div>
-            <div class="sys-ico">📚</div>
-            <div class="sys-title">PCKC Knowledge</div>
-            <p class="sys-sub">Nationwide knowledge base</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://clpolicycenter.apps.nwie.net/pc/service/launch/PolicyCenter.do')" title="PolicyCenter">
-            <div class="sys-tag">POLICY</div>
-            <div class="sys-ico">📄</div>
-            <div class="sys-title">PolicyCenter</div>
-            <p class="sys-sub">Quote, issue, PRD, docs</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://app.powerbi.com/links/sOR2l6hJ0s?ctid=22140e4c-d390-45c2-b297-a26c516dc461&pbi_source=linkShare')" title="Power BI Reports">
-            <div class="sys-tag">ANALYTICS</div>
-            <div class="sys-ico">📈</div>
-            <div class="sys-title">Power BI Reports</div>
-            <p class="sys-sub">Business intelligence dashboards</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://clnss.lightning.force.com/lightning/page/home')" title="Salesforce">
-            <div class="sys-tag">PRIMARY</div>
-            <div class="sys-ico">☁️</div>
-            <div class="sys-title">Salesforce</div>
-            <p class="sys-sub">CRM + sales management</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://www.secstates.com/')" title="Secretary of State">
-            <div class="sys-tag">SEARCH</div>
-            <div class="sys-ico">🏛️</div>
-            <div class="sys-title">Secretary of State</div>
-            <p class="sys-sub">Business entity verification</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://gateway-login.verisk.com/app/prometrix/auth/login')" title="Verisk Prometrix">
-            <div class="sys-tag">VERISK</div>
-            <div class="sys-ico">🏢</div>
-            <div class="sys-title">Verisk Prometrix</div>
-            <p class="sys-sub">Verisk login + Prometrix access</p>
-          </div>
-        </div>
-
-        <h2 class="group-header">🏠 Inside Sales Resources</h2>
-        <div class="sys-grid">
-          <!-- Alphabetically ordered cards for Inside Sales Resources -->
-          <div class="sys-card" onclick="openLink('https://forms.office.com/r/SfcW0WC7rQ')" title="All In One Form">
-            <div class="sys-tag">FORM</div>
-            <div class="sys-ico">📝</div>
-            <div class="sys-title">All In One Form</div>
-            <p class="sys-sub">Unified submission form</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://onyourside.sharepoint.com/sites/NSSCLDirect/Inside%20Sales%20Document/Cross-Sell/Cross-Sell%20List%20Ongoing.xlsx?d=w40c4791f6e84489a8614bfa7fb3e4bf4&csf=1&web=1&e=tCtrvt')" title="Cross-Sell List">
-            <div class="sys-tag">SALES</div>
-            <div class="sys-ico">💼</div>
-            <div class="sys-title">Cross-Sell List</div>
-            <p class="sys-sub">Ongoing cross-sell opportunities</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://planner.cloud.microsoft/webui/plan/2gOdG9Cn7kWxhG6dZzbpmWQAFCaf/view/board?tid=22140e4c-d390-45c2-b297-a26c516dc461')" title="Daily Tasks & Problems">
-            <div class="sys-tag">PLANNER</div>
-            <div class="sys-ico">✅</div>
-            <div class="sys-title">Daily Tasks & Problems</div>
-            <p class="sys-sub">Task management board</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://onyourside.sharepoint.com/sites/NSSCLDirect/SitePages/Inside-Sales-Handling-Procedures.aspx')" title="Handling Procedures">
-            <div class="sys-tag">GUIDE</div>
-            <div class="sys-ico">📖</div>
-            <div class="sys-title">Handling Procedures</div>
-            <p class="sys-sub">Process documentation</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://onyourside.sharepoint.com/sites/NSSCLDirect/SitePages/NSS-CL-Inside-Sales.aspx')" title="Huddle Board">
-            <div class="sys-tag">BOARD</div>
-            <div class="sys-ico">📋</div>
-            <div class="sys-title">Huddle Board</div>
-            <p class="sys-sub">Team huddle dashboard</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://onyourside.sharepoint.com/:p:/r/sites/NSSCLDirect/Inside%20Sales%20Document/Archive/Inside%20Sales%202026%20Team%20Plans.pptx?d=w87f77cc73e834af2b5bfe5e865680571&csf=1&web=1&e=aoNk4q')" title="2026 Team Plans">
-            <div class="sys-tag">PLAN</div>
-            <div class="sys-ico">🗂️</div>
-            <div class="sys-title">Inside Sales 2026 Plans</div>
-            <p class="sys-sub">Team plan deck (PPT)</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://onyourside.sharepoint.com/sites/NSSCLDirect')" title="Inside Sales Home">
-            <div class="sys-tag">HUB</div>
-            <div class="sys-ico">🏠</div>
-            <div class="sys-title">Inside Sales Home</div>
-            <p class="sys-sub">Main SharePoint site</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://onyourside-my.sharepoint.com/:o:/g/personal/moraj13_nationwide_com/EhEHrprw8DRFlR39ussBnaQBcCAj3M1o1e33E4ngT4RDbg')" title="Team OneNote">
-            <div class="sys-tag">NOTES</div>
-            <div class="sys-ico">📓</div>
-            <div class="sys-title">Team OneNote</div>
-            <p class="sys-sub">Shared team notebook</p>
-          </div>
-        </div>
-
-        <h2 class="group-header">📧 Underwriting & Support</h2>
-        <div class="sys-grid">
-          <!-- Alphabetically ordered cards for Underwriting & Support -->
-          <div class="sys-card" onclick="openLink('https://onyourside.sharepoint.com/:b:/s/AppetiteSprints/IQCMhKzOqdXwTYTc5XYBye-oAfJM6HM3H1sEtMtmYxGVrqc?e=bFZ3O4')" title="Appetite Sprint Updates">
-            <div class="sys-tag">UPDATE</div>
-            <div class="sys-ico">🔁</div>
-            <div class="sys-title">Appetite Sprint Updates</div>
-            <p class="sys-sub">Latest appetite sprint artifact</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://commservicing.nwie.net/certificate/acentry.htm?_gl=1*1dnt0vc*_ga*OTUyNzQxMTA1LjE3NzAxMzQ5MjY.*_ga_GLJSQEPWL4*czE3NzEyNTg1NjQkbzkkZzEkdDE3NzEyNTg3NjQkajU4JGwwJGgw')" title="Certificates of Insurance">
-            <div class="sys-tag">COI</div>
-            <div class="sys-ico">🧾</div>
-            <div class="sys-title">Certificates of Insurance</div>
-            <p class="sys-sub">COI entry (AC Entry)</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://nwpcknowledge.nationwide.com/groups/59210/posts/5798822-premium-audit-minimum-payroll-state-specific-information?words=Premium&words=Audit&words=-&words=Minimum&words=Payroll/State&words=Specific&words=Information#State_Information')" title="Premium Audit Info">
-            <div class="sys-tag">REF</div>
-            <div class="sys-ico">🧾</div>
-            <div class="sys-title">Premium Audit Info</div>
-            <p class="sys-sub">Minimum payroll/state-specific reference</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://onyourside.sharepoint.com/sites/SmallCommercialIdentityandAppetite')" title="Small Commercial Identity & Appetite">
-            <div class="sys-tag">SITE</div>
-            <div class="sys-ico">📌</div>
-            <div class="sys-title">Small Comm Appetite Site</div>
-            <p class="sys-sub">Identity + appetite monitoring</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('mailto:AskCLExistingBusiness@nationwide.com')" title="UW Existing Business">
-            <div class="sys-tag">UW</div>
-            <div class="sys-ico">✉️</div>
-            <div class="sys-title">UW Existing Business</div>
-            <p class="sys-sub"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a9e8dac2eae5ecd1c0daddc0c7ceebdcdac0c7ccdadae9c7c8ddc0c6c7dec0cdcc87cac6c4">[email&#160;protected]</a></p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('mailto:AskCLNewBusiness@nationwide.com')" title="UW New Business">
-            <div class="sys-tag">UW</div>
-            <div class="sys-ico">✉️</div>
-            <div class="sys-title">UW New Business</div>
-            <p class="sys-sub"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3f7e4c547c73715a487d4a4c56515a4c4c7f515e4b56505148565b5a115c5052">[email&#160;protected]</a></p>
-          </div>
-        </div>
-
-        <h2 class="group-header">🤖 AI Agents</h2>
-        <div class="sys-grid">
-          <!-- Alphabetically ordered cards for AI Agents -->
-          <div class="sys-card" onclick="openLink('https://teams.microsoft.com/l/app/f6405520-7907-4464-8f6e-9889e2fb7d8f?templateInstanceId=2c02fb02-638f-4794-b04d-da8dea6be7e0&environment=Default-22140e4c-d390-45c2-b297-a26c516dc461')" title="AgentWriter">
-            <div class="sys-tag">AI</div>
-            <div class="sys-ico">✍️</div>
-            <div class="sys-title">AgentWriter</div>
-            <p class="sys-sub">Draft emails fast</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://teams.microsoft.com/l/app/f6405520-7907-4464-8f6e-9889e2fb7d8f?templateInstanceId=a4d062d3-c9ab-4ea1-9f61-da5a7d7ded1d&environment=Default-22140e4c-d390-45c2-b297-a26c516dc461')" title="Dash">
-            <div class="sys-tag">AI</div>
-            <div class="sys-ico">🛠️</div>
-            <div class="sys-title">CL Sidekick</div>
-            <p class="sys-sub">General support tool</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://teams.microsoft.com/l/app/f6405520-7907-4464-8f6e-9889e2fb7d8f?templateInstanceId=00a01ab3-4aa3-4d71-aa75-b25d881c5889&environment=Default-22140e4c-d390-45c2-b297-a26c516dc461')" title="Scout">
-            <div class="sys-tag">AI</div>
-            <div class="sys-ico">🧠</div>
-            <div class="sys-title">Scout UW Coach</div>
-            <p class="sys-sub">Classification + UW help</p>
-          </div>
-        </div>
-
-        <h2 class="group-header">👥 People & HR</h2>
-        <div class="sys-grid">
-          <!-- Alphabetically ordered cards for People & HR -->
-          <div class="sys-card" onclick="openLink('https://hrconnect.nationwide.com/')" title="HR Connect">
-            <div class="sys-tag">HR</div>
-            <div class="sys-ico">👥</div>
-            <div class="sys-title">HR Connect</div>
-            <p class="sys-sub">HR resources + support</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://www.myworkday.com/nationwide/d/inst/13102!CK5mGhIKBggDEMenAhIICgYI1A0QmQE~*mMeOGB47owk~/cacheable-task/12709$14.htmld')" title="Time Entry/Request Off">
-            <div class="sys-tag">TIME</div>
-            <div class="sys-ico">🕐</div>
-            <div class="sys-title">Time Entry/Request Off</div>
-            <p class="sys-sub">Enter time + request time off</p>
-          </div>
-
-          <div class="sys-card" onclick="openLink('https://www.myworkday.com/nationwide/learning')" title="Workday Learning">
-            <div class="sys-tag">LEARN</div>
-            <div class="sys-ico">🎓</div>
-            <div class="sys-title">Workday Learning</div>
-            <p class="sys-sub">Training + learning modules</p>
-          </div>
-        </div>
-      </div>
-
-    <!-- Modal -->
-    <div class="modal-overlay" id="modal" onclick="closeModal(event)">
-      <div class="modal-content" onclick="event.stopPropagation()">
-        <div class="modal-header">
-          <div class="modal-icon" id="modal-icon"></div>
-          <div class="modal-title-section">
-            <h2 class="modal-title" id="modal-title"></h2>
-            <div class="modal-badge" id="modal-badge"></div>
-          </div>
-          <button class="close-btn" onclick="closeModal()">×</button>
-        </div>
-        <div class="modal-body" id="modal-body"></div>
-      </div>
-    </div>
-  </div>
-
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    function openLink(url){
+<div class="top-bar">
+<a href="https://www.nationwide.com" target="_blank">Nationwide.com</a>
+<a href="https://outlook.office.com/mail/" target="_blank">Outlook</a>
+<a href="https://teams.microsoft.com" target="_blank">Teams</a>
+<a href="https://onyourside.sharepoint.com" target="_blank">SharePoint</a>
+</div>
+<div class="container">
+<div class="hero-header">
+<h1 class="main-title">NSS CL Inside Sales Hub</h1>
+<p class="main-subtitle">Your centralized command center for tools, scripts, and workflows</p>
+<!-- Quick Access Tile Cards -->
+<div class="quick-access-grid">
+<a class="quick-tile" href="https://clpolicycenter.apps.nwie.net/pc/service/launch/PolicyCenter.do" role="link" target="_blank">
+<span class="quick-tile-icon">📄</span>
+<span class="quick-tile-label">PolicyCenter</span>
+</a>
+<a class="quick-tile" href="https://clearquote.apps.nwie.net/?_gl=1*4banrq*_ga*Nzg1ODE2OTc1LjE3NzE1MjM3NTc.*_ga_GLJSQEPWL4*czE3NzE5MDgzNjIkbzckZzEkdDE3NzE5MDkxNTIkajEwJGwwJGgwdg==" role="link" target="_blank">
+<span class="quick-tile-icon">🧮</span>
+<span class="quick-tile-label">ClearQuote</span>
+</a>
+<a class="quick-tile" href="https://clnss.lightning.force.com/lightning/page/home" role="link" target="_blank">
+<span class="quick-tile-icon">☁️</span>
+<span class="quick-tile-label">Salesforce</span>
+</a>
+<a class="quick-tile" href="https://onyourside.sharepoint.com/sites/NSSCLDirect" role="link" target="_blank">
+<span class="quick-tile-icon">🏠</span>
+<span class="quick-tile-label">Inside Sales Home</span>
+</a>
+<a class="quick-tile" href="https://agentcenter.nwie.net/home" role="link" target="_blank">
+<span class="quick-tile-icon">🧭</span>
+<span class="quick-tile-label">Agent Center</span>
+</a>
+</div>
+<!-- Flip Cards for Sales Handling and Quick Reference -->
+<div class="flip-cards-container">
+<!-- SALES HANDLING FLIP CARD -->
+<div class="flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div style="font-size: 42px;">📋</div>
+<h3>Sales Handling</h3>
+<p>Hover for quick procedures</p>
+</div>
+<div class="flip-card-back">
+<h4>Quick Procedures</h4>
+<ul>
+<li><strong>Lead Intake:</strong> Qualify prospects, verify appetite</li>
+<li><strong>Quote Process:</strong> ClearQuote → PolicyCenter</li>
+<li><strong>Binding:</strong> Follow bind checklist, PRD setup</li>
+<li><strong>Agency Codes:</strong> Check Quick Reference →</li>
+</ul>
+<button onclick="openLink('https://onyourside.sharepoint.com/:u:/r/sites/CIERRATEAM/SitePages/Cierra-Inside-Sales.aspx?csf=1&amp;web=1&amp;e=BtgVwk')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; margin-top: 8px; font-size: 11px;">View Full Procedures</button>
+</div>
+</div>
+</div>
+<!-- QUICK REFERENCE FLIP CARD -->
+<div class="flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div style="font-size: 42px;">📖</div>
+<h3>Quick Reference</h3>
+<p>Hover for key contacts</p>
+</div>
+<div class="flip-card-back">
+<h4>📞 Key Contacts</h4>
+<ul>
+<li><strong>SC Agents:</strong> 1-800-896-2277</li>
+<li><strong>SC Customers:</strong> 1-888-282-3717</li>
+<li><strong>KMA:</strong> 1-800-730-8413</li>
+<li><strong>Insureon:</strong> 1-877-588-2392</li>
+<li><strong>IOA:</strong> 1-877-588-2380</li>
+</ul>
+<h4>🔗 UW &amp; Service</h4>
+<ul>
+<li><strong>Trevor Sharp:</strong> <a class="__cf_email__" data-cfemail="e9baa1a8bbb9bddda987889d8086879e808d8cc78a8684" href="/cdn-cgi/l/email-protection">[email protected]</a></li>
+<li><strong>UW New Business:</strong> <a class="__cf_email__" data-cfemail="ebaa9880a8a7a58e9ca99e9882858e9898ab858a9f8284859c828f8ec5888486" href="/cdn-cgi/l/email-protection">[email protected]</a></li>
+</ul>
+<button onclick="openQuickRefModal()" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; margin-top: 4px; font-size: 11px;">View All Details</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Search Box -->
+<div class="search-container">
+<input class="search-box" id="searchBox" onkeyup="searchTiles()" placeholder="Search for systems, tools, or resources..." type="text"/>
+<span class="search-icon">🔍</span>
+</div>
+<div class="no-results" id="noResults">No results found. Try a different search term.</div>
+</div>
+<!-- AI TIPS BANNER CARD -->
+<div class="ai-tips-banner" onclick="openAITipsModal()">
+<span class="banner-icon">🤖</span>
+<div class="banner-content">
+<h3 class="banner-title">AI Tips &amp; Prompts</h3>
+<p class="banner-description">Copy-ready prompts for underwriting questions, checklists, CLNSS formatting, coverage summaries, and professional email support</p>
+</div>
+<span class="banner-tag">Click to View</span>
+</div>
+<!-- MAIN SYSTEMS SECTION -->
+<div class="section-container">
+<h2 class="group-header">🚀 Core Systems</h2>
+<div class="sys-grid"><a class="sys-card-link" href="https://clnss.lightning.force.com/lightning/page/home" target="_blank"><div class="sys-card" title="Salesforce">
+<div class="sys-tag">PRIMARY</div>
+<div class="sys-ico">☁️</div>
+<div class="sys-title">Salesforce (Amplo/Veruna)</div>
+<p class="sys-sub">CRM + sales management</p>
+</div></a><a class="sys-card-link" href="https://clpolicycenter.apps.nwie.net/pc/service/launch/PolicyCenter.do" target="_blank"><div class="sys-card" title="PolicyCenter">
+<div class="sys-tag">POLICY</div>
+<div class="sys-ico">📄</div>
+<div class="sys-title">PolicyCenter</div>
+<p class="sys-sub">Quote, issue, PRD, docs</p>
+</div></a><a class="sys-card-link" href="https://clearquote.apps.nwie.net/?_gl=1*4banrq*_ga*Nzg1ODE2OTc1LjE3NzE1MjM3NTc.*_ga_GLJSQEPWL4*czE3NzE5MDgzNjIkbzckZzEkdDE3NzE5MDkxNTIkajEwJGwwJGgwdg==" target="_blank"><div class="sys-card" title="ClearQuote"><div class="sys-tag">QUOTE</div><div class="sys-ico">🧮</div><div class="sys-title">ClearQuote</div><p class="sys-sub">Quote setup &amp; readiness</p></div></a><a class="sys-card-link" href="https://onyourside.sharepoint.com/sites/NSSCLDirect" target="_blank"><div class="sys-card" title="Inside Sales Home">
+<div class="sys-tag">HUB</div>
+<div class="sys-ico">🏠</div>
+<div class="sys-title">Inside Sales Home</div>
+<p class="sys-sub">Main SharePoint site</p>
+</div></a>
+<!-- Alphabetically ordered cards for Core Systems -->
+<a class="sys-card-link" href="https://agentcenter.nwie.net/home" target="_blank"><div class="sys-card" title="Agent Center">
+<div class="sys-tag">AGENT</div>
+<div class="sys-ico">🧭</div>
+<div class="sys-title">Agent Center</div>
+<p class="sys-sub">Agent-facing workflows</p>
+</div></a>
+<a class="sys-card-link" href="https://app.askkodiak.com/#/carriers" target="_blank"><div class="sys-card" title="Ask Kodiak">
+<div class="sys-tag">APPETITE</div>
+<div class="sys-ico">🧭</div>
+<div class="sys-title">Ask Kodiak</div>
+<p class="sys-sub">Carrier appetite search</p>
+</div></a>
+<a class="sys-card-link" href="https://gateway-login.verisk.com/app/prometrix/auth/login" target="_blank"><div class="sys-card" title="Verisk Prometrix">
+<div class="sys-tag">VERISK</div>
+<div class="sys-ico">🏢</div>
+<div class="sys-title">Verisk Prometrix</div>
+<p class="sys-sub">Verisk login + Prometrix access</p>
+</div></a>
+<a class="sys-card-link" href="https://inside.nationwide.com/" target="_blank"><div class="sys-card" title="Inside"><div class="sys-tag">INTRANET</div><div class="sys-ico">🏢</div><div class="sys-title">Inside</div><p class="sys-sub">Nationwide intranet</p></div></a><a class="sys-card-link" href="https://www.docusign.com/" target="_blank"><div class="sys-card" title="DocuSign"><div class="sys-tag">ESIGN</div><div class="sys-ico">✍️</div><div class="sys-title">DocuSign</div><p class="sys-sub">E-signature for client documents</p></div></a></div>
+<h2 class="group-header">🏠 Inside Sales Resources</h2>
+<div class="sys-grid">
+<!-- Alphabetically ordered cards for Inside Sales Resources -->
+<a class="sys-card-link" href="https://forms.office.com/r/SfcW0WC7rQ" target="_blank"><div class="sys-card" title="All In One Form">
+<div class="sys-tag">FORM</div>
+<div class="sys-ico">📝</div>
+<div class="sys-title">All In One Form</div>
+<p class="sys-sub">Unified submission form</p>
+</div></a>
+<a class="sys-card-link" href="https://onyourside.sharepoint.com/sites/NSSCLDirect/Inside%20Sales%20Document/Cross-Sell/Cross-Sell%20List%20Ongoing.xlsx?d=w40c4791f6e84489a8614bfa7fb3e4bf4&amp;csf=1&amp;web=1&amp;e=tCtrvt" target="_blank"><div class="sys-card" title="Cross-Sell List">
+<div class="sys-tag">SALES</div>
+<div class="sys-ico">💼</div>
+<div class="sys-title">Cross-Sell List</div>
+<p class="sys-sub">Ongoing cross-sell opportunities</p>
+</div></a>
+<a class="sys-card-link" href="https://planner.cloud.microsoft/webui/plan/2gOdG9Cn7kWxhG6dZzbpmWQAFCaf/view/board?tid=22140e4c-d390-45c2-b297-a26c516dc461" target="_blank"><div class="sys-card" title="Daily Tasks &amp; Problems">
+<div class="sys-tag">PLANNER</div>
+<div class="sys-ico">✅</div>
+<div class="sys-title">Daily Tasks &amp; Problems</div>
+<p class="sys-sub">Task management board</p>
+</div></a>
+<a class="sys-card-link" href="https://onyourside.sharepoint.com/sites/NSSCLDirect/SitePages/Inside-Sales-Handling-Procedures.aspx" target="_blank"><div class="sys-card" title="Handling Procedures">
+<div class="sys-tag">GUIDE</div>
+<div class="sys-ico">📖</div>
+<div class="sys-title">Handling Procedures</div>
+<p class="sys-sub">Process documentation</p>
+</div></a>
+<a class="sys-card-link" href="https://onyourside.sharepoint.com/sites/NSSCLDirect/SitePages/NSS-CL-Inside-Sales.aspx" target="_blank"><div class="sys-card" title="Huddle Board">
+<div class="sys-tag">BOARD</div>
+<div class="sys-ico">📋</div>
+<div class="sys-title">Huddle Board</div>
+<p class="sys-sub">Team huddle dashboard</p>
+</div></a>
+<a class="sys-card-link" href="https://onyourside.sharepoint.com/:p:/r/sites/NSSCLDirect/Inside%20Sales%20Document/Archive/Inside%20Sales%202026%20Team%20Plans.pptx?d=w87f77cc73e834af2b5bfe5e865680571&amp;csf=1&amp;web=1&amp;e=aoNk4q" target="_blank"><div class="sys-card" title="2026 Team Plans">
+<div class="sys-tag">PLAN</div>
+<div class="sys-ico">🗂️</div>
+<div class="sys-title">Inside Sales 2026 Plans</div>
+<p class="sys-sub">Team plan deck (PPT)</p>
+</div></a>
+<a class="sys-card-link" href="https://onyourside-my.sharepoint.com/:o:/g/personal/moraj13_nationwide_com/EhEHrprw8DRFlR39ussBnaQBcCAj3M1o1e33E4ngT4RDbg" target="_blank"><div class="sys-card" title="Team OneNote">
+<div class="sys-tag">NOTES</div>
+<div class="sys-ico">📓</div>
+<div class="sys-title">Team OneNote</div>
+<p class="sys-sub">Shared team notebook</p>
+</div></a>
+<a class="sys-card-link" href="https://onyourside.sharepoint.com/sites/NSSCLDirect/Inside%20Sales%20Document/Forms/AllItems.aspx?FolderCTID=0x012000390B87C06333BA41B75CD27C45FDEC8F&amp;id=%2Fsites%2FNSSCLDirect%2FInside%20Sales%20Document%2FEmail%20Attachments" target="_blank"><div class="sys-card" title="Email Attachments Folder">
+<div class="sys-tag">SHAREPOINT</div>
+<div class="sys-ico">📁</div>
+<div class="sys-title">Email Attachments Folder</div>
+<p class="sys-sub">Agent Facing | Inside Sales SharePoint library</p>
+</div></a>
+<a class="sys-card-link" href="https://onyourside.sharepoint.com/sites/NSSCLDirect/Inside%20Sales%20Document/Forms/AllItems.aspx?id=%2Fsites%2FNSSCLDirect%2FInside%20Sales%20Document%2FEmail%20Attachments%2FNationwide%20Small%20Commercial%20Appetite%20Guide%2Epdf&amp;parent=%2Fsites%2FNSSCLDirect%2FInside%20Sales%20Document%2FEmail%20Attachments" target="_blank"><div class="sys-card" title="SC Appetite Guide PDF">
+<div class="sys-tag">PDF</div>
+<div class="sys-ico">📄</div>
+<div class="sys-title">SC Appetite Guide (2025)</div>
+<p class="sys-sub">Small Commercial Appetite PDF</p>
+</div></a>
+<a class="sys-card-link" href="https://onyourside.sharepoint.com/sites/NSSCLDirect/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FNSSCLDirect%2FShared%20Documents%2FSharePoint%20Links%2FCommercial%5FLines%5FSC%5FIndustry%5FAppetite%2Epdf&amp;parent=%2Fsites%2FNSSCLDirect%2FShared%20Documents%2FSharePoint%20Links" target="_blank"><div class="sys-card" title="SC Industry Appetite Flyers">
+<div class="sys-tag">PDF</div>
+<div class="sys-ico">📄</div>
+<div class="sys-title">SC Industry Appetite Flyers</div>
+<p class="sys-sub">2024 appetite flyer bundle</p>
+</div></a>
+<a class="sys-card-link" href="https://onyourside.sharepoint.com/sites/NSSCLDirect/Inside%20Sales%20Document/Forms/AllItems.aspx?id=%2Fsites%2FNSSCLDirect%2FInside%20Sales%20Document%2FEmail%20Attachments%2FNationwide%20Contractors%20Enhancement%20and%20Plus%20Enhancement%2Epdf&amp;parent=%2Fsites%2FNSSCLDirect%2FInside%20Sales%20Document%2FEmail%20Attachments" target="_blank"><div class="sys-card" title="Contractors Enhancement &amp; Plus">
+<div class="sys-tag">PDF</div>
+<div class="sys-ico">📄</div>
+<div class="sys-title">Contractors Enhancement &amp; Plus</div>
+<p class="sys-sub">Enhancement PDF (03/25)</p>
+</div></a>
+<a class="sys-card-link" href="https://clnss.lightning.force.com/lightning/r/Report/00OVu000006RSb3MAG/view?queryScope=userFolders" target="_blank"><div class="sys-card" title="Agent Pipeline Report">
+<div class="sys-tag">REPORTS</div>
+<div class="sys-ico">📊</div>
+<div class="sys-title">Agent Pipeline Report</div>
+<p class="sys-sub">Salesforce pipeline tracking</p>
+</div></a>
+<a class="sys-card-link" href="https://www.secstates.com/" target="_blank"><div class="sys-card" title="Secretary of State">
+<div class="sys-tag">SEARCH</div>
+<div class="sys-ico">🏛️</div>
+<div class="sys-title">Secretary of State (SOS)</div>
+<p class="sys-sub">Business entity verification</p>
+</div></a>
+<a class="sys-card-link" href="https://app.powerbi.com/links/sOR2l6hJ0s?ctid=22140e4c-d390-45c2-b297-a26c516dc461&amp;pbi_source=linkShare" target="_blank"><div class="sys-card" title="Power BI Reports">
+<div class="sys-tag">ANALYTICS</div>
+<div class="sys-ico">📈</div>
+<div class="sys-title">Power BI Reports</div>
+<p class="sys-sub">Business intelligence dashboards</p>
+</div></a>
+<a class="sys-card-link" href="https://nwpcknowledge.nationwide.com/" target="_blank"><div class="sys-card" title="PCKC Knowledge">
+<div class="sys-tag">KNOWLEDGE</div>
+<div class="sys-ico">📚</div>
+<div class="sys-title">PCKC Knowledge</div>
+<p class="sys-sub">Nationwide knowledge base</p>
+</div></a>
+</div>
+<!-- BONDS SECTION -->
+<h2 class="group-header">🔒 Bonds</h2>
+<p style="text-align:center;color:rgba(255,255,255,0.85);font-size:13px;margin:-8px 0 12px;">Login with Employee # + PW (e.g., Sam Smith → F2345S)</p>
+<div class="sys-grid">
+<a class="sys-card-link" href="https://identity.nationwide.com/as/authorization.oauth2?client_id=Y6lIHGir99yVYkrjEqC4HGchBV0Hi9HC&amp;redirect_uri=https%3A%2F%2Fagentcenter.nationwide.com%2Fhome&amp;response_type=code&amp;scope=openid%20nwapi%20pci&amp;nonce=32fcaaa22756f6d54a519afc5fbcdd111ccFqnauk&amp;state=8b5156532350508bd0b73b5f6e0f29d81efjq60nJ&amp;code_challenge=3MgV0jj9VpBm-1HPfYVasCF-u5QIkuOH8HZ7Zgl43-I&amp;code_challenge_method=S256&amp;iam_domain=partner-pnc-gsa&amp;vnd_pi_application_name=EUAv3" target="_blank"><div class="sys-card" title="Agent Center Login #1">
+<div class="sys-tag">BONDS</div>
+<div class="sys-ico">🔑</div>
+<div class="sys-title">Agent Center Login #1</div>
+<p class="sys-sub">NW Identity → Agent Center</p>
+</div></a>
+<a class="sys-card-link" href="https://nwpcknowledge.nationwide.com/groups/59210/posts/5799895-commercial-bonds?words=bonds&amp;words=nss" target="_blank"><div class="sys-card" title="Commercial Bonds Knowledge">
+<div class="sys-tag">KNOWLEDGE</div>
+<div class="sys-ico">📚</div>
+<div class="sys-title">Commercial Bonds</div>
+<p class="sys-sub">NW Knowledge Post for Bonds</p>
+</div></a>
+</div>
+<h2 class="group-header">📧 Underwriting &amp; Support</h2>
+<div class="sys-grid"><a class="sys-card-link" href="https://referenceconnect.guidewire.com/" target="_blank"><div class="sys-card" title="ReferenceConnect"><div class="sys-tag">UW REF</div><div class="sys-ico">📘</div><div class="sys-title">ReferenceConnect</div><p class="sys-sub">Underwriting guidelines &amp; references</p></div></a>
+<!-- Alphabetically ordered cards for Underwriting & Support -->
+<a class="sys-card-link" href="https://onyourside.sharepoint.com/:b:/s/AppetiteSprints/IQCMhKzOqdXwTYTc5XYBye-oAfJM6HM3H1sEtMtmYxGVrqc?e=bFZ3O4" target="_blank"><div class="sys-card" title="Appetite Sprint Updates">
+<div class="sys-tag">UPDATE</div>
+<div class="sys-ico">🔁</div>
+<div class="sys-title">Appetite Sprint Updates</div>
+<p class="sys-sub">Latest appetite sprint artifact</p>
+</div></a>
+<a class="sys-card-link" href="https://commservicing.nwie.net/certificate/acentry.htm?_gl=1*1dnt0vc*_ga*OTUyNzQxMTA1LjE3NzAxMzQ5MjY.*_ga_GLJSQEPWL4*czE3NzEyNTg1NjQkbzkkZzEkdDE3NzEyNTg3NjQkajU4JGwwJGgw" target="_blank"><div class="sys-card" title="Certificates of Insurance">
+<div class="sys-tag">COI</div>
+<div class="sys-ico">🧾</div>
+<div class="sys-title">Certificates of Insurance</div>
+<p class="sys-sub">COI entry (AC Entry)</p>
+</div></a>
+<a class="sys-card-link" href="https://nwpcknowledge.nationwide.com/groups/59210/posts/5798822-premium-audit-minimum-payroll-state-specific-information?words=Premium&amp;words=Audit&amp;words=-&amp;words=Minimum&amp;words=Payroll/State&amp;words=Specific&amp;words=Information#State_Information" target="_blank"><div class="sys-card" title="Premium Audit Info">
+<div class="sys-tag">REF</div>
+<div class="sys-ico">🧾</div>
+<div class="sys-title">Premium Audit Info</div>
+<p class="sys-sub">Minimum payroll/state-specific reference</p>
+</div></a>
+<a class="sys-card-link" href="https://onyourside.sharepoint.com/sites/SmallCommercialIdentityandAppetite" target="_blank"><div class="sys-card" title="Small Commercial Identity &amp; Appetite">
+<div class="sys-tag">SITE</div>
+<div class="sys-ico">📌</div>
+<div class="sys-title">Small Comm Appetite Site</div>
+<p class="sys-sub">Identity + appetite monitoring</p>
+</div></a>
+<a class="sys-card-link" href="mailto:AskCLExistingBusiness@nationwide.com" target="_blank"><div class="sys-card" title="UW Existing Business">
+<div class="sys-tag">UW</div>
+<div class="sys-ico">✉️</div>
+<div class="sys-title">UW Existing Business</div>
+<p class="sys-sub"><a class="__cf_email__" data-cfemail="a9e8dac2eae5ecd1c0daddc0c7ceebdcdac0c7ccdadae9c7c8ddc0c6c7dec0cdcc87cac6c4" href="/cdn-cgi/l/email-protection">[email protected]</a></p>
+</div></a>
+<a class="sys-card-link" href="mailto:AskCLNewBusiness@nationwide.com" target="_blank"><div class="sys-card" title="UW New Business">
+<div class="sys-tag">UW</div>
+<div class="sys-ico">✉️</div>
+<div class="sys-title">UW New Business</div>
+<p class="sys-sub"><a class="__cf_email__" data-cfemail="3f7e4c547c73715a487d4a4c56515a4c4c7f515e4b56505148565b5a115c5052" href="/cdn-cgi/l/email-protection">[email protected]</a></p>
+</div></a>
+</div>
+<h2 class="group-header">🤖 AI Agents</h2>
+<div class="sys-grid">
+<!-- Alphabetically ordered cards for AI Agents -->
+<a class="sys-card-link" href="https://teams.microsoft.com/l/app/f6405520-7907-4464-8f6e-9889e2fb7d8f?templateInstanceId=2c02fb02-638f-4794-b04d-da8dea6be7e0&amp;environment=Default-22140e4c-d390-45c2-b297-a26c516dc461" target="_blank"><div class="sys-card" title="AgentWriter">
+<div class="sys-tag">AI</div>
+<div class="sys-ico">✍️</div>
+<div class="sys-title">AgentWriter</div>
+<p class="sys-sub">Draft emails fast</p>
+</div></a>
+<a class="sys-card-link" href="https://teams.microsoft.com/l/app/f6405520-7907-4464-8f6e-9889e2fb7d8f?templateInstanceId=a4d062d3-c9ab-4ea1-9f61-da5a7d7ded1d&amp;environment=Default-22140e4c-d390-45c2-b297-a26c516dc461" target="_blank"><div class="sys-card" title="Dash">
+<div class="sys-tag">AI</div>
+<div class="sys-ico">🛠️</div>
+<div class="sys-title">CL Sidekick</div>
+<p class="sys-sub">General support tool</p>
+</div></a>
+<a class="sys-card-link" href="https://teams.microsoft.com/l/app/f6405520-7907-4464-8f6e-9889e2fb7d8f?templateInstanceId=00a01ab3-4aa3-4d71-aa75-b25d881c5889&amp;environment=Default-22140e4c-d390-45c2-b297-a26c516dc461" target="_blank"><div class="sys-card" title="Scout">
+<div class="sys-tag">AI</div>
+<div class="sys-ico">🧠</div>
+<div class="sys-title">Scout UW Coach</div>
+<p class="sys-sub">Classification + UW help</p>
+</div></a>
+</div>
+<h2 class="group-header">👥 People &amp; HR</h2>
+<div class="sys-grid">
+<!-- Alphabetically ordered cards for People & HR -->
+<a class="sys-card-link" href="https://hrconnect.nationwide.com/" target="_blank"><div class="sys-card" title="HR Connect">
+<div class="sys-tag">HR</div>
+<div class="sys-ico">👥</div>
+<div class="sys-title">HR Connect</div>
+<p class="sys-sub">HR resources + support</p>
+</div></a>
+<a class="sys-card-link" href="https://www.myworkday.com/nationwide/d/inst/13102!CK5mGhIKBggDEMenAhIICgYI1A0QmQE~*mMeOGB47owk~/cacheable-task/12709$14.htmld" target="_blank"><div class="sys-card" title="Time Entry/Request Off">
+<div class="sys-tag">TIME</div>
+<div class="sys-ico">🕐</div>
+<div class="sys-title">Time Entry/Request Off</div>
+<p class="sys-sub">Enter time + request time off</p>
+</div></a>
+<a class="sys-card-link" href="https://www.myworkday.com/nationwide/learning" target="_blank"><div class="sys-card" title="Workday Learning">
+<div class="sys-tag">LEARN</div>
+<div class="sys-ico">🎓</div>
+<div class="sys-title">Workday Learning</div>
+<p class="sys-sub">Training + learning modules</p>
+</div></a>
+</div>
+</div>
+<!-- Modal -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+<div class="modal-content" onclick="event.stopPropagation()">
+<div class="modal-header">
+<div class="modal-icon" id="modal-icon"></div>
+<div class="modal-title-section">
+<h2 class="modal-title" id="modal-title"></h2>
+<div class="modal-badge" id="modal-badge"></div>
+</div>
+<button class="close-btn" onclick="closeModal()">×</button>
+</div>
+<div class="modal-body" id="modal-body"></div>
+</div>
+</div>
+</div>
+<script>
+function openLink(url){
       window.open(url, '_blank', 'noopener,noreferrer');
     }
 
@@ -1627,6 +1699,5 @@ SC Customer Quote Presentation - Proposal attached and contact information to ca
         button.innerHTML = originalText;
         button.style.background = '';
       }, 2000);
-    }  </script>
-</body>
-</html>
+    }
+</script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script></script></body></html>
